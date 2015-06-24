@@ -1,0 +1,19 @@
+".container": {
+	title: "SignIn"
+},
+".formView": {
+	layout: "vertical",
+	top: "30%"
+},
+".usernameTextField": {
+	hintText: "username",
+	width: "50%"
+},
+".passwordTextField": {	
+	hintText: "password",
+	passwordMask: true,
+	width: "50%"
+},
+".loginButton": {
+	title: "Login"
+}

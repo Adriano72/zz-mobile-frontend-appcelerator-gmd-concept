@@ -1,0 +1,42 @@
+<Alloy>
+	<!--Menu>
+		<MenuItem id="item1" title="Menu 1"></MenuItem>
+	</Menu-->
+	<View layout="vertical">
+	    <View class="avatarWithTwoLineTextContent">
+			<View class="avatar">						
+				<View class="avatarContainer">
+	    			<Label class="avatarIcon" />
+	    		</View>						
+	    	</View>            		
+			<View class="text">
+	    		<View class="firstLine">
+	    			<Label class="firstLineTitle" />
+	    			<!--Label class="firstLineTime" /-->
+	    		</View>  
+				<View class="secondLine">
+	    			<Label class="secondLineText" />
+	    		</View>                		                		              		
+	    	</View>
+	    </View>
+	    <View class="divider" />
+	    <View class="dateTimeContent">
+			<View class="date">						
+	    		<Label class="dateIcon" />
+	    		<Label class="dateText" />					
+	    	</View> 
+			<View class="time">						
+	    		<Label class="timeIcon" />
+	    		<Label class="timeText" />					
+	    	</View> 	    	           		
+	    </View>
+	    <View class="divider" />	
+	    <View class="locationContent">
+			<View class="location">						
+	    		<Label class="locationIcon" />
+	    		<Label class="locationText" />					
+	    	</View>  	    	           		
+	    </View>	
+	    <View class="divider" />        
+    </View>
+</Alloy>

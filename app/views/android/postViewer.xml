@@ -1,0 +1,10 @@
+<Alloy>
+	<Window class="container" title="Post">				
+		<ActionBar title="Home" displayHomeAsUp="true" onHomeIconItemSelected="onHomeIconItemSelected" />
+		<Menu>
+			<MenuItem id="editAction" title="Menu 1"></MenuItem>
+		</Menu>        		
+
+		<Widget id="widget" src="zz.core.post.viewer" />
+	</Window>
+</Alloy>

@@ -1,0 +1,30 @@
+<Alloy>
+	<NavigationWindow id="navigationWindow">	
+		<Window class="container">
+			
+			<RightNavButton>
+            	<Button systemButton="Ti.UI.iPhone.SystemButton.SEARCH" />
+            </RightNavButton>						
+			<WindowToolbar>
+                <!--Button systemButton="Ti.UI.iPhone.SystemButton.SEARCH" /> 
+                <FlexSpace /-->
+                <Button systemButton="Ti.UI.iPhone.SystemButton.ADD" />
+                <FlexSpace />
+                <Button systemButton="Ti.UI.iPhone.SystemButton.CAMERA" /> 
+            </WindowToolbar>			
+			
+			<!--
+	        <Toolbar bottom="0" borderTop="true" borderBottom="false">	
+	            <Items>
+	                <Button systemButton="Ti.UI.iPhone.SystemButton.COMPOSE" />
+	                <FlexSpace />
+	                <Button systemButton="Ti.UI.iPhone.SystemButton.CAMERA" /> 
+	            </Items>	
+	        </Toolbar>		      		
+			-->
+
+			<Widget id="widget" src="zz.core.posts.list" />				
+
+		</Window>
+	</NavigationWindow>
+</Alloy>

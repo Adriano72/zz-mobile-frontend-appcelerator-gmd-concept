@@ -1,0 +1,9 @@
+<Alloy>
+	<Window class="container" title="Post">		
+		<RightNavButton>
+        	<Button systemButton="Ti.UI.iPhone.SystemButton.COMPOSE" />
+        </RightNavButton>								
+				
+		<Widget id="widget" src="zz.core.post.viewer" />						
+	</Window>
+</Alloy>

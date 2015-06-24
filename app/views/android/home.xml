@@ -1,0 +1,27 @@
+<Alloy>
+	<Window class="container">
+				
+		<ActionBar />
+		<Menu>
+			<MenuItem id="searchAction"></MenuItem>
+			<!--MenuItem id="addAction"></MenuItem>
+			<MenuItem id="cameraAction"></MenuItem-->
+		</Menu>        		
+		
+		<View>				
+			<View class="floatingActions">						
+	    		<View class="actionCamera">
+	    			<Label class="actionCameraIcon" />
+	    		</View>
+				<View class="actionSeparator">
+	    		</View>		    			
+				<View class="actionAdd">
+	    			<Label class="actionAddIcon" />
+	    		</View>	    		
+	        </View>
+	        
+			<Widget id="widget" src="zz.core.posts.list" />			
+		</View>
+		
+	</Window>
+</Alloy>

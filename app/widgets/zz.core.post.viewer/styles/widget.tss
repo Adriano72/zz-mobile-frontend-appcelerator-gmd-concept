@@ -1,0 +1,151 @@
+".divider": {	
+	width: Ti.UI.FILL,
+	height: "1dp",
+	borderColor: "lightgray"
+},
+".avatarWithTwoLineTextContent": {
+	layout: "horizontal",
+	height: "72dp"
+},
+".avatar": {	
+	width: "72dp",
+	//backgroundColor: "red"
+},
+".avatarContainer": {
+	top: "16dp",
+	backgroundColor:"green",
+	width: "40dp",
+	height: "40dp",
+	borderRadius: "20dp",
+	borderColor: "green"
+},
+".avatarIcon": {
+    text: "\uf002", 
+    color: "white",  	
+    font: {
+        fontFamily: "FontAwesome",
+    }
+},
+".text": {
+	layout: "vertical",
+	width: Ti.UI.FILL,
+	//backgroundColor: "yellow"
+},
+".firstLine": {
+	top: "16dp",
+	right: "16dp",
+	layout: "horizontal",
+	width: Ti.UI.FILL,
+	height: Ti.UI.SIZE	
+},
+".firstLineTitle": {
+	text: "Post Title",
+	color: "black",
+	//backgroundColor: "green",
+	width: "80%",
+	font: {
+		fontWeight: "bold",
+		fontSize: "16dp"
+	}
+},
+".firstLineTime": {
+	text: "5 giu",
+	textAlign: "right",
+	color: "gray",
+	//backgroundColor: "pink",
+	width: "20%",
+	font: {
+		fontSize: "14dp"
+	}
+},
+".secondLine": {
+	layout: "horizontal",
+	width: Ti.UI.FILL,
+	height: Ti.UI.SIZE	
+},
+".secondLineText": {
+	text: "Subtitle",
+	color: "gray",
+	font: {
+		fontSize: "14dp"
+	}
+},
+".dateTimeContent": {
+	layout: "horizontal",
+	width: Ti.UI.FILL,
+	height: "48dp"
+},
+".date": {	
+	layout: "horizontal",
+	width: Ti.UI.SIZE,
+	//backgroundColor: "red"
+},
+".dateIcon": {
+    text: "\uf133",
+    textAlign: "center",
+    color: "lightgray",
+    top: "16dp",
+    width: "72dp",
+    font: {
+        fontFamily: "FontAwesome",
+    }
+},
+".dateText": {
+	text: "14 aprile 2015",
+	height: Ti.UI.FILL,
+	color: "black",
+	font: {
+		fontSize: "14dp"
+	}
+},
+".time": {	
+	layout: "horizontal",
+	width: Ti.UI.SIZE,
+	//backgroundColor: "pink"
+},
+".timeIcon": {
+    text: "\uf017",
+    textAlign: "center",
+    color: "lightgray",
+    top: "16dp",
+    width: "72dp",
+    font: {
+        fontFamily: "FontAwesome",
+    }
+},
+".timeText": {
+	text: "20:45",
+	height: Ti.UI.FILL,
+	color: "black",
+	font: {
+		fontSize: "14dp"
+	}
+},
+".locationContent": {
+	layout: "horizontal",
+	width: Ti.UI.FILL,
+	height: "48dp"
+},
+".location": {	
+	layout: "horizontal",
+	width: Ti.UI.SIZE,
+	//backgroundColor: "pink"
+},
+".locationIcon": {
+    text: "\uf041",
+    textAlign: "center",
+    color: "lightgray",
+    top: "16dp",
+    width: "72dp",
+    font: {
+        fontFamily: "FontAwesome",
+    }
+},
+".locationText": {
+	text: "viale dita dal naso, 00100, roma, italia",
+	height: Ti.UI.FILL,
+	color: "black",
+	font: {
+		fontSize: "14dp"
+	}
+},

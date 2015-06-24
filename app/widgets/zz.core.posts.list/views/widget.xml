@@ -1,0 +1,38 @@
+<Alloy>
+	<Collection src="dataModel" />	
+	<!--View-->
+		<ListView defaultItemTemplate="template" onItemclick="onItemClick" onDelete="onDelete">
+					
+			<Templates>			
+	            <ItemTemplate name="template">
+	            	<View class="avatarWithThreeLineTextItem">
+						<View class="avatar">						
+							<View class="avatarContainer">
+	                			<Label class="avatarIcon" />
+	                		</View>						
+	                	</View>            		
+	            		<View class="text">
+	                		<View class="firstLine">
+	                			<Label bindId="title" class="firstLineTitle" />
+	                			<Label class="firstLineTime" />
+	                		</View>  
+							<View class="secondLine">
+	                			<Label class="secondLineText" />
+	                		</View>
+							<View class="thirdLine">
+	                			<Label class="thirdLineText" />
+	                		</View>                 		                		              		
+	                	</View>
+	                </View>
+	            </ItemTemplate>          
+	        </Templates>
+	
+	        <ListSection dataCollection="dataModel" dataFilter="doFilter" dataTransform="doTransform" >
+	            <ListItem template="{template}" title:text="{title}" searchableText="{title}" canEdit="true"/>
+	            <!-- ListItem template="{template}" icon:title="{iconText}" icon:text="{iconText}" title:text="{title}" description:text="{description}" searchableText="{title}" canEdit="true"/ -->
+	        </ListSection> 
+	                        
+	    </ListView>
+    <!--/View-->
+	<!--Widget id="fa" src="com.mattmcfarland.fontawesome" /-->        
+</Alloy>

@@ -1,0 +1,9 @@
+<Alloy>
+	<Window class="container">
+		<View class="formView">
+			<TextField class="usernameTextField" />
+			<TextField class="passwordTextField" />
+			<Button class="loginButton" onClick="onClickLogin"></Button>
+		</View>
+	</Window>	
+</Alloy>
