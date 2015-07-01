@@ -1,8 +1,6 @@
 <Alloy>
-	<!--Menu>
-		<MenuItem id="item1" title="Menu 1"></MenuItem>
-	</Menu-->
-	<View layout="vertical">
+	<Model id="dataModel" src="zzCorePostViewerModel" instance="true" />
+	<View layout="vertical" height="Ti.UI.SIZE">
 	    <View class="avatarWithTwoLineTextContent">
 			<View class="avatar">						
 				<View class="avatarContainer">
@@ -11,7 +9,7 @@
 	    	</View>            		
 			<View class="text">
 	    		<View class="firstLine">
-	    			<Label class="firstLineTitle" />
+	    			<Label class="firstLineTitle" text="{$.dataModel.title}" />
 	    			<!--Label class="firstLineTime" /-->
 	    		</View>  
 				<View class="secondLine">

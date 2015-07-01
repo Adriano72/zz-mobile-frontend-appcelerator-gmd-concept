@@ -1,3 +1,4 @@
+/*
 var icons = require( WPATH("icons") );
 
 var collection = Widget.Collections.instance("dataModel");
@@ -31,3 +32,37 @@ function onDelete(event) {
     
     $.trigger("itemDeleted", model.toJSON());
 }
+*/
+
+var collection = new Backbone.Collection();
+
+exports.init = function(args) {	
+	
+	collection.reset();
+	
+	args.collection.forEach( function(item) {
+		collection.add({
+			id: item.get("id"),
+			avatar: "user",
+			color: "green",
+			title: "This is my title",
+			time: "5 giu",
+			subtitle: "a sub-title",
+			subsubtitle: "a sub-sub-title"
+		}); 
+	} );	
+	
+	$.widget.init({collection: collection});	
+};
+
+$.widget.on("itemSelected", function(args) {
+    
+    $.trigger("itemSelected", args);	
+ 
+});
+
+$.widget.on("itemDeleted", function(args) {
+    
+    $.trigger("itemDeleted", args);
+	
+});

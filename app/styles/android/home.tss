@@ -2,7 +2,7 @@
     title: "Diary"
 },
 "ActionBar": {
-	title: "Home",
+	title: "Diary",
 	displayHomeAsUp: false
 },
 "MenuItem": {

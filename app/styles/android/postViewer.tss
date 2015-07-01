@@ -1,3 +1,11 @@
+".container": {
+    title: "Post"
+},
+"ActionBar": {
+	title: "Post",
+	displayHomeAsUp: true
+	
+},
 "MenuItem": {
     showAsAction: Ti.Android.SHOW_AS_ACTION_ALWAYS
 },

@@ -2,7 +2,7 @@ var collection = Alloy.Collections.instance("posts");
 collection.fetch();
 
 $.widget.init({
-	dataCollection: collection
+	collection: collection
 });
 
 $.widget.on("itemSelected", function(args) {

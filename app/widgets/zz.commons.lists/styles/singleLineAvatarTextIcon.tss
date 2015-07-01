@@ -1,0 +1,66 @@
+"ListView": {
+	height: Ti.UI.SIZE,
+	separatorColor: "lightgray",
+	separatorInsets: {
+		left: 0,
+		right: 0
+	}
+},
+"ItemTemplate": {
+	width: Ti.UI.SIZE,
+	height: Ti.UI.SIZE		
+},
+".template": {
+	height: "56dp"
+},
+".avatar": {
+	left: "0dp",	
+	width: "72dp"
+},
+".avatarBox": {
+	top: "8dp",
+	width: "40dp",
+	height: "40dp",	
+	backgroundColor:"white",
+	borderRadius: "20dp",
+	borderColor: "black"
+},
+".avatarImage": {
+    text: "\uf128", 
+    color: "white",  	
+    font: {
+        fontFamily: "FontAwesome",
+    }
+},
+".text": {
+	left: "72dp"
+},
+".firstLine": {
+	top: "20dp",	
+	layout: "horizontal",
+	height: Ti.UI.SIZE	
+},
+".firstLineTitle": {
+	text: "Title",
+	color: "black",
+	font: {
+		//fontWeight: "bold",
+		fontSize: "16dp"
+	}
+},
+".icon": {	
+	right: "0dp",
+	width: "56dp"	
+},
+".iconBox": {
+	top: "16dp",
+	width: "24dp",
+	height: "24dp"
+},
+".iconImage": {
+    text: "\uf128", 
+    color: "lightgray",  	
+    font: {
+        fontFamily: "FontAwesome",
+    }
+}

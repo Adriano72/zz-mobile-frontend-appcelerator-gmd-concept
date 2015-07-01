@@ -1,9 +1,26 @@
 <Alloy>
-	<Window class="container" title="Post">		
+	<Window class="container">		
 		<RightNavButton>
         	<Button systemButton="Ti.UI.iPhone.SystemButton.COMPOSE" />
         </RightNavButton>								
+			
+		<View layout="vertical">
+			<Widget id="postViewerWidget" src="zz.core.post.viewer" />
+							
+			<ScrollView layout="vertical">			
+																			
+				<Widget id="eventsListWidget" src="zz.events.events.list"/>
 				
-		<Widget id="widget" src="zz.core.post.viewer" />						
+				<Widget id="cashflowsListWidget" src="zz.finance.cashflows.list"/>		
+				
+				<Widget id="documentsListWidget" src="zz.files.documents.list"/>
+				
+				<Widget id="linksListWidget" src="zz.files.links.list"/>
+				
+				<Widget id="notesListWidget" src="zz.notes.notes.list"/>
+				
+			</ScrollView>
+		</View>
+			
 	</Window>
 </Alloy>

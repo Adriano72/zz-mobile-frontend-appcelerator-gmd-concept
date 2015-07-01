@@ -1,0 +1,82 @@
+"ListView": {
+	height: Ti.UI.SIZE,
+	separatorColor: "lightgray",
+	separatorInsets: {
+		left: 0,
+		right: 0
+	}
+},
+"ItemTemplate": {
+	width: Ti.UI.SIZE,
+	height: Ti.UI.SIZE		
+},
+".template": {
+	height: "88dp"
+},
+".avatar": {
+	left: "0dp",	
+	width: "72dp"
+},
+".avatarBox": {
+	top: "16dp",
+	width: "40dp",
+	height: "40dp",	
+	backgroundColor:"white",
+	borderRadius: "20dp",
+	borderColor: "black"
+},
+".avatarImage": {
+    text: "\uf128", 
+    color: "white",  	
+    font: {
+        fontFamily: "FontAwesome",
+    }
+},
+".text": {
+	layout: "vertical",
+	left: "72dp",
+	right: "16dp",	
+	width: Ti.UI.FILL	
+},
+".firstLine": {
+	top: "16dp",	
+	layout: "horizontal",
+	height: Ti.UI.SIZE	
+},
+".firstLineTitle": {
+	width: "80%",
+	color: "black",
+	font: {
+		fontSize: "16dp"
+	}
+},
+".firstLineTime": {
+	width: "20%",
+	textAlign: "right",
+	color: "gray",
+	font: {
+		fontSize: "14dp"
+	}
+},
+".secondLine": {
+	layout: "horizontal",
+	width: Ti.UI.FILL,
+	height: Ti.UI.SIZE	
+},
+".secondLineTitle": {
+	color: "gray",
+	font: {
+		fontSize: "14dp"
+	}
+},
+".thirdLine": {
+	layout: "horizontal",
+	width: Ti.UI.FILL,
+	height: Ti.UI.SIZE	
+},
+".thirdLineTitle": {
+	color: "gray",
+	font: {
+		fontSize: "14dp"
+	}
+}
