@@ -10,13 +10,11 @@
     "dependencies": {
         "com.mattmcfarland.fontawesome": "1.4.1",
         "nl.fokkezb.drawer": "1.1.0",
-        "zz.core.posts.list": "1.0",
-        "zz.core.post.viewer": "1.0",
-        "zz.finance.cashflows.list": "1.0",
-        "zz.events.events.list": "1.0",
-        "zz.notes.notes.list": "1.0",
-        "zz.files.documents.list": "1.0",
-        "zz.files.links.list": "1.0",
-        "zz.commons.lists": "1.0"
+        "zz.commons.lists": "1.0",
+        "zz.core.posts": "1.0",
+        "zz.finance": "1.0",
+        "zz.files": "1.0",
+        "zz.events": "1.0",
+        "zz.notes": "1.0"
     }
 }

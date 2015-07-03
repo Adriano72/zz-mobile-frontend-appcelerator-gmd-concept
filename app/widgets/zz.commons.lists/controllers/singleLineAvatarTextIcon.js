@@ -1,4 +1,5 @@
 var icons = require( WPATH("icons") );
+var colors = require( WPATH("colors") );
 
 var collection = $.dataCollection; //Widget.Collections.instance("zzCommonsListsDataModel");
 collection.reset();
@@ -14,13 +15,19 @@ exports.init = function(args) {
 };
 
 function doTransform(model) {	
-	var object = model.toJSON();		
+	var object = model.toJSON();
+	
+	var avatarColor = colors.colorMap[ "mdc-" + object.avatarColor + "-300"];
+	var iconColor = colors.colorMap[ "mdc-" + object.iconColor + "-300"];
+			
 	return {
 		template: "template",
 		avatar: icons.charMap[ "fa-" + (object.avatar || "question") ],
-		color: object.color || "white",
+		avatarColor: (object.avatarMode && object.avatarMode == "icon" ? (avatarColor || "lightgray") : "white"),
+		avatarBoxColor: (object.avatarMode && object.avatarMode == "icon" ?  "white" : (avatarColor || "white")),
 		title: object.title || "",
-		icon: icons.charMap[ "fa-" + (object.icon || "fa-question") ]
+		icon: icons.charMap[ "fa-" + (object.icon || "") ],
+		iconColor: iconColor || "lightgray",
 	};	
 } 
 

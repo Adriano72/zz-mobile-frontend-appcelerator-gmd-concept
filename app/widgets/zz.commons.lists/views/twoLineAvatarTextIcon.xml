@@ -1,0 +1,43 @@
+<Alloy>	
+	<Collection id="dataCollection" src="zzCommonsListsModel" instance="true" />
+	<ListView defaultItemTemplate="template" onItemclick="onItemClick" onDelete="onDelete">				
+		<Templates>			
+            <ItemTemplate name="template">
+            	<View class="template">
+					<View class="avatar">						
+						<View bindId="avatarBox" class="avatarBox">
+			    			<Label bindId="avatarImage" class="avatarImage" />
+			    		</View>						
+			    	</View>            		
+					<View class="text">
+			    		<View class="firstLine">
+			    			<Label bindId="title" class="firstLineTitle" />
+			    		</View>   
+			    		<View class="secondLine">
+			    			<Label bindId="subtitle" class="secondLineTitle" />
+			    		</View>			    		             		                		              		
+			    	</View>            		
+					<View class="icon">
+			    		<View class="iconBox">
+			    			<Label bindId="icon" class="iconImage" />
+			    		</View>                		                		              		
+			    	</View>			    	
+			    </View>
+            </ItemTemplate>          
+        </Templates>
+        <ListSection dataCollection="$.dataCollection" dataFilter="doFilter" dataTransform="doTransform" >
+            <ListItem searchableText="{title}" canEdit="true" 
+            			template="{template}" 
+            			avatarBox:backgroundColor="{avatarBoxColor}" 
+            			avatarBox:borderColor="{avatarBoxColor}" 
+            			avatarImage:text="{avatar}"
+            			avatarImage:color="{avatarColor}" 
+            			title:text="{title}" 
+            			subtitle:text="{subtitle}"
+            			icon:text="{icon}"
+            			icon:color="{iconColor}"/>
+       </ListSection>                         
+    </ListView>
+    
+    <Widget id="fa" src="com.mattmcfarland.fontawesome" />	
+</Alloy>

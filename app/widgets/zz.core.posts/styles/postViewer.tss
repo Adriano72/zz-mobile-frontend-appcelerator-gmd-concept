@@ -1,0 +1,153 @@
+".separator": {
+	width: Ti.UI.FILL,
+	height: "0.5dp",
+	borderColor: "lightgray"
+},
+".marginator": {
+	width: Ti.UI.FILL,
+	height: "8dp"
+},
+".headerRow": {
+	layout: "horizontal",
+	width: Ti.UI.FILL,
+	height: Ti.UI.SIZE,
+	horizontalWrap: false
+},
+".avatar": {
+	top: "0dp",	
+	width: "72dp",
+	height: Ti.UI.SIZE
+},
+".avatarBox": {
+	top: "8dp",	
+	width: "40dp",
+	height: "40dp",
+	backgroundColor:"white",
+	borderRadius: "20dp",
+	borderColor: "white"
+},
+".avatarImage": {
+    color: "white",  	
+    font: {
+    	fontSize: "20dp",
+        fontFamily: "FontAwesome",
+    }
+},
+".text": {
+	top: "0dp",
+	layout: "vertical",
+	width: Ti.UI.FILL,
+	height: Ti.UI.SIZE
+},
+".firstLine": {
+	layout: "horizontal",
+	top: "8dp",	
+	width: Ti.UI.FILL,
+	height: Ti.UI.SIZE	
+},
+".firstLineTitle": {
+	top: "8dp",
+	width: Ti.UI.FILL,
+	height: Ti.UI.SIZE,	
+	color: "white",
+	font: {
+		fontWeight: "bold",
+		fontSize: "18dp"
+	}
+},
+".secondLine": {
+	layout: "horizontal",
+	width: Ti.UI.FILL,
+	height: Ti.UI.SIZE	
+},
+".secondLineText": {
+	width: Ti.UI.FILL,
+	height: Ti.UI.SIZE,
+	color: "white",
+	font: {
+		fontSize: "14dp"
+	}
+},
+".dateTimeRow": {
+	layout: "horizontal",
+	width: Ti.UI.FILL,
+	height: Ti.UI.SIZE
+},
+".date": {	
+	layout: "horizontal",
+	//left: "72dp",
+	width: Ti.UI.SIZE,
+	height: Ti.UI.SIZE
+},
+".dateIcon": {
+	top: "8dp",
+    width: "72dp",
+    text: "\uf133",
+    textAlign: "center",
+    color: "white",
+    font: {
+        fontFamily: "FontAwesome",
+    }
+},
+".dateText": {
+	top: "8dp",
+	//height: Ti.UI.SIZE,
+	color: "white",
+	font: {
+		fontSize: "14dp"
+	}
+},
+".time": {	
+	layout: "horizontal",
+	width: Ti.UI.SIZE,
+	height: Ti.UI.SIZE
+},
+".timeIcon": {
+	top: "8dp",
+    width: "72dp",
+    text: "\uf017",
+    textAlign: "center",    
+    color: "white",
+    font: {
+        fontFamily: "FontAwesome",
+    }
+},
+".timeText": {
+	top: "8dp",
+	//height: Ti.UI.SIZE,
+	color: "white",
+	font: {
+		fontSize: "14dp"
+	}
+},
+".locationContent": {
+	layout: "vertical",
+	width: Ti.UI.FILL,
+	height: Ti.UI.SIZE
+},
+".location": {	
+	//layout: "horizontal",	
+	width: Ti.UI.FILL,
+	height: Ti.UI.SIZE,
+	//horizontalWrap: false
+},
+".locationIcon": {
+    top: "8dp",
+    left: "0dp",
+    width: "72dp",
+    text: "\uf041",
+    textAlign: "center",
+    color: "white",
+    font: {
+        fontFamily: "FontAwesome",
+    }
+},
+".locationText": {
+	top: "8dp",
+	left: "72dp",
+	width: Ti.UI.SIZE,
+	color: "white",
+	font: {
+		fontSize: "14dp"
+	}
+}

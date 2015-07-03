@@ -25,11 +25,13 @@
         <ListSection dataCollection="$.dataCollection" dataFilter="doFilter" dataTransform="doTransform" >
             <ListItem searchableText="{title}" canEdit="true" 
             			template="{template}" 
-            			avatarBox:backgroundColor="{color}" 
-            			avatarBox:borderColor="{color}" 
-            			avatarImage:text="{avatar}" 
+            			avatarBox:backgroundColor="{avatarBoxColor}" 
+            			avatarBox:borderColor="{avatarBoxColor}" 
+            			avatarImage:text="{avatar}"
+            			avatarImage:color="{avatarColor}" 
             			title:text="{title}" 
-            			icon:text="{icon}"/>
+            			icon:text="{icon}"
+            			icon:color="{iconColor}"/>
        </ListSection>                         
     </ListView>
     

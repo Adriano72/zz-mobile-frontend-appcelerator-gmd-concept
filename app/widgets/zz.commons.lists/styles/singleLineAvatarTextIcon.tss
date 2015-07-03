@@ -23,17 +23,18 @@
 	height: "40dp",	
 	backgroundColor:"white",
 	borderRadius: "20dp",
-	borderColor: "black"
+	borderColor: "white"
 },
 ".avatarImage": {
-    text: "\uf128", 
     color: "white",  	
     font: {
+    	fontSize: "18dp",
         fontFamily: "FontAwesome",
     }
 },
 ".text": {
-	left: "72dp"
+	left: "72dp",
+	right: "56dp"
 },
 ".firstLine": {
 	top: "20dp",	
@@ -41,12 +42,14 @@
 	height: Ti.UI.SIZE	
 },
 ".firstLineTitle": {
-	text: "Title",
+	height: "18dp",
 	color: "black",
 	font: {
 		//fontWeight: "bold",
 		fontSize: "16dp"
-	}
+	},
+	wordWrap: false,
+	ellipsize: true
 },
 ".icon": {	
 	right: "0dp",
@@ -57,8 +60,7 @@
 	width: "24dp",
 	height: "24dp"
 },
-".iconImage": {
-    text: "\uf128", 
+".iconImage": { 
     color: "lightgray",  	
     font: {
         fontFamily: "FontAwesome",

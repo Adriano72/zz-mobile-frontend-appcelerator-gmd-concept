@@ -23,12 +23,12 @@
 	height: "40dp",	
 	backgroundColor:"white",
 	borderRadius: "20dp",
-	borderColor: "black"
+	borderColor: "white"
 },
 ".avatarImage": {
-    text: "\uf128", 
     color: "white",  	
     font: {
+    	fontSize: "18dp",
         fontFamily: "FontAwesome",
     }
 },
@@ -45,10 +45,13 @@
 },
 ".firstLineTitle": {
 	width: "80%",
+	height: "18dp",	
 	color: "black",
 	font: {
 		fontSize: "16dp"
-	}
+	},
+	wordWrap: false,
+	ellipsize: true
 },
 ".firstLineTime": {
 	width: "20%",

@@ -6,19 +6,19 @@
 		</Menu>        		
 
 		<View layout="vertical">
-			<Widget id="postViewerWidget" src="zz.core.post.viewer" />
+			<Widget id="postViewerWidget" src="zz.core.posts" name="postViewer"/>				
 							
 			<ScrollView layout="vertical">			
 																			
-				<Widget id="eventsListWidget" src="zz.events.events.list"/>
+				<Widget id="eventsListWidget" src="zz.events" name="eventsList"/>
 				
-				<Widget id="cashflowsListWidget" src="zz.finance.cashflows.list"/>		
+				<Widget id="cashflowsListWidget" src="zz.finance" name="cashflowsList"/>		
 				
-				<Widget id="documentsListWidget" src="zz.files.documents.list"/>
+				<Widget id="documentsListWidget" src="zz.files" name="documentsList"/>
 				
-				<Widget id="linksListWidget" src="zz.files.links.list"/>
+				<Widget id="linksListWidget" src="zz.files" name="linksList"/>
 				
-				<Widget id="notesListWidget" src="zz.notes.notes.list"/>
+				<Widget id="notesListWidget" src="zz.notes" name="notesList"/>
 				
 			</ScrollView>
 		</View>

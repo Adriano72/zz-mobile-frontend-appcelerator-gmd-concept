@@ -1,0 +1,41 @@
+<Alloy>
+	<Model id="dataModel" src="zzCorePostViewerModel" instance="true" />
+	<View layout="vertical" height="Ti.UI.SIZE">
+	    <View class="headerRow" backgroundColor="{$.dataModel.color}">
+			<View class="avatar">						
+				<View class="avatarBox" backgroundColor="{$.dataModel.color}">
+	    			<Label class="avatarImage" text="{$.dataModel.avatar}"/>
+	    		</View>	    							
+	    	</View>            		
+			<View class="text">
+	    		<!--View class="firstLine">
+	    			<Label class="firstLineTitle" text="{$.dataModel.title}" />
+	    		</View>  
+				<View class="secondLine">
+	    			<Label class="secondLineText" text="{$.dataModel.subtitle}"/>
+	    		</View--> 
+	    		<Label class="firstLineTitle" text="{$.dataModel.title}" />
+	    		<Label class="secondLineText" text="{$.dataModel.subtitle}"/>  	    
+	    	</View>
+	    </View>
+	    <!--View class="separator" /-->
+	    <View class="dateTimeRow" backgroundColor="{$.dataModel.color}">
+			<View class="date">						
+	    		<Label class="dateIcon" />
+	    		<Label class="dateText" text="{$.dataModel.date}" />					
+	    	</View> 
+			<View class="time">						
+	    		<Label class="timeIcon" />
+	    		<Label class="timeText" text="{$.dataModel.time}" />					
+	    	</View> 	    	           		
+	    </View>
+	    <!--View class="separator" /-->	
+	    <!--View class="locationContent" backgroundColor="{$.dataModel.color}"-->
+			<View class="location" backgroundColor="{$.dataModel.color}">						
+	    		<Label class="locationIcon" />
+	    		<Label class="locationText" text="{$.dataModel.location}" />					
+	    	</View>  	    	           		
+	    <!--/View-->	
+	    <View class="marginator" backgroundColor="{$.dataModel.color}" />        
+    </View>
+</Alloy>
