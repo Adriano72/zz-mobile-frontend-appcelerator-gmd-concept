@@ -1,11 +1,13 @@
 var moment = require("alloy/moment");
 
-var collection = new Backbone.Collection();
+var collection = null;
+var widgetCollection = new Backbone.Collection();
 
 exports.init = function(args) {	
 	
-	collection.reset();
+	collection = args.collection;
 	
+	widgetCollection.reset();	
 	args.collection.forEach( function(item) {
 		
 		var object = item.toJSON();		
@@ -37,7 +39,7 @@ exports.init = function(args) {
 			);
 		}
 				
-		collection.add({
+		widgetCollection.add({
 			id: object.id,
 			avatar: "calendar",
 			avatarColor: "lightgray",
@@ -49,17 +51,17 @@ exports.init = function(args) {
 		}); 
 	} );	
 	
-	$.widget.init({collection: collection});	
+	$.widget.init({collection: widgetCollection});	
 };
 
 $.widget.on("itemSelected", function(args) {
-	
-    Ti.API.info("itemSelected");
- 
+	var model = collection.get(args.id);
+    
+    $.trigger("itemSelected", model.toJSON());	
 });
 
 $.widget.on("itemDeleted", function(args) {
-	
-	Ti.API.info("itemDeleted");
-	
+	var model = collection.get(args.id);
+    
+    $.trigger("itemDeleted", model.toJSON());
 });

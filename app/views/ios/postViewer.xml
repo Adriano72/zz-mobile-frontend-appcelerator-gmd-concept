@@ -4,23 +4,21 @@
         	<Button systemButton="Ti.UI.iPhone.SystemButton.COMPOSE" />
         </RightNavButton>								
 			
-		<View layout="vertical">
-			<Widget id="postViewerWidget" src="zz.core.posts" name="postViewer"/>
-							
-			<ScrollView layout="vertical">			
-																			
-				<Widget id="eventsListWidget" src="zz.events" name="eventsList"/>
-				
-				<Widget id="cashflowsListWidget" src="zz.finance" name="cashflowsList"/>		
-				
-				<Widget id="documentsListWidget" src="zz.files" name="documentsList"/>
-				
-				<Widget id="linksListWidget" src="zz.files" name="linksList"/>
-				
-				<Widget id="notesListWidget" src="zz.notes" name="notesList"/>
-				
-			</ScrollView>
-		</View>
+		<Widget id="postViewerWidget" src="zz.core.posts" name="postViewer"/>
+						
+		<ScrollView layout="vertical">			
+																		
+			<Widget id="eventsListWidget" src="zz.events" name="eventsList"/>
+			
+			<Widget id="cashflowsListWidget" src="zz.finance" name="cashflowsList"/>		
+			
+			<Widget id="documentsListWidget" src="zz.files" name="documentsList"/>
+			
+			<Widget id="linksListWidget" src="zz.files" name="linksList"/>
+			
+			<Widget id="notesListWidget" src="zz.notes" name="notesList"/>
+			
+		</ScrollView>
 			
 	</Window>
 </Alloy>

@@ -1,0 +1,50 @@
+<Alloy>
+	<Model id="dataModel" src="zzEventsEventViewerModel" instance="true" />
+	<View layout="vertical" height="Ti.UI.SIZE">
+	    <View class="headerRow">
+			<View class="avatar">						
+				<View class="avatarBox" backgroundColor="{$.dataModel.color}" borderColor="{$.dataModel.color}">
+	    			<Label class="avatarImage" text="{$.dataModel.avatar}"/>
+	    		</View>	    							
+	    	</View>            		
+			<View class="text">
+	    		<Label class="firstLineTitle" text="{$.dataModel.title}" />
+	    		<Label class="secondLineText" text="{$.dataModel.subtitle}"/>  	    
+	    	</View>		    		    	    	
+	    </View>
+	    <View class="marginator" />
+	    <View class="separator" />
+	    
+	    <ScrollView layout="vertical">
+		    <View class="dateTimeRow">
+		    	<Label class="dateTimeLabel" text="Inizio"></Label>
+				<View class="date">						
+		    		<Label class="dateIcon" />
+		    		<Label class="dateText" text="{$.dataModel.startDate}" />					
+		    	</View> 
+				<View class="time">						
+		    		<Label class="timeIcon" />
+		    		<Label class="timeText" text="{$.dataModel.startTime}" />					
+		    	</View> 	    	           		
+		    </View>
+		    <View class="dateTimeRow">
+		    	<Label class="dateTimeLabel" text="Fine"></Label>
+				<View class="date">						
+		    		<Label class="dateIcon" />
+		    		<Label class="dateText" text="{$.dataModel.endDate}" />					
+		    	</View> 
+				<View class="time">						
+		    		<Label class="timeIcon" />
+		    		<Label class="timeText" text="{$.dataModel.endTime}" />					
+		    	</View> 	    	           		
+		    </View>	    
+		    <!--View class="marginator" />
+		    <View class="separator" /-->
+			<View class="type">	
+				<Label class="typeLabel" text="Tipo"></Label>
+				<Label class="typeIcon"></Label>					
+	    		<Label class="typeText" text="{$.dataModel.type}" />					
+	    	</View>
+    	</ScrollView>       	           			        
+    </View>
+</Alloy>

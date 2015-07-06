@@ -1,12 +1,14 @@
 var moment = require("alloy/moment");
 var accounting = require( WPATH("accounting") );
 
-var collection = new Backbone.Collection();
+var collection = null;
+var widgetCollection = new Backbone.Collection();
 
 exports.init = function(args) {	
 	
-	collection.reset();
+	collection = args.collection;
 	
+	widgetCollection.reset();
 	args.collection.forEach( function(item) {
 		
 		var object = item.toJSON();		
@@ -55,7 +57,7 @@ exports.init = function(args) {
 			);			
 		}
 		
-		collection.add({
+		widgetCollection.add({
 			id: item.get("id"),
 			avatar: "credit-card",
 			avatarColor: "lightgray",
@@ -67,5 +69,17 @@ exports.init = function(args) {
 		}); 
 	} );	
 	
-	$.widget.init({collection: collection});	
+	$.widget.init({collection: widgetCollection});	
 };
+
+$.widget.on("itemSelected", function(args) {
+	var model = collection.get(args.id);
+    
+    $.trigger("itemSelected", model.toJSON());	
+});
+
+$.widget.on("itemDeleted", function(args) {
+	var model = collection.get(args.id);
+    
+    $.trigger("itemDeleted", model.toJSON());
+});

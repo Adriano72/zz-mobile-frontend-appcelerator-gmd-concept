@@ -14,14 +14,19 @@ ZZ.API.Core.Posts.list(function(posts){
 
 $.widget.on("itemSelected", function(args) {
 	
-	var model = collection.get(args.id);
-	
-    var postViewer = Alloy.createController("postViewer", {model: model}).getView();
+	var model = collection.get(args.id);	
 	
 	if (OS_IOS) {
+	    var postViewer = Alloy.createController("postViewer", {
+	    	model: model,
+	    	navigationWindow: $.navigationWindow
+	    }).getView();		
 		$.navigationWindow.openWindow(postViewer);
 	}
 	if (OS_ANDROID) {
+	    var postViewer = Alloy.createController("postViewer", {
+	    	model: model    	
+	    }).getView();		
 		postViewer.open();
 	}
  

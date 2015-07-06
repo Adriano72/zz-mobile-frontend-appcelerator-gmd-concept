@@ -1,9 +1,9 @@
 ".container": {
-    title: "Post",
+    //title: "Aspect",
 	layout: "vertical"
 },
 "ActionBar": {
-	title: "Post",
+	title: "Aspect",
 	displayHomeAsUp: true
 	
 },

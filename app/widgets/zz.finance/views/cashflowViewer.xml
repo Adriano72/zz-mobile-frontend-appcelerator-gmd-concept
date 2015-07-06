@@ -1,0 +1,81 @@
+<Alloy>
+	<Model id="dataModel" src="zzFinanceCashflowViewerModel" instance="true" />
+	<View layout="vertical" height="Ti.UI.SIZE">
+	    <View class="headerRow">
+			<View class="avatar">						
+				<View class="avatarBox" backgroundColor="{$.dataModel.avatarColor}" borderColor="{$.dataModel.avatarColor}">
+	    			<Label class="avatarImage" text="{$.dataModel.avatar}" />
+	    		</View>	    							
+	    	</View>            		
+			<View class="text">
+	    		<Label class="firstLineTitle" text="{$.dataModel.title}" />
+	    		<Label class="secondLineText" text="{$.dataModel.subtitle}"/>  	    
+	    	</View>
+			<View class="icon">						
+				<View class="iconBox" borderColor="{$.dataModel.iconColor}">
+	    			<Label class="iconImage" text="{$.dataModel.icon}" color="{$.dataModel.iconColor}" />
+	    		</View>	    							
+	    	</View>	    	
+	    </View>
+	    <View class="marginator" />
+	    <View class="separator" />  
+	    
+	    <ScrollView layout="vertical">   
+		    <View class="textRow">
+		    	<Label class="textLabel" text="Titolo"></Label>
+		    	<Label class="textContent" text="{$.dataModel.description}" />						    	           		
+		    </View>		     
+		    <View class="dateTimeRow">
+		    	<Label class="dateTimeLabel" text="Operazione"></Label>
+				<View class="date">						
+		    		<Label class="dateIcon" />
+		    		<Label class="dateText" text="{$.dataModel.operationDate}" />					
+		    	</View> 
+				<View class="time">						
+		    		<Label class="timeIcon" />
+		    		<Label class="timeText" text="{$.dataModel.operationTime}" />					
+		    	</View>   	           		
+		    </View>
+		    <View class="dateTimeRow">
+		    	<Label class="dateTimeLabel" text="Valuta"></Label>
+				<View class="date">						
+		    		<Label class="dateIcon" />
+		    		<Label class="dateText" text="{$.dataModel.valueDate}" />					
+		    	</View> 
+				<View class="time">						
+		    		<Label class="timeIcon" />
+		    		<Label class="timeText" text="{$.dataModel.valueTime}" />					
+		    	</View> 	    	           		
+		    </View> 
+		    <View class="textRow">
+		    	<Label class="textLabel" text="Fonte Liquidità"></Label>
+		    	<Label class="textContent" text="{$.dataModel.cashsource}" />						    	           		
+		    </View>   
+		    <View class="textRow">
+		    	<Label class="textLabel" text="Modalità Pagamento"></Label>
+		    	<Label class="textContent" text="{$.dataModel.mode}" />						    	           		
+		    </View>	 
+		    <View class="textRow">
+		    	<Label class="textLabel" text="Strumento Pagamento"></Label>
+		    	<Label class="textContent" text="{$.dataModel.tool}" />						    	           		
+		    </View>	
+		    <View class="textRow">
+		    	<Label class="textLabel" text="Stato"></Label>
+		    	<Label class="textContent" text="{$.dataModel.status}" />						    	           		
+		    </View>	
+		    <View class="textRow">
+		    	<Label class="textLabel" text="Variabilità"></Label>
+		    	<Label class="textContent" text="{$.dataModel.variability}" />						    	           		
+		    </View>	
+		    <View class="textRow">
+		    	<Label class="textLabel" text="Dichiarazione Redditi"></Label>
+		    	<Label class="textContent" text="{$.dataModel.tax}" />						    	           		
+		    </View>	
+		    <View class="textRow">
+		    	<Label class="textLabel" text="Ordinario/Straordinario"></Label>
+		    	<Label class="textContent" text="{$.dataModel.extra}" />						    	           		
+		    </View>	
+	    </ScrollView>
+	    	    	          	          	    	        	    	           			            
+    </View>
+</Alloy>

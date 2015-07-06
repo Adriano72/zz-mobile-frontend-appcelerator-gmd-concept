@@ -33,7 +33,7 @@
 	    <!--View class="locationContent" backgroundColor="{$.dataModel.color}"-->
 			<View class="location" backgroundColor="{$.dataModel.color}">						
 	    		<Label class="locationIcon" />
-	    		<Label class="locationText" text="{$.dataModel.location}" />					
+	    		<Label class="locationText" text="{$.dataModel.location}"/>					
 	    	</View>  	    	           		
 	    <!--/View-->	
 	    <View class="marginator" backgroundColor="{$.dataModel.color}" />        

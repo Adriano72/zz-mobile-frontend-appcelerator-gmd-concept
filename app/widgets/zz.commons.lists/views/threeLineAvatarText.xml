@@ -24,7 +24,7 @@
 			    </View>
             </ItemTemplate>          
         </Templates>
-        <ListSection dataCollection="$.dataCollection" dataFilter="doFilter" dataTransform="doTransform" >
+        <ListSection dataCollection="$.dataCollection" dataFilter="doFilter" dataTransform="doTransform">
             <ListItem searchableText="{title}" canEdit="true" 
             			template="{template}" 
             			avatarBox:backgroundColor="{color}" 

@@ -1,0 +1,35 @@
+<Alloy>
+	<Model id="dataModel" src="zzNotesNoteViewerModel" instance="true" />
+	<View layout="vertical" height="Ti.UI.SIZE">
+	    <View class="headerRow">
+			<View class="avatar">						
+				<View class="avatarBox" backgroundColor="{$.dataModel.color}" borderColor="{$.dataModel.color}">
+	    			<Label class="avatarImage" text="{$.dataModel.avatar}"/>
+	    		</View>	    							
+	    	</View>            		
+			<View class="text">
+	    		<Label class="firstLineTitle" text="{$.dataModel.title}" />
+	    		<Label class="secondLineText" text="{$.dataModel.subtitle}"/>  	    
+	    	</View>
+	    </View>
+	    <View class="marginator" />
+	    <View class="separator" />
+	    <!--View class="dateTimeRow" backgroundColor="{$.dataModel.color}">
+			<View class="date">						
+	    		<Label class="dateIcon" />
+	    		<Label class="dateText" text="{$.dataModel.date}" />					
+	    	</View> 
+			<View class="time">						
+	    		<Label class="timeIcon" />
+	    		<Label class="timeText" text="{$.dataModel.time}" />					
+	    	</View> 	    	           		
+	    </View>
+		<View class="location" backgroundColor="{$.dataModel.color}">						
+    		<Label class="locationIcon" />
+    		<Label class="locationText" text="{$.dataModel.location}" />					
+    	</View--> 
+    	<ScrollView>
+    		<Label text="{$.dataModel.content}" top="8dp" left="8dp" right="8dp" color="black" />
+    	</ScrollView> 	    	           				            
+    </View>
+</Alloy>

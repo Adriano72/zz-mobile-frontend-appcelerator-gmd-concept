@@ -1,0 +1,8 @@
+<Alloy>
+	<Window class="container">				
+		<ActionBar onHomeIconItemSelected="onHomeIconItemSelected" />
+		<Menu>
+			<MenuItem id="editAction"></MenuItem>
+		</Menu>   	     		
+	</Window>
+</Alloy>

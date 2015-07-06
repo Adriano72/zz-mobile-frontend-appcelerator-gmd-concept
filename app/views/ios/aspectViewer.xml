@@ -1,0 +1,7 @@
+<Alloy>
+	<Window class="container">		
+		<RightNavButton>
+        	<Button systemButton="Ti.UI.iPhone.SystemButton.COMPOSE" />
+        </RightNavButton>										
+	</Window>
+</Alloy>

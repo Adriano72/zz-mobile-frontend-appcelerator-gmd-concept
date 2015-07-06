@@ -1,0 +1,44 @@
+<Alloy>
+	<Model id="dataModel" src="zzFilesLinkViewerModel" instance="true" />
+	<View layout="vertical" height="Ti.UI.SIZE">
+	    <View class="headerRow">
+			<View class="avatar">						
+				<View class="avatarBox" backgroundColor="{$.dataModel.color}">
+	    			<Label class="avatarImage" text="{$.dataModel.avatar}"/>
+	    		</View>	    							
+	    	</View>            		
+			<View class="text">
+	    		<Label class="firstLineTitle" text="{$.dataModel.title}" />
+	    		<Label class="secondLineText" text="{$.dataModel.subtitle}"/>  	    
+	    	</View>
+	    </View>
+	    <View class="marginator" /> 
+	    <View class="separator" />	    
+	    <!--View class="dateTimeRow" backgroundColor="{$.dataModel.color}">
+			<View class="date">						
+	    		<Label class="dateIcon" />
+	    		<Label class="dateText" text="{$.dataModel.date}" />					
+	    	</View> 
+			<View class="time">						
+	    		<Label class="timeIcon" />
+	    		<Label class="timeText" text="{$.dataModel.time}" />					
+	    	</View> 	    	           		
+	    </View>
+		<View class="location" backgroundColor="{$.dataModel.color}">						
+    		<Label class="locationIcon" />
+    		<Label class="locationText" text="{$.dataModel.location}" />					
+    	</View-->
+    	
+	    <View class="textRow">
+	    	<Label class="textLabel" text="URL"></Label>
+	    	<Label class="textContent" text="{$.dataModel.url}" autoLink="Ti.UI.AUTOLINK_URLS" />						    	           		
+	    </View>
+	    <View class="textRow">
+	    	<Label class="textLabel" text="Descrizione"></Label>
+	    	<Label class="textContent" text="{$.dataModel.description}" />						    	           		
+	    </View>
+	    <View class="marginator" /> 
+	    <View class="separator" />	    
+	    <WebView url="{$.dataModel.url}" cacheMode="Ti.UI.Android.WEBVIEW_LOAD_CACHE_ELSE_NETWORK" />	    	    	  	    	           			        
+    </View>
+</Alloy>
