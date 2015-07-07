@@ -8,18 +8,20 @@
 	height: "8dp"
 },
 ".headerRow": {
-	layout: "horizontal",
+	//layout: "horizontal",
 	width: Ti.UI.FILL,
 	height: Ti.UI.SIZE,
 	horizontalWrap: false
 },
 ".avatar": {
 	top: "0dp",	
+	left: "0dp",		
 	width: "72dp",
 	height: Ti.UI.SIZE
 },
 ".avatarBox": {
-	top: "8dp",	
+	top: "8dp",
+	left: "8dp",	
 	width: "40dp",
 	height: "40dp",
 	backgroundColor:"white",
@@ -35,19 +37,22 @@
 },
 ".text": {
 	top: "0dp",
+	left: "72dp",
+	right: "72dp",
 	layout: "vertical",
-	width: Ti.UI.FILL,
+	width: Ti.UI.SIZE,
 	height: Ti.UI.SIZE
 },
 ".firstLine": {
 	layout: "horizontal",
 	top: "8dp",	
-	width: Ti.UI.FILL,
+	width: Ti.UI.SIZE,
 	height: Ti.UI.SIZE	
 },
 ".firstLineTitle": {
 	top: "8dp",
-	width: Ti.UI.FILL,
+	left: "0dp",
+	width: Ti.UI.SIZE,
 	height: Ti.UI.SIZE,	
 	color: "black",
 	font: {
@@ -57,16 +62,39 @@
 },
 ".secondLine": {
 	layout: "horizontal",
-	width: Ti.UI.FILL,
+	width: Ti.UI.SIZE,
 	height: Ti.UI.SIZE	
 },
 ".secondLineText": {
-	width: Ti.UI.FILL,
+	left: "0dp",
+	width: Ti.UI.SIZE,
 	height: Ti.UI.SIZE,
-	color: "black",
+	color: "gray",
 	font: {
 		fontSize: "14dp"
 	}
+},
+".icon": {
+	top: "0dp",	
+	right: "0dp",	
+	width: "72dp",
+	height: Ti.UI.SIZE
+},
+".iconBox": {
+	top: "8dp",	
+	right: "8dp",
+	width: "40dp",
+	height: "40dp",
+	backgroundColor:"white",
+	//borderRadius: "20dp",
+	borderColor: "white"
+},
+".iconImage": {
+    color: "white",  	
+    font: {
+    	fontSize: "20dp",
+        fontFamily: "FontAwesome",
+    }
 },
 ".dateTimeRow": {
 	layout: "horizontal",
@@ -150,4 +178,28 @@
 	font: {
 		fontSize: "14dp"
 	}
-}
+},
+".textRow": {
+	//layout: "horizontal",
+	width: Ti.UI.FILL,
+	height: Ti.UI.SIZE
+},
+".textLabel": {
+	top: "8dp",
+	left: "0dp",
+    width: "72dp",
+    textAlign: "right",
+    color: "gray",
+	font: {
+		fontSize: "14dp"
+	}
+},
+".textContent": {
+	top: "8dp",
+	left: "80dp",
+	height: Ti.UI.SIZE,
+	color: "black",
+	font: {
+		fontSize: "14dp"
+	}
+},

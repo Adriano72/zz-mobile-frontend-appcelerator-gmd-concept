@@ -39,6 +39,6 @@
 	    </View>
 	    <View class="marginator" /> 
 	    <View class="separator" />	    
-	    <WebView url="{$.dataModel.url}" cacheMode="Ti.UI.Android.WEBVIEW_LOAD_CACHE_ELSE_NETWORK" />	    	    	  	    	           			        
+	    <WebView url="{$.dataModel.url}" />	    	    	  	    	           			        
     </View>
 </Alloy>

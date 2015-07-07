@@ -24,7 +24,7 @@ exports.init = function(args) {
 		var iconColor = null;		
 				
 		if (type === "ent") {
-			icon = "caret-up";
+			icon = "arrow-up"; //"caret-up";
 			iconColor = "green";
 			
 			title = title.concat(
@@ -35,8 +35,8 @@ exports.init = function(args) {
 				object.data.modalitaPagamento.codice
 			);
 		} else if (type === "usc") {
-			icon = "caret-down";
-			iconColor = "red";		
+			icon = "arrow-down";//"caret-down";
+			iconColor = "red";			
 			
 			title = title.concat(
 				accounting.formatMoney(-object.data.importo, { symbol: "EUR", decimal : ",", thousand : ".", precision : "2", format: "%v %s" }),
@@ -64,8 +64,8 @@ exports.init = function(args) {
 			avatarMode: "icon",
 			title: title,
 			subtitle: item.get("name"),
-			icon: icon, //"caret-up",
-			iconColor: iconColor //"red"
+			icon: icon,
+			iconColor: iconColor
 		}); 
 	} );	
 	

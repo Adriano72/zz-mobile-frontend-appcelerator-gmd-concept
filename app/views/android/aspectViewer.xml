@@ -2,7 +2,10 @@
 	<Window class="container">				
 		<ActionBar onHomeIconItemSelected="onHomeIconItemSelected" />
 		<Menu>
-			<MenuItem id="editAction"></MenuItem>
+			<!--MenuItem id="editAction"></MenuItem-->
+			<!--MenuItem title="action1"></MenuItem>
+			<MenuItem title="action2"></MenuItem>
+			<MenuItem title="action3"></MenuItem-->
 		</Menu>   	     		
 	</Window>
 </Alloy>

@@ -1,15 +1,6 @@
 var collection = null;
 var widgetCollection = new Backbone.Collection();
 
-function formatSize(size) {
-	if (!size || size == 0)
-		return "0KB";
-	
-	return (size > 1024 * 1024 ? 
-    		(Math.round(size * 100 / (1024 * 1024)) / 100).toString() + 'MB' :
-            (Math.round(size * 100 / 1024) / 100).toString() + 'KB');      	
-};
-
 exports.init = function(args) {	
 	
 	collection = args.collection;

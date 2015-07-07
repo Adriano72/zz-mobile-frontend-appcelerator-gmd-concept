@@ -1,7 +1,7 @@
 <Alloy>
 	<Window class="container">		
 		<RightNavButton>
-        	<Button systemButton="Ti.UI.iPhone.SystemButton.COMPOSE" />
+        	<!--Button systemButton="Ti.UI.iPhone.SystemButton.COMPOSE" /-->
         </RightNavButton>								
 			
 		<Widget id="postViewerWidget" src="zz.core.posts" name="postViewer"/>

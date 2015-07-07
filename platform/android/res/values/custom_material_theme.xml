@@ -1,14 +1,62 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-<style name="Theme.CustomMaterialTheme" parent="@style/Theme.AppCompat">
-    <item name="colorPrimary">#1565C0</item>
-    <item name="colorPrimaryDark">#0D47A1</item>
-    <item name="colorAccent">#FF80AB</item>
-    <item name="colorControlNormal">#757575</item>
-    <item name="colorControlActivated">#FF6E40</item>
-    <item name="colorControlHighlight">#FF4081</item>
-    <item name="colorSwitchThumbNormal">#BDBDBD</item>
-    <item name="android:colorButtonNormal">#BDBDBD</item>
-    <item name="android:colorEdgeEffect">#FF4081</item>
-</style>
+	<style name="Theme.CustomMaterialTheme" parent="@style/Theme.AppCompat">
+	    <!--item name="colorPrimary">#1565C0</item>
+	    <item name="colorPrimaryDark">#0D47A1</item>
+	    <item name="colorAccent">#FF80AB</item-->
+	    
+	    <!--item name="colorPrimary">#4CAF50</item>
+	    <item name="colorPrimaryDark">#388E3C</item>
+	    <item name="colorAccent">#FFC107</item-->
+	    
+	    <item name="colorPrimary">#607D8B</item>
+	    <item name="colorPrimaryDark">#455A64</item>
+	    <item name="colorAccent">#FFC107</item>	    
+	    
+	    <item name="colorControlNormal">#757575</item>
+	    <item name="colorControlActivated">#FF6E40</item>
+	    <item name="colorControlHighlight">#FF4081</item>
+	    <item name="colorSwitchThumbNormal">#BDBDBD</item>
+	    <item name="android:colorButtonNormal">#BDBDBD</item>
+	    <item name="android:colorEdgeEffect">#FF4081</item>  	        
+	</style>
+	
+	<style name="Theme.CustomMaterialTheme.NoActionBar" parent="@style/Theme.CustomMaterialTheme">
+	    <item name="windowActionBar">false</item>
+	    <item name="android:windowNoTitle">true</item>
+    </style>
+    
+	<style name="Theme.CustomMaterialTheme.WhiteActionBar" parent="@style/Theme.CustomMaterialTheme">
+		<!--item name="android:actionMenuTextColor">#000</item>
+		<item name="actionMenuTextColor">#000</item-->
+		<item name="colorPrimary">#FFF</item>
+		<item name="android:textColorPrimary">#000</item>
+    	<item name="android:textColorPrimaryInverse">#000</item>
+    		
+    	<!--
+		<item name="android:actionBarStyle">@style/Theme.CustomMaterialTheme.WhiteActionBar.ActionBarStyle</item>
+		<item name="actionBarStyle">@style/Theme.CustomMaterialTheme.WhiteActionBar.ActionBarStyle</item>
+		-->
+		<item name="android:popupMenuStyle">@style/Theme.CustomMaterialTheme.WhiteActionBar.ActionBar.PopupMenuStyle</item>
+		<item name="popupMenuStyle">@style/Theme.CustomMaterialTheme.WhiteActionBar.ActionBar.PopupMenuStyle</item>
+		
+		<item name="android:dropDownListViewStyle">@style/Theme.CustomMaterialTheme.WhiteActionBar.ActionBar.DropDownListViewStyle</item>
+        <item name="dropDownListViewStyle">@style/Theme.CustomMaterialTheme.WhiteActionBar.ActionBar.DropDownListViewStyle</item>		
+    </style> 
+	<style name="Theme.CustomMaterialTheme.WhiteActionBar.ActionBarStyle" parent="@style/Widget.AppCompat.ActionBar">
+	    <!--item name="android:background">#FFF</item-->
+	    <item name="android:titleTextStyle">@style/Theme.CustomMaterialTheme.WhiteActionBar.ActionBar.TitleTextStyle</item>
+	    <item name="titleTextStyle">@style/Theme.CustomMaterialTheme.WhiteActionBar.ActionBar.TitleTextStyle</item>
+	</style>	
+	<style name="Theme.CustomMaterialTheme.WhiteActionBar.ActionBar.TitleTextStyle" parent="@style/TextAppearance.AppCompat.Widget.ActionBar.Title">
+		<item name="android:textColor">#000</item>
+	</style>
+	<style name="Theme.CustomMaterialTheme.WhiteActionBar.ActionBar.PopupMenuStyle" parent="@style/Widget.AppCompat.PopupMenu">
+		<item name="android:popupBackground">#FFF</item>
+	</style> 
+	<style name="Theme.CustomMaterialTheme.WhiteActionBar.ActionBar.DropDownListViewStyle" parent="@style/Widget.AppCompat.ListView.DropDown">
+        <!--item name="android:divider">#FF0000</item>
+        <item name="android:dividerHeight">2dp</item-->
+        <item name="android:background">#FFF</item>
+	</style>	        
 </resources>

@@ -85,7 +85,7 @@
 	width: "40dp",
 	height: "40dp",
 	backgroundColor:"white",
-	borderRadius: "20dp",
+	//borderRadius: "20dp",
 	borderColor: "white"
 },
 ".iconImage": {

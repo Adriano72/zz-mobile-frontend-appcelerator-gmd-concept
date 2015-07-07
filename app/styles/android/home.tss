@@ -25,12 +25,12 @@
 	height: Ti.UI.SIZE,
 	zIndex: 100
 },
-".actionAdd": {
-	backgroundColor:"blue",
+".actionAdd": {	
 	width: "56dp",
 	height: "56dp",
+	backgroundColor:"#FFC107", //"blue",
 	borderRadius: "28dp",
-	borderColor: "blue"
+	borderColor: "#FFC107" //"blue"
 	//viewShadowColor: "lightgray", //"#aaa",
   	//viewShadowOffset: {x:1, y:1}
 },
@@ -43,15 +43,16 @@
     }
 },
 ".actionCamera": {
-	backgroundColor:"white",
 	width: "56dp",
 	height: "56dp",
 	borderRadius: "28dp",
-	borderColor: "blue"
+	backgroundColor:"white",
+	borderRadius: "28dp",
+	borderColor: "#FFC107" //"blue"
 },
 ".actionCameraIcon": {
     text: "\uf030", 
-    color: "blue",  	
+    color: "#FFC107", //"blue",  	
     font: {
     	fontSize: "24dp",
         fontFamily: "FontAwesome",

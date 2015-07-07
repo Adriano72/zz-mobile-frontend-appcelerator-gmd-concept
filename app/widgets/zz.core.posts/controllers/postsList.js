@@ -5,7 +5,7 @@ var collection = new Backbone.Collection();
 
 exports.init = function(args) {	
 	
-	collection.reset();
+	//collection.reset();
 	
 	args.collection.forEach( function(item) {
 		
@@ -33,4 +33,8 @@ $.widget.on("itemSelected", function(args) {
 
 $.widget.on("itemDeleted", function(args) {   
     $.trigger("itemDeleted", args);	
+});
+
+$.widget.on("lastItemShown", function(args) {   
+    $.trigger("nextPage");	
 });

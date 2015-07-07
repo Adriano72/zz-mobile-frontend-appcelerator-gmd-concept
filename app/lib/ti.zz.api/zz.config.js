@@ -18,7 +18,7 @@ var zz = {
 			baseURL : "https://beta.ziriziri.com/zz/api/v02",
 			cdnURL : "https://beta.ziriziri.com/zz/api/v02/cdn",			
 			cached : true,
-			maxPerPage : 50
+			maxPerPage : 10
 			
 		}
 	}

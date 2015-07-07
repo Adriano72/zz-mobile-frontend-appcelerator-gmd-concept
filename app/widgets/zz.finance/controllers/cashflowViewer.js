@@ -27,8 +27,8 @@ exports.init = function(args) {
 	var iconImage = null;
 	var iconColor = null;		
 	if (type === "ent") {
-		iconImage = "caret-up";
-		iconColor = "green";
+		iconImage = "arrow-up"; //"caret-up";
+		iconColor = colors.colorMap["mdc-green-300"];
 		
 		title = title.concat(
 			accounting.formatMoney(object.data.importo, { symbol: "EUR", decimal : ",", thousand : ".", precision : "2", format: "%v %s" })
@@ -40,8 +40,8 @@ exports.init = function(args) {
 			*/
 		);
 	} else if (type === "usc") {
-		iconImage = "caret-down";
-		iconColor = "red";		
+		iconImage = "arrow-down";//"caret-down";
+		iconColor = colors.colorMap["mdc-red-300"];		
 		
 		title = title.concat(
 			accounting.formatMoney(-object.data.importo, { symbol: "EUR", decimal : ",", thousand : ".", precision : "2", format: "%v %s" })

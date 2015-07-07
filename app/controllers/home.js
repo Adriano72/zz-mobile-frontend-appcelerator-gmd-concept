@@ -1,9 +1,10 @@
 var collection = Alloy.Collections.instance("posts");
+collection.reset();
 
 ZZ.API.Core.Posts.list(function(posts){
 	Ti.API.info("ZZ.API.Core.Posts.list success [response : " + JSON.stringify(posts) + "]");
 	
-	collection.reset(posts);
+	collection.add(posts);
 	$.widget.init({
 		collection: collection
 	});		
@@ -34,3 +35,68 @@ $.widget.on("itemSelected", function(args) {
 
 $.widget.on("itemDeleted", function(args) {
 });
+
+$.widget.on("nextPage", function(args) {
+	
+	ZZ.API.Core.Posts.list(function(posts){
+		Ti.API.info("ZZ.API.Core.Posts.list success [response : " + JSON.stringify(posts) + "]");
+		
+		collection.add(posts);
+		$.widget.init({
+			collection: collection
+		});		
+		
+	}, function(error){
+		Ti.API.error("ZZ.API.Core.Posts.list error [error : " + error + "]");
+	}, {
+		action : ZZ.API.Core.Posts.CONSTANTS.ACTIONS.LOAD_MORE
+	});	
+	
+});
+
+function onAddFromImages() {
+	
+	//Ti.Media.showCamera({
+	Ti.Media.openPhotoGallery({
+		success:function(event) {
+			// called when media returned from the camera
+			Ti.API.info('Our type was: '+event.mediaType);
+			if(event.mediaType == Ti.Media.MEDIA_TYPE_PHOTO) {
+				
+				/*
+				var imageView = Ti.UI.createImageView({
+					width:win.width,
+					height:win.height,
+					image:event.media
+				});
+				win.add(imageView);
+				*/
+			} else {
+				alert("got the wrong type back ="+event.mediaType);
+			}
+		},
+		cancel:function() {
+			// called when user cancels taking a picture
+		},
+		error:function(error) {
+			// called when there's an error
+			var a = Titanium.UI.createAlertDialog({title:'Camera'});
+			if (error.code == Titanium.Media.NO_CAMERA) {
+				a.setMessage('Please run this test on device');
+			} else {
+				a.setMessage('Unexpected error: ' + error.code);
+			}
+			a.show();
+		},
+		
+		autohide: false
+		
+		/*
+		saveToPhotoGallery:true,
+	    // allowEditing and mediaTypes are iOS-only settings
+		allowEditing:true,
+		mediaTypes:[Ti.Media.MEDIA_TYPE_VIDEO,Ti.Media.MEDIA_TYPE_PHOTO]
+		*/
+	});	
+	
+}

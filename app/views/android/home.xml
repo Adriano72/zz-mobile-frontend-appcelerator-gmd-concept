@@ -3,15 +3,15 @@
 				
 		<ActionBar />
 		<Menu>
-			<MenuItem id="searchAction"></MenuItem>
-			<!--MenuItem id="addAction"></MenuItem>
+			<!--MenuItem id="searchAction"></MenuItem>
+			<MenuItem id="addAction"></MenuItem>
 			<MenuItem id="cameraAction"></MenuItem-->
 		</Menu>        		
 		
 		<View>				
 			<View class="floatingActions">						
 	    		<View class="actionCamera">
-	    			<Label class="actionCameraIcon" />
+	    			<Label class="actionCameraIcon" onClick="onAddFromImages"/>
 	    		</View>
 				<View class="actionSeparator">
 	    		</View>		    			

@@ -1,8 +1,8 @@
 <Alloy>
 	<Window class="container">				
-		<ActionBar onHomeIconItemSelected="onHomeIconItemSelected" />
+		<ActionBar id="actionBar" onHomeIconItemSelected="onHomeIconItemSelected" />
 		<Menu>
-			<MenuItem id="editAction"></MenuItem>
+			<!--MenuItem id="editAction"></MenuItem-->
 		</Menu>        		
 
 		<Widget id="postViewerWidget" src="zz.core.posts" name="postViewer"/>				

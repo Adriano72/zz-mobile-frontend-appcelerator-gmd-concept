@@ -6,12 +6,17 @@ collection.reset();
 
 exports.init = function(args) {
 	
-	collection.reset();
+	//collection.reset();
 	
 	args.collection.forEach( function(item) {
 		var model = Widget.createModel("zzCommonsListsDataModel", item.toJSON());
 		collection.add(model); 
 	} );	
+	
+	$.listView.setMarker({
+		sectionIndex:0,
+		itemIndex: (collection.length - 5)
+	});	
 };
 
 function doTransform(model) {	
@@ -44,4 +49,8 @@ function onDelete(event) {
 	var model = collection.at(event.itemIndex);
     
     $.trigger("itemDeleted", model.toJSON());
+}
+
+function onMarker(event) { 
+    $.trigger("lastItemShown");
 }

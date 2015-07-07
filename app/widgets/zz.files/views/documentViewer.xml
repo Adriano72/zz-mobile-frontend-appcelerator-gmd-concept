@@ -3,17 +3,23 @@
 	<View layout="vertical" height="Ti.UI.SIZE">
 	    <View class="headerRow">
 			<View class="avatar">						
-				<View class="avatarBox" backgroundColor="{$.dataModel.color}" borderColor="{$.dataModel.color}">
+				<View class="avatarBox" backgroundColor="{$.dataModel.avatarColor}" borderColor="{$.dataModel.avatarColor}">
 	    			<Label class="avatarImage" text="{$.dataModel.avatar}"/>
 	    		</View>	    							
 	    	</View>            		
 			<View class="text">
 	    		<Label class="firstLineTitle" text="{$.dataModel.title}" />
 	    		<Label class="secondLineText" text="{$.dataModel.subtitle}"/>  	    
-	    	</View>	    	
+	    	</View>	
+			<View class="icon">						
+				<View class="iconBox" borderColor="{$.dataModel.iconColor}" backgroundColor="{$.dataModel.iconColor}">
+	    			<Label class="iconImage" text="{$.dataModel.icon}" />
+	    		</View>	    							
+	    	</View>	   	
 	    </View>	   
 	    <View class="marginator" /> 
 	    <View class="separator" />
+	    
 	    <!--View class="dateTimeRow" backgroundColor="{$.dataModel.color}">
 			<View class="date">						
 	    		<Label class="dateIcon" />
@@ -28,7 +34,19 @@
     		<Label class="locationIcon" />
     		<Label class="locationText" text="{$.dataModel.location}" />					
     	</View-->  
-    	
-    	<ImageView id="imageView" width="Titanium.UI.FILL"  />	    	           			        
+    	 
+	    <View class="textRow">
+	    	<Label class="textLabel" text="Nome"></Label>
+	    	<Label class="textContent" text="{$.dataModel.name}" />						    	           		
+	    </View>	 
+	    <View class="textRow">
+	    	<Label class="textLabel" text="Dimensione"></Label>
+	    	<Label class="textContent" text="{$.dataModel.size}" />						    	           		
+	    </View>	
+		    	  
+	    <View class="marginator" /> 
+	    <View class="separator" />		    	  
+		    	       	
+    	<ImageView id="imageView" width="Titanium.UI.FILL"  />           			        
     </View>
 </Alloy>

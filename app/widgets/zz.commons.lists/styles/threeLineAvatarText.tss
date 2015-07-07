@@ -45,7 +45,7 @@
 },
 ".firstLineTitle": {
 	width: "80%",
-	height: "18dp",	
+	//height: "18dp",	
 	color: "black",
 	font: {
 		fontSize: "16dp"

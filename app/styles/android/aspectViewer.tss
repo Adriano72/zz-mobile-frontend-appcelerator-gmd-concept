@@ -1,6 +1,7 @@
 ".container": {
-    //title: "Aspect",
-	layout: "vertical"
+    title: "",
+	layout: "vertical",
+	theme: "Theme.CustomMaterialTheme.WhiteActionBar"
 },
 "ActionBar": {
 	title: "Aspect",
@@ -8,7 +9,7 @@
 	
 },
 "MenuItem": {
-    showAsAction: Ti.Android.SHOW_AS_ACTION_ALWAYS
+    showAsAction: Ti.Android.SHOW_AS_ACTION_NEVER
 },
 "#editAction": {
     icon: Ti.Android.R.drawable.ic_menu_edit
