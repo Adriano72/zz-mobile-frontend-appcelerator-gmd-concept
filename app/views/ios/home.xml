@@ -1,6 +1,6 @@
 <Alloy>
 	<NavigationWindow id="navigationWindow">	
-		<Window class="container">
+		<Window class="container" id="window">
 			
 			<!--RightNavButton>
             	<Button systemButton="Ti.UI.iPhone.SystemButton.SEARCH" />
@@ -8,7 +8,7 @@
 			<WindowToolbar>
                 <!--Button systemButton="Ti.UI.iPhone.SystemButton.SEARCH" /> 
                 <FlexSpace /-->
-                <Button systemButton="Ti.UI.iPhone.SystemButton.ADD" />
+                <Button systemButton="Ti.UI.iPhone.SystemButton.ADD" onClick="onAddFromScratch" />
                 <FlexSpace />
                 <Button systemButton="Ti.UI.iPhone.SystemButton.CAMERA" onClick="onAddFromImages" />
             </WindowToolbar>			

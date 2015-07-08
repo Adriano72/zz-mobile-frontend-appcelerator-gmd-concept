@@ -1,14 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-	<style name="Theme.CustomMaterialTheme" parent="@style/Theme.AppCompat">
+	<style name="Theme.CustomMaterialTheme" parent="@style/Theme.AppCompat.Light">
 	    <!--item name="colorPrimary">#1565C0</item>
 	    <item name="colorPrimaryDark">#0D47A1</item>
-	    <item name="colorAccent">#FF80AB</item-->
-	    
+	    <item name="colorAccent">#FF80AB</item-->	    
 	    <!--item name="colorPrimary">#4CAF50</item>
 	    <item name="colorPrimaryDark">#388E3C</item>
-	    <item name="colorAccent">#FFC107</item-->
-	    
+	    <item name="colorAccent">#FFC107</item-->	    
 	    <item name="colorPrimary">#607D8B</item>
 	    <item name="colorPrimaryDark">#455A64</item>
 	    <item name="colorAccent">#FFC107</item>	    
@@ -18,7 +16,10 @@
 	    <item name="colorControlHighlight">#FF4081</item>
 	    <item name="colorSwitchThumbNormal">#BDBDBD</item>
 	    <item name="android:colorButtonNormal">#BDBDBD</item>
-	    <item name="android:colorEdgeEffect">#FF4081</item>  	        
+	    <item name="android:colorEdgeEffect">#FF4081</item> 
+	    
+		<item name="android:textColorPrimary">#FFF</item>
+    	<item name="android:textColorPrimaryInverse">#FFF</item>	     	        
 	</style>
 	
 	<style name="Theme.CustomMaterialTheme.NoActionBar" parent="@style/Theme.CustomMaterialTheme">

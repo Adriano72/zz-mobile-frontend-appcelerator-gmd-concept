@@ -49,9 +49,12 @@
 	color: "black",
 	font: {
 		fontSize: "16dp"
-	},
+	},	
 	wordWrap: false,
 	ellipsize: true
+},
+".firstLineTitle[platform=ios]": {
+	height: "16dp"
 },
 ".firstLineTime": {
 	width: "20%",

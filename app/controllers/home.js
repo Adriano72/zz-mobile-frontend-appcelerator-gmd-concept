@@ -54,7 +54,44 @@ $.widget.on("nextPage", function(args) {
 	
 });
 
+function onAddFromScratch() {
+	
+	var model = new Backbone.Model();	
+	
+	if (OS_IOS) {
+	    var postEditor = Alloy.createController("postEditor", {
+	    	model: model,
+	    	navigationWindow: $.navigationWindow
+	    }).getView();		
+		$.navigationWindow.openWindow(postEditor);
+	}
+	if (OS_ANDROID) {
+	    var postEditor = Alloy.createController("postEditor", {
+	    	model: model    	
+	    }).getView();		
+		postEditor.open();
+	}	
+	
+};
+
 function onAddFromImages() {
+	
+	/*
+	$.bottomSheetsWidget = Alloy.createWidget("zz.commons.bottomSheets");
+	
+	if (OS_IOS) {
+		//$.window.add( $.bottomSheetsWidget.getView() );
+		$.bottomSheetsWidget.getView().open();
+		$.bottomSheetsWidget.getView().setBackgroundColor("gray");
+		$.bottomSheetsWidget.getView().setOpacity("0.3");
+	}
+	
+	if (OS_ANDROID) {
+		$.bottomSheetsWidget.getView().open();
+	}
+	
+	return;
+	*/
 	
 	//Ti.Media.showCamera({
 	Ti.Media.openPhotoGallery({
@@ -99,4 +136,4 @@ function onAddFromImages() {
 		*/
 	});	
 	
-}
+};

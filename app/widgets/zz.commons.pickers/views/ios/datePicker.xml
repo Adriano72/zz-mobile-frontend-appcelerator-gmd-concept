@@ -1,0 +1,13 @@
+<Alloy>
+	<Window>
+		<View backgroundColor="gray" opacity="0.3"></View>
+		<View layout="vertical" bottom="0dp" height="Ti.UI.SIZE">
+			<Picker id="picker" type="Ti.UI.PICKER_TYPE_DATE">
+	        </Picker>	
+	        <View width="Titanium.UI.FILL" height="Titanium.UI.SIZE" backgroundColor="white">
+				<Button systemButton="CANCEL" title="Cancel" left="8dp"></Button>
+				<Button systemButton="DONE" title="Done" right="8dp"></Button>
+			</View>	        		
+		</View>				
+	</Window>	
+</Alloy>

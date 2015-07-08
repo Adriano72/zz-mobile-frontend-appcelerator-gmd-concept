@@ -1,0 +1,6 @@
+<Alloy>
+	<Window layout="vertical" modal="true" theme="Theme.CustomMaterialTheme.NoActionBar">
+		<View width="Ti.UI.FILL" height="60%"></View>
+		<View bottom="0dp" width="Ti.UI.FILL" height="40%" backgroundColor="white"></View>
+	</Window>
+</Alloy>

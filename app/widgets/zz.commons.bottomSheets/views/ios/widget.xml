@@ -1,0 +1,15 @@
+<Alloy>
+	<!--
+	<View layout="vertical" width="Ti.UI.FILL" height="Ti.UI.FILL">
+		<View width="Ti.UI.FILL" height="60%" backgroundColor="gray" opacity="0.3"></View>
+		<View bottom="0dp" width="Ti.UI.FILL" height="40%" backgroundColor="white"></View>
+	</View>
+	-->
+	
+	<Window>
+		<View backgroundColor="gray" opacity="0.3"></View>
+		<View backgroundColor="white" bottom="0dp" height="40%">		
+		</View>			
+	</Window>	
+	
+</Alloy>

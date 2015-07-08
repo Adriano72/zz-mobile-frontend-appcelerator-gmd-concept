@@ -11,12 +11,12 @@
 		<View>				
 			<View class="floatingActions">						
 	    		<View class="actionCamera">
-	    			<Label class="actionCameraIcon" onClick="onAddFromImages"/>
+	    			<Label class="actionCameraIcon" onClick="onAddFromImages" />
 	    		</View>
 				<View class="actionSeparator">
 	    		</View>		    			
 				<View class="actionAdd">
-	    			<Label class="actionAddIcon" />
+	    			<Label class="actionAddIcon" onClick="onAddFromScratch" />
 	    		</View>	    		
 	        </View>
 	        

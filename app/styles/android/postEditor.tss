@@ -1,0 +1,15 @@
+".container": {
+    title: "",
+	layout: "vertical"
+},
+"ActionBar": {
+	title: "Edit Post",
+	displayHomeAsUp: true
+	
+},
+"MenuItem": {
+    showAsAction: Ti.Android.SHOW_AS_ACTION_ALWAYS
+},
+"#editAction": {
+    icon: Ti.Android.R.drawable.ic_menu_edit
+}

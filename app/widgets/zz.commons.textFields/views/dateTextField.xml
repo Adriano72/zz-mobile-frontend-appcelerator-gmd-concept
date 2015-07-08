@@ -1,0 +1,6 @@
+<Alloy>
+	<View>
+		<Label></Label>
+		<TextField onClick="onClick"></TextField>
+	</View>			
+</Alloy>

@@ -1,0 +1,8 @@
+<Alloy>
+	<View layout="vertical" height="Ti.UI.SIZE">
+						
+		<Widget src="zz.commons.textFields" name="singleLineTextField"/>
+		<Widget src="zz.commons.textFields" name="dateTextField"/>
+		
+    </View>
+</Alloy>
