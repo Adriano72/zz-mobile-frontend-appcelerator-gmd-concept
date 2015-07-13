@@ -37,5 +37,5 @@
        	</ListSection>                                
     </ListView>
     
-    <Widget id="fa" src="com.mattmcfarland.fontawesome" />	
+    <!--Widget id="fa" src="com.mattmcfarland.fontawesome" /-->	
 </Alloy>

@@ -1,0 +1,8 @@
+<Alloy>
+	<NavigationWindow>
+		<Window layout="vertical" backgroundColor="white">
+			<SearchBar id="searchBar" borderColor="#FFF" barColor="#FFF" hintText="Search" onChange="onChange" />							
+			<Widget id="listWidget" src="zz.commons.lists" name="singleLineAvatarTextIcon"></Widget>						
+		</Window>
+	</NavigationWindow>		
+</Alloy>

@@ -16,7 +16,7 @@
         "zz.files": "1.0",
         "zz.events": "1.0",
         "zz.notes": "1.0",
-        "zz.commons.bottomSheets": "1.0",
+        "zz.commons.containers": "1.0",
         "zz.commons.pickers": "1.0",
         "zz.commons.textFields": "1.0",
         "zz.core.categories": "1.0"

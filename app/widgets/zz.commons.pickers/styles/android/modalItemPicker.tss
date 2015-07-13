@@ -1,0 +1,10 @@
+".container": {
+    title: "",
+	layout: "vertical",
+	theme: "Theme.CustomMaterialTheme.WhiteActionBar"
+},
+"ActionBar": {
+	title: "",
+	displayHomeAsUp: true
+	
+},

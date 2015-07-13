@@ -1,0 +1,8 @@
+<Alloy>
+	<Window class="container">				
+		<ActionBar onHomeIconItemSelected="onHomeIconItemSelected" />
+		<Menu>
+		</Menu>		
+		<Widget id="listWidget" src="zz.commons.lists" name="singleLineAvatarTextIcon"></Widget>   	     		
+	</Window>		
+</Alloy>

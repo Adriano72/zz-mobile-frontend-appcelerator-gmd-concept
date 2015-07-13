@@ -76,22 +76,9 @@ function onAddFromScratch() {
 
 function onAddFromImages() {
 	
-	/*
-	$.bottomSheetsWidget = Alloy.createWidget("zz.commons.bottomSheets");
-	
-	if (OS_IOS) {
-		//$.window.add( $.bottomSheetsWidget.getView() );
-		$.bottomSheetsWidget.getView().open();
-		$.bottomSheetsWidget.getView().setBackgroundColor("gray");
-		$.bottomSheetsWidget.getView().setOpacity("0.3");
-	}
-	
-	if (OS_ANDROID) {
-		$.bottomSheetsWidget.getView().open();
-	}
-	
+	$.bottomSheetWidget = Alloy.createWidget("zz.commons.containers", "bottomSheet");
+	$.bottomSheetWidget.getView().open();
 	return;
-	*/
 	
 	//Ti.Media.showCamera({
 	Ti.Media.openPhotoGallery({

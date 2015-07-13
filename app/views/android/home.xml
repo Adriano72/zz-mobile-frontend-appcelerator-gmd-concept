@@ -20,7 +20,6 @@
 	    		</View>	    		
 	        </View>
 	        
-			<!--Widget id="widget" src="zz.core.posts.list" /-->
 			<Widget id="widget" src="zz.core.posts" name="postsList"/>			
 		</View>
 		

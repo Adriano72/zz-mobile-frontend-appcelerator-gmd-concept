@@ -14,6 +14,10 @@ exports.init = function(args) {
 	} );	
 };
 
+exports.searchText = function(text) {	
+	$.listView.searchText = text;	
+};
+
 function doTransform(model) {	
 	var object = model.toJSON();
 	

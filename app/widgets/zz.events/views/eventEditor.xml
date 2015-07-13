@@ -2,7 +2,14 @@
 	<View layout="vertical" height="Ti.UI.SIZE">
 						
 		<Widget src="zz.commons.textFields" name="singleLineTextField"/>
-		<Widget src="zz.commons.textFields" name="dateTextField"/>
+		
+		<Widget id="dateTextFieldWidget" src="zz.commons.textFields" name="dateTextField"/>
+		
+		<Widget id="timeTextFieldWidget" src="zz.commons.textFields" name="timeTextField"/>
+		
+		<Widget id="dateTimeTextFieldWidget" src="zz.commons.textFields" name="dateTimeTextField"/>
+		
+		<Widget id="categoryTextFieldWidget" src="zz.core.categories" name="categoryTextField"/>
 		
     </View>
 </Alloy>
