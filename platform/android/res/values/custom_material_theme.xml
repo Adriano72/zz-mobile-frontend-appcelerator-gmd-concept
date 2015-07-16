@@ -14,6 +14,7 @@
 	    <item name="colorControlNormal">#757575</item>
 	    <item name="colorControlActivated">#FF6E40</item>
 	    <item name="colorControlHighlight">#FF4081</item>
+	    
 	    <item name="colorSwitchThumbNormal">#BDBDBD</item>
 	    <item name="android:colorButtonNormal">#BDBDBD</item>
 	    <item name="android:colorEdgeEffect">#FF4081</item> 
@@ -35,6 +36,11 @@
 		<!--item name="android:actionMenuTextColor">#000</item>
 		<item name="actionMenuTextColor">#000</item-->
 		<item name="colorPrimary">#FFF</item>
+		
+	    <!--item name="colorControlNormal">#FFF</item>
+	    <item name="colorControlActivated">#FFF</item>
+	    <item name="colorControlHighlight">#FF4081</item-->		
+		
 		<item name="android:textColorPrimary">#000</item>
     	<item name="android:textColorPrimaryInverse">#000</item>
     		

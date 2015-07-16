@@ -1,7 +1,7 @@
 var icons = require( WPATH("icons") );
 var colors = require( WPATH("colors") );
 
-var collection = $.dataCollection; //Widget.Collections.instance("zzCommonsListsDataModel");
+var collection = $.dataCollection; //Widget.Collections.instance("zzCommonsListsModel");
 collection.reset();
 
 exports.init = function(args) {
@@ -9,7 +9,7 @@ exports.init = function(args) {
 	collection.reset();
 	
 	args.collection.forEach( function(item) {
-		var model = Widget.createModel("zzCommonsListsDataModel", item.toJSON());
+		var model = Widget.createModel("zzCommonsListsModel", item.toJSON());
 		collection.add(model); 
 	} );	
 };

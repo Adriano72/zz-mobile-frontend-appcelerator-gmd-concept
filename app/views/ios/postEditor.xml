@@ -4,6 +4,7 @@
         	<!--Button systemButton="Ti.UI.iPhone.SystemButton.COMPOSE" /-->
         </RightNavButton>								
 			
+		<!--
 		<Widget id="postEditorWidget" src="zz.core.posts" name="postEditor"/>			
 						
 		<ScrollView layout="vertical">			
@@ -19,6 +20,7 @@
 			<Widget id="noteEditorWidget" src="zz.notes" name="noteEditor"/>
 			
 		</ScrollView>
-			
+		-->
+		
 	</Window>
 </Alloy>

@@ -1,0 +1,6 @@
+<Alloy>
+	<View>
+		<Label></Label>
+		<Widget id="itemPickerWidget" src="zz.commons.pickers" name="itemPicker"></Widget> 
+	</View>			
+</Alloy>

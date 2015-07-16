@@ -1,34 +1,50 @@
 var collection = null;
 var widgetCollection = new Backbone.Collection();
 
-function open() {
+function open(args) {
 	
 	if (OS_ANDROID) {
-
+		/*
 		var searchView = Ti.UI.Android.createSearchView({
 		    hintText: "Search",
 		    backgroundColor: "transparent"
 		});
+		searchView.addEventListener("change", function(e){		
+			$.listWidget.searchText( e.source.value );
+		});	
 		
-		searchView.addEventListener("change", function(){		
-			$.listWidget.searchText( searchView.value );
-		});
-				
 		$.modalItemPicker.addEventListener("open", function() {
 		    $.modalItemPicker.activity.onCreateOptionsMenu = function(e) {
-		        e.menu.add({
+		        var menuItem = e.menu.add({
 		            title: "",
 		            icon: Ti.Android.R.drawable.ic_menu_search,
 		            actionView: searchView,
 		            showAsAction : Ti.Android.SHOW_AS_ACTION_ALWAYS
 		        });
+		        //menuItem.expandActionView();
 		    };
 		    //$.modalItemPicker.activity.invalidateOptionsMenu();
 		});	
-
+		*/
 	}
 		
-	$.modalItemPicker.open();
+	/*
+	init({
+		collection : new Backbone.Collection([{
+			id: 1,
+			title: "object 1" 
+		}, {
+			id: 2,
+			title: "object 2" 
+		}, {
+			id: 3,
+			title: "object 3" 
+		}])
+	});		
+	*/
+	//init(args);
+	
+	$.modalItemPicker.open();		
 };
 
 function init(args) {
@@ -41,8 +57,8 @@ function init(args) {
 				
 		widgetCollection.add({
 			id: object.id,
-			avatar: "calendar",
-			avatarColor: "lightgray",
+			avatar: object.avatar,
+			avatarColor: object.avatarColor,
 			//avatarMode: "icon",
 			title: object.title,
 			//icon: "stop",
@@ -53,20 +69,28 @@ function init(args) {
 	$.listWidget.init({collection: widgetCollection});	
 };
 
-function onChange() {
-	$.listWidget.searchText( $.searchBar.value );
+function onChange(e) {	
+	$.listWidget.searchText( e.source.value );	
 }
 
 function onHomeIconItemSelected() {
 	$.modalItemPicker.close();
 }
 
-$.listWidget.on("itemSelected", function(args) {
-	var model = collection.get(args.id);
-    
-    $.trigger("itemSelected", model.toJSON());	
-});
+function onDone() {	
+	/*
+	if (date) {
+		$.trigger("dateSelected", date);
+	}
+	*/
+	onCancel();
+}
 
+function onCancel() {	
+	$.modalItemPicker.close();	
+}
+
+/*
 init({
 	collection : new Backbone.Collection([{
 		id: 1,
@@ -78,6 +102,15 @@ init({
 		id: 3,
 		title: "object 3" 
 	}])
+});
+*/
+
+$.listWidget.on("itemSelected", function(args) {
+	var model = collection.get(args.id);
+    
+    $.trigger("itemSelected", model.toJSON());
+    
+    $.modalItemPicker.close();	
 });
 
 exports.open = open;

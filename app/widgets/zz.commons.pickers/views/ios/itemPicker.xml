@@ -1,0 +1,17 @@
+<Alloy>	
+	<Collection id="dataCollection" src="zzCommonsPickersModel" instance="true" />
+	<View>
+		<View backgroundColor="gray" opacity="0.3"></View>
+		<View layout="vertical" bottom="0dp" height="Ti.UI.SIZE">	
+			<Picker id="picker" selectionIndicator="true" width="Titanium.UI.FILL">
+				<PickerColumn dataCollection="$.dataCollection" dataFilter="doFilter" dataTransform="doTransform">
+                	<PickerRow title="{title}"/>
+                </PickerColumn>
+        	</Picker>	        
+	        <View width="Titanium.UI.FILL" height="Titanium.UI.SIZE" backgroundColor="white">
+				<Button title="Cancel" left="8dp" onClick="onCancel"></Button>
+				<Button title="Done" right="8dp" onClick="onDone"></Button>
+			</View>	        		
+		</View>				
+	</View>	
+</Alloy>

@@ -1,0 +1,8 @@
+<Alloy>
+	<Window class="container">				
+		<ActionBar onHomeIconItemSelected="onHomeIconItemSelected" />
+		<Menu>
+			<MenuItem id="saveAction" title="Save" onClick="onConfirm"></MenuItem>
+		</Menu>   	     		
+	</Window>
+</Alloy>

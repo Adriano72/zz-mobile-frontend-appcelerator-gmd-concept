@@ -52,6 +52,5 @@ function onCancel() {
 	}
 	
 	if (OS_ANDROID) {
-		$.datePicker.close();
 	}	
 }

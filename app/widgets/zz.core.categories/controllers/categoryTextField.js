@@ -6,6 +6,6 @@ function onSelectCategory(event) {
 	$.categoryPickerWidget.on("categorySelected", function(args) {		
 		$.trigger("categorySelected", args);	 
 		
-		$.categoryField.setValue( args.name );
+		$.categoryField.setValue( args.title );				
 	});	
 };

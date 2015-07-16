@@ -2,6 +2,11 @@
 	<Window class="container">				
 		<ActionBar onHomeIconItemSelected="onHomeIconItemSelected" />
 		<Menu>
+			<MenuItem showAsAction="Ti.Android.SHOW_AS_ACTION_ALWAYS">
+                <ActionView>
+                    <SearchView ns="Ti.UI.Android" hintText="Search" onChange="onChange"/>
+                </ActionView>
+            </MenuItem>			
 		</Menu>		
 		<Widget id="listWidget" src="zz.commons.lists" name="singleLineAvatarTextIcon"></Widget>   	     		
 	</Window>		

@@ -1,4 +1,7 @@
 <Alloy>
-	<View layout="vertical" height="Ti.UI.SIZE">      	           			        
+	<View layout="vertical" height="Ti.UI.SIZE"> 
+		
+		<Widget id="itemTextFieldWidget" src="zz.commons.textFields" name="itemTextField"/>
+		     	           			        
     </View>
 </Alloy>

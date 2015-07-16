@@ -1,2 +1,8 @@
 <Alloy>
+	<Collection id="dataCollection" src="zzCommonsPickersModel" instance="true" />
+	<Picker id="picker" selectionIndicator="true" width="Titanium.UI.FILL">
+		<PickerColumn dataCollection="$.dataCollection" dataFilter="doFilter" dataTransform="doTransform">
+        	<PickerRow title="{title}"/>
+        </PickerColumn>
+	</Picker>	
 </Alloy>

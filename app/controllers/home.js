@@ -55,23 +55,39 @@ $.widget.on("nextPage", function(args) {
 });
 
 function onAddFromScratch() {
-	
+			
 	var model = new Backbone.Model();	
 	
+	var postEditor = null;
 	if (OS_IOS) {
-	    var postEditor = Alloy.createController("postEditor", {
+	    postEditor = Alloy.createController("postEditor", {
 	    	model: model,
 	    	navigationWindow: $.navigationWindow
 	    }).getView();		
 		$.navigationWindow.openWindow(postEditor);
 	}
 	if (OS_ANDROID) {
-	    var postEditor = Alloy.createController("postEditor", {
+	    postEditor = Alloy.createController("postEditor", {
 	    	model: model    	
 	    }).getView();		
 		postEditor.open();
 	}	
-	
+		
+	postEditor.addEventListener("close", function() {
+		
+		ZZ.API.Core.Posts.list(function(posts){
+			Ti.API.info("ZZ.API.Core.Posts.list success [response : " + JSON.stringify(posts) + "]");
+			
+			collection.add(posts);
+			$.widget.init({
+				collection: collection
+			});		
+			
+		}, function(error){
+			Ti.API.error("ZZ.API.Core.Posts.list error [error : " + error + "]");
+		});			
+		
+	});
 };
 
 function onAddFromImages() {

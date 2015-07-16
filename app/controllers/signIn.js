@@ -12,8 +12,8 @@ function onClickLogin() {
 	};
 	
 	ZZ.API.Core.Session.logIn({
-		//username : "rnduser_1418911231967",
-		username : "mario.muggianu",
+		username : "rnduser_1418911231967",
+		//username : "mario.muggianu",
 		password : "password"
 	}, _coreSessionLogInCallback, function(error){
 		Ti.API.error("ZZ.API.Core.Session.logIn error [error : " + error + "]");

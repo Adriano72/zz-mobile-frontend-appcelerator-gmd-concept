@@ -1,8 +1,17 @@
 <Alloy>
 	<NavigationWindow>
 		<Window layout="vertical" backgroundColor="white">
-			<SearchBar id="searchBar" borderColor="#FFF" barColor="#FFF" hintText="Search" onChange="onChange" />							
-			<Widget id="listWidget" src="zz.commons.lists" name="singleLineAvatarTextIcon"></Widget>						
+		<!--Window layout="vertical" backgroundColor="white" barColor="white"-->
+			
+			<LeftNavButton>
+	        	<Button title="Cancel" onClick="onCancel" />
+	        </LeftNavButton>						
+			
+			<!--SearchBar id="searchBar" borderColor="white" barColor="white" hintText="Search" onChange="onChange" /-->
+			<SearchBar hintText="Search" onChange="onChange" />		
+			<View>					
+				<Widget id="listWidget" src="zz.commons.lists" name="singleLineAvatarTextIcon"></Widget>
+			</View>						
 		</Window>
-	</NavigationWindow>		
+	</NavigationWindow>
 </Alloy>

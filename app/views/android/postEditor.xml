@@ -5,8 +5,9 @@
 			<!--MenuItem id="editAction"></MenuItem-->
 		</Menu>        		
 
+		<!--
 		<Widget id="postEditorWidget" src="zz.core.posts" name="postEditor"/>			
-						
+	
 		<ScrollView layout="vertical">			
 																		
 			<Widget id="eventEditorWidget" src="zz.events" name="eventEditor"/>
@@ -20,6 +21,7 @@
 			<Widget id="noteEditorWidget" src="zz.notes" name="noteEditor"/>
 			
 		</ScrollView>		
-				
+		-->
+		
 	</Window>
 </Alloy>

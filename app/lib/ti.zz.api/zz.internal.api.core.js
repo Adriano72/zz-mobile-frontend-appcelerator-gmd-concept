@@ -1218,7 +1218,7 @@ zz.Internal.API.Core.Categories.list = function(successCallback, errorCallback) 
 		*/
 		
 		storedDataCategories = storedDatas.pop();
-		objs = objs.concat( JSON.parse(storedDataCategories.serialized_data) );		
+		//objs = objs.concat( JSON.parse(storedDataCategories.serialized_data) );		
 	}	
 	
 	var online = zzGlobals.ZZ.Internal.Globals.isOnline();
