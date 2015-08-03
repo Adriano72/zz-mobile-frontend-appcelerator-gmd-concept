@@ -31,7 +31,7 @@ function doTransform(model) {
 		title: object.title || "",
 		time: object.time || "",
 		subtitle: object.subtitle || "",
-		subsubtitle: object.subsubtitle || "",
+		subsubtitle: object.subsubtitle || ""
 	};	
 } 
 

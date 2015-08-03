@@ -12,6 +12,7 @@ function onClickLogin() {
 	};
 	
 	ZZ.API.Core.Session.logIn({
+		//username: "rnduser_1418923442021",
 		username : "rnduser_1418911231967",
 		//username : "mario.muggianu",
 		password : "password"

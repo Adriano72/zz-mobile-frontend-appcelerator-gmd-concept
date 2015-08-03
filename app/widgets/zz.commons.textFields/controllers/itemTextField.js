@@ -1,50 +1,53 @@
-var moment = require("alloy/moment");
+var value = null;
 
-if (OS_ANDROID) {
-
-	$.itemPickerWidget.init({
-		collection: new Backbone.Collection([
-			{title: "option 1"},
-			{title: "option 2"},
-			{title: "option 3"},
-			{title: "option 4"},
-			{title: "option 5"}
-		])
-	});
+(function constructor(args) {	
+	$.label.setText( args.labelTextId ? L(args.labelTextId) : args.labelText);
 	
-	/*
-	$.itemPickerWidget.on("itemSelected", function(args) {		
-		$.trigger("itemSelected", args);	 
+	if (OS_ANDROID) {		
 		
-		$.itemField.setValue( "item" );
-	});	
-	*/
-}
+		$.itemPickerWidget.on("itemSelected", function(args) {		
+			$.trigger("itemSelected", args);	 
+		});	
+
+	}	
+	
+	if (OS_IOS) {
+		
+		$.itemPickerWidget = Alloy.createWidget("zz.commons.pickers", "itemPicker");
+		
+		$.itemPickerWidget.on("itemSelected", function(args) {		
+				 
+			$.itemField.setValue(args.title);
+			
+			$.trigger("itemSelected", args);
+			//$.itemTextField.fireEvent("itemSelected", args);
+		});	
+	}	
+		
+})(arguments[0] || {});
+
+function init(args) {
+	value = args.value;
+	
+	if (OS_IOS) {
+		if (value) {
+			$.itemField.setValue(value.title);
+		}
+	}
+	
+	$.itemPickerWidget.init({
+		value: value,
+		collection: args.collection
+	});
+
+};
 
 function onSelectItem(event) {
 	
 	if (OS_IOS) {
-		$.itemPickerWidget = Alloy.createWidget("zz.commons.pickers", "itemPicker");
-
-		$.itemPickerWidget.init({
-			collection: new Backbone.Collection([
-				{title: "option 1"},
-				{title: "option 2"},
-				{title: "option 3"},
-				{title: "option 4"},
-				{title: "option 5"}
-			])
-		});
-
-		$.itemPickerWidget.open();
-		
-		$.itemPickerWidget.on("itemSelected", function(args) {		
-			$.trigger("itemSelected", args);	 
-			
-			$.itemField.setValue( "item" );
-		});	
-	
+		$.itemPickerWidget.open();	
 	}
-	
-	
+
 };
+
+exports.init = init;

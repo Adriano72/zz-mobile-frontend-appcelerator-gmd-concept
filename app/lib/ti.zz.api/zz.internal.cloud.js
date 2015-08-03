@@ -600,7 +600,7 @@ zz.Internal.Cloud.Files.Attachment.upload = function(user, blob, successCallback
 			errorCallback(error);		
 	};	
 	
-	_send(
+	_upload(
 		"POST",
 		url,
 		data,
@@ -658,7 +658,7 @@ var _send = function(method, url, json, successCallback, errorCallback) {
 	        // this.responseData holds any returned binary data
 
 			var json = JSON.parse(this.responseText);
-
+			
 			if (json == null)
 				successCallback();
 
@@ -725,5 +725,60 @@ var _download = function(url, successCallback, errorCallback) {
 	xhr.open("GET", url);
 	
 	xhr.send();
+	
+};
+
+var _upload = function(method, url, json, successCallback, errorCallback) {
+	Ti.API.trace("ZZ.Internal.Cloud._upload");
+	Ti.API.trace("ZZ.Internal.Cloud._upload [method : " + method + ", url : " + url + "]");
+
+	var xhr = Ti.Network.createHTTPClient({
+	    onload: function(e) {
+	    	Ti.API.trace("ZZ.Internal.Cloud._upload.onload");
+	    	//Ti.API.debug("ZZ.Internal.Cloud._sendPOST.onload [e : " + JSON.stringify(e) + "]");
+	    	
+			// this function is called when data is returned from the server and available for use
+	        // this.responseText holds the raw text return of the message (used for text/JSON)
+	        // this.responseXML holds any returned XML (including SOAP)
+	        // this.responseData holds any returned binary data
+
+			/*
+			var json = JSON.parse(this.responseText);
+			
+			if (json == null)
+				successCallback();
+
+	        else if (json.type.code == "SUCCESS" && successCallback != null)
+	        	successCallback(json.data);
+	        	
+	        else if (errorCallback != null)
+	        	errorCallback(json.type.description);
+	        */
+	       
+	       	successCallback();
+	    },
+	    onerror: function(e) {
+	    	Ti.API.trace("ZZ.Internal.Cloud._upload.onerror");
+	    	Ti.API.trace("ZZ.Internal.Cloud._upload.onerror [e : " + JSON.stringify(e) + "]");
+	    	
+			// this function is called when an error occurs, including a timeout
+			
+	       	if (errorCallback != null)
+	        	errorCallback(e.error);
+	    },
+	    timeout:15000  /* in milliseconds */
+	});
+	xhr.open(method, url);
+	
+	xhr.setRequestHeader('Content-Type','application/json');
+	
+	if (method == "POST" || method == "PUT") {
+		var data = JSON.stringify(json);
+		Ti.API.trace("ZZ.Internal.Cloud._upload [data : " + data + "]");		
+		
+		xhr.send(data);
+	} else {
+		xhr.send();
+	}
 	
 };

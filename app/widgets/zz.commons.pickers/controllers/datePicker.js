@@ -1,33 +1,31 @@
 var date = null;
 
-exports.open = function() {
+(function constructor(args) {	
+	date = args.date || new Date();	
+})(arguments[0] || {});
+
+exports.open = function(args) {
 		
+	date = args.date || new Date();
+	
 	if (OS_IOS) {
-		
-		/*		
-		$.datePicker.open();
 								
-		$.picker.addEventListener("change", function(e){
-			date = e.value;
-		});	
-		*/
-						
 		$.bottomSheetWidget = Alloy.createWidget("zz.commons.containers", "bottomSheet");
 		$.bottomSheetWidget.add($.datePicker);		
 		$.bottomSheetWidget.open();		
-								
+						
+		$.picker.setValue(date);		
 		$.picker.addEventListener("change", function(e){
 			date = e.value;
 		});		
 	}
 	if (OS_ANDROID) {
 		var picker = Ti.UI.createPicker({
-			type:Ti.UI.PICKER_TYPE_DATE,
-			value:new Date(),
+			type: Ti.UI.PICKER_TYPE_DATE
 		});
 		
 		picker.showDatePickerDialog({
-			//value: new Date(),
+			value: date,
 			callback: function(e) {
 		    	if (!e.cancel) {
 		      		$.trigger("dateSelected", e.value);

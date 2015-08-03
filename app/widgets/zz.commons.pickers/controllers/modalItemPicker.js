@@ -62,7 +62,8 @@ function init(args) {
 			//avatarMode: "icon",
 			title: object.title,
 			//icon: "stop",
-			//iconColor: "red"
+			//iconColor: "red",
+			order: object.order			
 		}); 
 	} );	
 	

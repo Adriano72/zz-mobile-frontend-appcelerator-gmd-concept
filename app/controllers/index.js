@@ -8,7 +8,7 @@ if ( Ti.App.Properties.getObject("user") ) {
 	};
 	
 	ZZ.API.Core.Session.logIn({
-		username : "rnduser_1418911231967", // "mario.muggianu", //"rnduser_1418911231967"
+		username : "rnduser_1418911231967", // "mario.muggianu", //"rnduser_1418911231967", //"rnduser_1418923442021"
 		password : "password",
 	}, _coreSessionLogInCallback, function(error){
 		Ti.API.error("ZZ.API.Core.Session.logIn error [error : " + error + "]");

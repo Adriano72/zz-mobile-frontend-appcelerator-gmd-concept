@@ -1,0 +1,26 @@
+<Alloy>
+	<Window class="container">		
+		<RightNavButton>
+        	<!--Button systemButton="Ti.UI.iPhone.SystemButton.COMPOSE" /-->
+        </RightNavButton>								
+			
+		<!--
+		<Widget id="postEditorWidget" src="zz.core.posts" name="postEditor"/>			
+						
+		<ScrollView layout="vertical">			
+																		
+			<Widget id="eventEditorWidget" src="zz.events" name="eventEditor"/>
+			
+			<Widget id="cashflowEditorWidget" src="zz.finance" name="cashflowEditor"/>		
+			
+			<Widget id="documentEditorWidget" src="zz.files" name="documentEditor"/>
+			
+			<Widget id="linkEditorWidget" src="zz.files" name="linkEditor"/>
+			
+			<Widget id="noteEditorWidget" src="zz.notes" name="noteEditor"/>
+			
+		</ScrollView>
+		-->
+		
+	</Window>
+</Alloy>

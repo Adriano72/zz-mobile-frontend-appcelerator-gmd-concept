@@ -1,2 +1,6 @@
 <Alloy>
+	<View>
+		<Label id="label"></Label>
+		<TextField id="textField" onChange="onSelectText" keyboardType="NUMBER_PAD"></TextField>
+	</View>	
 </Alloy>

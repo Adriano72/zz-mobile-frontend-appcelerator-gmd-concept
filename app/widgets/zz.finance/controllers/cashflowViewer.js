@@ -79,11 +79,11 @@ exports.init = function(args) {
 		operationTime: moment(new Date(object.data.dataOperazione)).format("hh:mm"),
 		valueDate: moment(new Date(object.data.dataValuta)).format("DD/MM/YY"),
 		valueTime: moment(new Date(object.data.dataValuta)).format("hh:mm"),
-		cashsource: object.data.fonteLiquidita.descrizioneBreve,
-		mode: object.data.modalitaPagamento.descrizioneBreve,
-		tool: object.data.strumentoPagamentoIncasso.descrizioneBreve,
-		status: object.data.statoMovimento.descrizioneBreve,
-		variability: object.data.tipoVariabilita.descrizioneBreve,
+		cashsource: (object.data.fonteLiquidita ? object.data.fonteLiquidita.descrizioneBreve : ""),
+		mode: (object.data.modalitaPagamento ? object.data.modalitaPagamento.descrizioneBreve : ""),
+		tool: (object.data.strumentoPagamentoIncasso ? object.data.strumentoPagamentoIncasso.descrizioneBreve : ""),
+		status: (object.data.statoMovimento ? object.data.statoMovimento.descrizioneBreve : ""),
+		variability: (object.data.tipoVariabilita ? object.data.tipoVariabilita.descrizioneBreve : ""),
 		tax: "".concat( (!object.data.flagDichiarazioneRedditi ? "Non " : ""),"Rilevante"),
 		extra: (object.data.flagOrdinarioStraordinario ? "Straordinario" : "Ordinario")
 	});

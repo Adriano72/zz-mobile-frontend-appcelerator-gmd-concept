@@ -1,6 +1,6 @@
 <Alloy>
 	<View layout="vertical">
-		<Label></Label>
+		<Label id="label"></Label>
 		<View layout="horizontal">
 			<TextField id="dateField" onFocus="onSelectDate" width="60%"></TextField>
 			<TextField id="timeField" onFocus="onSelectTime" width="30%"></TextField>

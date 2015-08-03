@@ -4,9 +4,7 @@ var categories = require( WPATH("categories") );
 var collection = new Backbone.Collection();
 
 exports.init = function(args) {	
-	
-	//collection.reset();
-	
+
 	args.collection.forEach( function(item) {
 		
 		var object = item.toJSON();
@@ -20,7 +18,8 @@ exports.init = function(args) {
 			title: object.name,
 			time: moment(new Date(object.referenceTime)).format("DD MMM"),
 			subtitle: object.category.name,
-			subsubtitle: ""
+			subsubtitle: "",
+			order: -(object.referenceTime)
 		}); 
 	} );	
 	

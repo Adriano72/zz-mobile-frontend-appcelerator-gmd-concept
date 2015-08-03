@@ -29,10 +29,8 @@ exports.init = function(args) {
 			
 			title = title.concat(
 				accounting.formatMoney(object.data.importo, { symbol: "EUR", decimal : ",", thousand : ".", precision : "2", format: "%v %s" }),
-				" - ", 
-				object.data.fonteLiquidita.descrizioneBreve,
-				" - ",
-				object.data.modalitaPagamento.codice
+				(object.data.fonteLiquidita ? " - " + object.data.fonteLiquidita.descrizioneBreve : ""),
+				(object.data.modalitaPagamento ? " - " + object.data.modalitaPagamento.codice : "")
 			);
 		} else if (type === "usc") {
 			icon = "arrow-down";//"caret-down";
@@ -40,20 +38,16 @@ exports.init = function(args) {
 			
 			title = title.concat(
 				accounting.formatMoney(-object.data.importo, { symbol: "EUR", decimal : ",", thousand : ".", precision : "2", format: "%v %s" }),
-				" - ", 
-				object.data.fonteLiquidita.descrizioneBreve,
-				" - ",
-				object.data.modalitaPagamento.codice
+				(object.data.fonteLiquidita ? " - " + object.data.fonteLiquidita.descrizioneBreve : ""),
+				(object.data.modalitaPagamento ? " - " + object.data.modalitaPagamento.codice : "")
 			);				
 		} else {
 			icon = "exchange";
 			
 			title = title.concat(
 				accounting.formatMoney(object.data.importo, { symbol: "EUR", decimal : ",", thousand : ".", precision : "2", format: "%v %s" }),
-				" - ", 
-				object.data.fonteLiquidita.descrizioneBreve,
-				" - ",
-				object.data.modalitaPagamento.codice
+				(object.data.fonteLiquidita ? " - " + object.data.fonteLiquidita.descrizioneBreve : ""),
+				(object.data.modalitaPagamento ? " - " + object.data.modalitaPagamento.codice : "")
 			);			
 		}
 		

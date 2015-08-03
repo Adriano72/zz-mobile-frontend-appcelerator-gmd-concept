@@ -10,7 +10,7 @@ if (OS_ANDROID) {
 		Ti.API.info(e.selectedValue);		
 		Ti.API.info(collection.at(e.rowIndex).toJSON());
 		
-		//date = e.value;
+		item = collection.at(e.rowIndex).toJSON();
 	});					
 }
 
@@ -21,7 +21,29 @@ exports.init = function(args) {
 	args.collection.forEach( function(item) {
 		var model = Widget.createModel("zzCommonsPickersModel", item.toJSON());
 		collection.add(model); 
-	} );	
+	} );
+	
+	item = args.value;	
+	
+	if (OS_ANDROID) {
+		
+		/*
+		if (!item) {
+			return;
+		}
+		
+		var row = -1;
+		collection.forEach( function(model, index){
+			if (model.get("id") == item.id) {
+				row = index;
+			}
+		} );
+		
+		$.picker.setSelectedRow(0, row);
+		*/
+		
+		selectItem();
+	}
 };
 
 exports.open = function() {
@@ -37,8 +59,25 @@ exports.open = function() {
 			Ti.API.info(e.selectedValue);
 			Ti.API.info(collection.at(e.rowIndex).toJSON());
 			
-			//date = e.value;
+			item = collection.at(e.rowIndex).toJSON();
 		});		
+		
+		/*
+		if (!item) {
+			return;
+		}
+		
+		var row = -1;
+		collection.forEach( function(model, index){
+			if (model.get("id") == item.id) {
+				row = index;
+			}
+		} );
+		
+		$.picker.setSelectedRow(0, row);
+		*/
+		
+		selectItem();		
 	}
 	
 };
@@ -46,6 +85,7 @@ exports.open = function() {
 function doTransform(model) {	
 	var object = model.toJSON();		
 	return {
+		id: object.id,
 		title: object.title 
 	};
 } 
@@ -56,7 +96,7 @@ function doFilter(collection) {
 
 function onDone() {
 	if (item) {
-		$.trigger("dateSelected", date);
+		$.trigger("itemSelected", item);
 	}
 	
 	onCancel();
@@ -68,5 +108,22 @@ function onCancel() {
 	}
 	
 	if (OS_ANDROID) {
+	}	
+}
+
+function selectItem() {
+	if (!item) {
+		return;
+	}
+	
+	var row = -1;
+	collection.forEach( function(model, index){
+		if (model.get("id") == item.id) {
+			row = index;
+		}
+	} );
+	
+	if (row != -1) {
+		$.picker.setSelectedRow(0, row);
 	}	
 }

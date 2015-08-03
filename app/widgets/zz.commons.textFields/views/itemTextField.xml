@@ -1,6 +1,6 @@
 <Alloy>
 	<View>
-		<Label></Label>
+		<Label id="label"></Label>
 		<TextField id="itemField" onFocus="onSelectItem"></TextField>
 	</View>			
 </Alloy>

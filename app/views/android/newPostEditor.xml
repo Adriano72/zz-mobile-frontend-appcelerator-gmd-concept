@@ -1,0 +1,27 @@
+<Alloy>
+	<Window class="container">				
+		<ActionBar id="actionBar" onHomeIconItemSelected="onHomeIconItemSelected" />
+		<Menu>
+			<!--MenuItem id="editAction"></MenuItem-->
+		</Menu>        		
+
+		<!--
+		<Widget id="postEditorWidget" src="zz.core.posts" name="postEditor"/>			
+	
+		<ScrollView layout="vertical">			
+																		
+			<Widget id="eventEditorWidget" src="zz.events" name="eventEditor"/>
+			
+			<Widget id="cashflowEditorWidget" src="zz.finance" name="cashflowEditor"/>		
+			
+			<Widget id="documentEditorWidget" src="zz.files" name="documentEditor"/>
+			
+			<Widget id="linkEditorWidget" src="zz.files" name="linkEditor"/>
+			
+			<Widget id="noteEditorWidget" src="zz.notes" name="noteEditor"/>
+			
+		</ScrollView>		
+		-->
+		
+	</Window>
+</Alloy>

@@ -1,15 +1,19 @@
 <Alloy>
 	<View layout="vertical" height="Ti.UI.SIZE">
 						
-		<Widget src="zz.commons.textFields" name="singleLineTextField"/>
+		<Widget id="titleTextFieldWidget" src="zz.commons.textFields" name="singleLineTextField" labelText="Titolo" />
 		
-		<Widget id="dateTextFieldWidget" src="zz.commons.textFields" name="dateTextField"/>
+		<Widget id="categoryTextFieldWidget" src="zz.core.categories" name="categoryTextField" labelTextId="category_label" />
 		
-		<Widget id="timeTextFieldWidget" src="zz.commons.textFields" name="timeTextField"/>
+		<!--Widget id="dateTextFieldWidget" src="zz.commons.textFields" name="dateTextField" labelText="Data" />
 		
-		<Widget id="dateTimeTextFieldWidget" src="zz.commons.textFields" name="dateTimeTextField"/>
+		<Widget id="timeTextFieldWidget" src="zz.commons.textFields" name="timeTextField" labelText="Ora"/>
 		
-		<Widget id="categoryTextFieldWidget" src="zz.core.categories" name="categoryTextField"/>
+		<Widget id="dateTimeTextFieldWidget" src="zz.commons.textFields" name="dateTimeTextField" labelText="Data e ora"/-->				
+		
+		<Widget id="startDateTimeTextFieldWidget" src="zz.commons.textFields" name="dateTimeTextField" labelText="Data e ora di inizio"/>
+		
+		<Widget id="endDateTimeTextFieldWidget" src="zz.commons.textFields" name="dateTimeTextField" labelText="Data e ora di fine"/>
 		
     </View>
 </Alloy>
