@@ -12,9 +12,12 @@
 	    		<Label class="secondLineText" text="{$.dataModel.subtitle}"/>  	    
 	    	</View>	
 			<View class="icon">						
-				<View class="iconBox" borderColor="{$.dataModel.iconColor}" backgroundColor="{$.dataModel.iconColor}">
+				<!--View class="iconBox" borderColor="{$.dataModel.iconColor}" backgroundColor="{$.dataModel.iconColor}">
 	    			<Label class="iconImage" text="{$.dataModel.icon}" />
-	    		</View>	    							
+	    		</View-->
+	    		<View class="iconBox" borderColor="{$.dataModel.iconColor}">
+	    			<Label class="iconImage" text="{$.dataModel.icon}" color="{$.dataModel.iconColor}"/>
+	    		</View>
 	    	</View>	   	
 	    </View>	   
 	    <View class="marginator" /> 

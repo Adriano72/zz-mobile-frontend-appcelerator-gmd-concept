@@ -17,26 +17,35 @@ var model = null;
 		model.set("category", args);	 
 	});
 					
-	//Ti.Media.showCamera({
-	Ti.Media.openPhotoGallery({
+	Ti.Media.showCamera({
+	//Ti.Media.openPhotoGallery({
 				
 		autohide: true,
-		//saveToPhotoGallery: true		
+		saveToPhotoGallery: true,		
 		
 		success: function(event) {
 			if (event.mediaType == Ti.Media.MEDIA_TYPE_PHOTO) {
 				
 				$.imageView.setImage(event.media);
 				
-				var blob = event.media;
+				var blob = event.media;				
+				var file = blob.file;
+				
+				var fileName = (
+					file && file.getName() ? 
+					file.getName() : 
+					"".concat("media_", new Date().getTime(), ".", (blob.getMimeType().split("/")[1]).toLowerCase())
+				);			
+				var mimeType = blob.getMimeType();				
+				var size = blob.length; //(file ? file.getSize() : blob.getSize());
 				
 				var data = model.get("data") || {};
 				data = _.extend(data, {
-                	title : "",                       	
-                	name : "",
-                	description : "",
-            		format : {mimeType : blob.getMimeType()},
-            		size : blob.size, //blob.getSize(),
+                	title : fileName,                       	
+                	name : fileName,
+                	description : fileName,
+            		format : {mimeType : mimeType},
+            		size : size,
             		timestamp : new Date().getTime()
 				});
 				model.set("data", data);				
