@@ -34,18 +34,18 @@
 				}			
 			}	
 			
-			var aspectEditor = Alloy.createController("aspectEditor", {
+			var newAspectEditor = Alloy.createController("newAspectEditor", {
 				model: aspectModel,    	
 			}).getView();
 			
 			if (OS_IOS) {
-				navigationWindow.openWindow(aspectEditor);
+				navigationWindow.openWindow(newAspectEditor);
 			}
 			if (OS_ANDROID) {
-				aspectEditor.open();
+				newAspectEditor.open();
 			}		
 			
-			aspectEditor.addEventListener("confirm", function(args) {
+			newAspectEditor.addEventListener("confirm", function(args) {
 				
 				var blob = args.blob;
 				
@@ -72,7 +72,7 @@
 							
 							$.newPostEditor.fireEvent("created", response);
 							
-							aspectEditor.close();
+							newAspectEditor.close();
 							$.newPostEditor.close();														
 							
 						}, function(error){

@@ -1,0 +1,15 @@
+<Alloy>
+	<View layout="vertical" height="Ti.UI.SIZE"> 
+		
+		<Widget id="typeTextFieldWidget" src="zz.commons.textFields" name="itemTextField" labelText="Tipo movimento"/>
+		
+		<Widget id="amountTextFieldWidget" src="zz.commons.textFields" name="currencyTextField" labelText="Importo" />
+		
+		<Widget id="titleTextFieldWidget" src="zz.commons.textFields" name="singleLineTextField" labelText="Titolo" />
+		
+		<Widget id="categoryTextFieldWidget" src="zz.core.categories" name="categoryTextField" labelTextId="category_label" />
+		
+		<Widget id="operationDateTextFieldWidget" src="zz.commons.textFields" name="dateTextField" labelText="Data operazione" />	
+		     	           			        
+    </View>
+</Alloy>

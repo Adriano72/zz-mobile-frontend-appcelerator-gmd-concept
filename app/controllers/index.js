@@ -2,9 +2,9 @@
 if ( Ti.App.Properties.getObject("user") ) {
 	
 	var _coreSessionLogInCallback = function(user){
-		Ti.API.info("ZZ.API.Core.Session.logIn success [user : " + JSON.stringify(user) + "]");
+		Ti.API.info("ZZ.API.Core.Session.logIn success [user : " + JSON.stringify(user) + "]");		
 		
-		Alloy.createController("home").getView().open();		
+		Alloy.createController("home").getView().open();			
 	};
 	
 	ZZ.API.Core.Session.logIn({

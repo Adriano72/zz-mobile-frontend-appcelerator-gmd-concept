@@ -1,19 +1,27 @@
 ".container": {
-	title: "SignIn"
+	title: "",
+	theme: "Theme.CustomMaterialTheme.NoActionBar"
 },
 ".formView": {
 	layout: "vertical",
 	top: "30%"
 },
 ".usernameTextField": {
-	hintText: "username",
-	width: "50%"
+	width: "70%",
+	hintText: "username"	
 },
 ".passwordTextField": {	
+	width: "70%",
 	hintText: "password",
-	passwordMask: true,
-	width: "50%"
+	passwordMask: true
+},
+".rememberMeButton": {
+	left: "0dp",
+	width: Titanium.UI.SIZE,
+	value: true
 },
 ".loginButton": {
+	right: "0dp",
+	width: Titanium.UI.SIZE,
 	title: "Login"
 }

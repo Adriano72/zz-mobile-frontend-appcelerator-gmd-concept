@@ -57,21 +57,22 @@ $.widget.on("nextPage", function(args) {
 
 function onAddFromScratch() {
 	
+	//$.bottomSheetWidget = Alloy.createWidget("zz.commons.containers", "bottomSheet");
+	//$.bottomSheetWidget.getView().open();
+	
 	var newPostEditor = null;
 	if (OS_IOS) {
 	    newPostEditor = Alloy.createController("newPostEditor", {
 	    	//kind: "EVENTDATATYPE_CODE"
-	    	//kind: "CASHFLOWDATATYPE_CODE",
-	    	kind: "FILEDOCUMENTDATATYPE_CODE",
+	    	kind: "CASHFLOWDATATYPE_CODE",
 	    	navigationWindow: $.navigationWindow
 	    }).getView();		
 		$.navigationWindow.openWindow(newPostEditor);
 	}
 	if (OS_ANDROID) {
 	    newPostEditor = Alloy.createController("newPostEditor", {  
-	    	//kind: "EVENTDATATYPE_CODE"
-	    	//kind: "CASHFLOWDATATYPE_CODE" ,
-	    	kind: "FILEDOCUMENTDATATYPE_CODE",	
+	    	//kind: "EVENTDATATYPE_CODE",
+	    	kind: "CASHFLOWDATATYPE_CODE"
 	    }).getView();		
 		newPostEditor.open();
 	}	
@@ -90,7 +91,29 @@ function onAddFromScratch() {
 
 function onAddFromImages() {
 	
-	$.bottomSheetWidget = Alloy.createWidget("zz.commons.containers", "bottomSheet");
-	$.bottomSheetWidget.getView().open();
+	var newPostEditor = null;
+	if (OS_IOS) {
+	    newPostEditor = Alloy.createController("newPostEditor", {
+	    	kind: "FILEDOCUMENTDATATYPE_CODE",
+	    	navigationWindow: $.navigationWindow
+	    }).getView();		
+		$.navigationWindow.openWindow(newPostEditor);
+	}
+	if (OS_ANDROID) {
+	    newPostEditor = Alloy.createController("newPostEditor", {  
+	    	kind: "FILEDOCUMENTDATATYPE_CODE"
+	    }).getView();		
+		newPostEditor.open();
+	}	
+		
+	newPostEditor.addEventListener("created", function(post) {
+
+		collection.add(post);
+		
+		$.widget.init({
+			collection: collection
+		});			
+		
+	});	
 		
 };

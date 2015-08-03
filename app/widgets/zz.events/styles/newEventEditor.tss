@@ -1,0 +1,9 @@
+".separator": {
+	width: Ti.UI.FILL,
+	height: "0.5dp",
+	borderColor: "lightgray"
+},
+".marginator": {
+	width: Ti.UI.FILL,
+	height: "8dp"
+}

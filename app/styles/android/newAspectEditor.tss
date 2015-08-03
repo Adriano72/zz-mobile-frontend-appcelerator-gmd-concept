@@ -1,0 +1,16 @@
+".container": {
+    title: "",
+	layout: "vertical",
+	theme: "Theme.CustomMaterialTheme.WhiteActionBar"
+},
+"ActionBar": {
+	title: "Aspect",
+	displayHomeAsUp: true
+	
+},
+"MenuItem": {
+    showAsAction: Ti.Android.SHOW_AS_ACTION_ALWAYS
+},
+"#saveAction": {
+    icon: Ti.Android.R.drawable.ic_menu_save
+}
