@@ -4,6 +4,14 @@ var colors = require( WPATH("colors") );
 var collection = $.dataCollection; //Widget.Collections.instance("zzCommonsListsModel");
 collection.reset();
 
+(function constructor(args) {			
+	
+	if (args.separator == false) {
+		$.listView.setSeparatorColor("white");
+	}
+		
+})(arguments[0] || {});
+
 exports.init = function(args) {
 	
 	collection.reset();

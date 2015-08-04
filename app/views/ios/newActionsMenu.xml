@@ -4,6 +4,6 @@
         	<Label class="headerLabel"></Label>
 			<Button class="headerCancelAction" onClick="onCancel"></Button>			
 		</View>		
-		<Widget id="widget" src="zz.commons.lists" name="singleLineAvatarTextIcon"></Widget>
+		<Widget id="widget" src="zz.commons.lists" name="singleLineAvatarTextIcon" separator="false"></Widget>
 	</View>
 </Alloy>

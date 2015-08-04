@@ -3,6 +3,6 @@
         <View class="headerView">
         	<Label class="headerLabel"></Label>	
 		</View>		
-		<Widget id="widget" src="zz.commons.lists" name="singleLineAvatarTextIcon"></Widget>
+		<Widget id="widget" src="zz.commons.lists" name="singleLineAvatarTextIcon" separator="false"></Widget>
 	</View>
 </Alloy>

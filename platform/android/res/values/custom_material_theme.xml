@@ -22,7 +22,10 @@
 		<item name="android:textColorPrimary">#FFF</item>
     	<item name="android:textColorPrimaryInverse">#FFF</item>	
     	
-    	<item name="android:editTextStyle">@style/Theme.CustomMaterialTheme.EditTextStyle</item>     	        
+    	<item name="android:editTextStyle">@style/Theme.CustomMaterialTheme.EditTextStyle</item>   
+    	
+    	<!--item name="android:homeAsUpIndicator">@drawable/ic_done_black</item> 
+    	<item name="homeAsUpIndicator">@drawable/ic_done_black</item-->   	  	        
 	</style>
 	
 	<style name="Theme.CustomMaterialTheme.NoActionBar" parent="@style/Theme.CustomMaterialTheme">
