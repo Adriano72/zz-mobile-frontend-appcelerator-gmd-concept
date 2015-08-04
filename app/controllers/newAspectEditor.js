@@ -8,23 +8,23 @@ var blob = null;
 	
 		var kind = model.get("kind").code;
 		if (kind.toLowerCase() === "EVENTDATATYPE_CODE".toLowerCase()) {
-			$.widget = Alloy.createWidget("zz.events", "newEventEditor", {model: model});
+			$.widget = Alloy.createWidget("zz.events", "newEventEditor", {model: model, options: args.options});
 			
 		} else if (kind.toLowerCase() === "CASHFLOWDATATYPE_CODE".toLowerCase()) {
-			$.widget = Alloy.createWidget("zz.finance", "newCashflowEditor", {model: model});
+			$.widget = Alloy.createWidget("zz.finance", "newCashflowEditor", {model: model, options: args.options});
 			
 		} else if (kind.toLowerCase() === "FILEDOCUMENTDATATYPE_CODE".toLowerCase()) {
-			$.widget = Alloy.createWidget("zz.files", "newDocumentEditor", {model: model});
+			$.widget = Alloy.createWidget("zz.files", "newDocumentEditor", {model: model, options: args.options});
 			
 			$.widget.on("mediaSelected", function(args) {					
 				blob = args.blob; 
 			});		
 			
 		} else if (kind.toLowerCase() === "FILELINKDATATYPE_CODE".toLowerCase()) {
-			$.widget = Alloy.createWidget("zz.files", "newLinkEditor", {model: model});
+			$.widget = Alloy.createWidget("zz.files", "newLinkEditor", {model: model, options: args.options});
 			
 		} else if (kind.toLowerCase() === "NOTEDATATYPE_CODE".toLowerCase()) {
-			$.widget = Alloy.createWidget("zz.notes", "newNoteEditor", {model: model});
+			$.widget = Alloy.createWidget("zz.notes", "newNoteEditor", {model: model, options: args.options});
 			
 		}
 		$.newAspectEditor.add($.widget.getView());	

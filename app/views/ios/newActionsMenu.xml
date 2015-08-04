@@ -1,0 +1,9 @@
+<Alloy>
+	<View class="container">
+        <View class="headerView">
+        	<Label class="headerLabel"></Label>
+			<Button class="headerCancelAction" onClick="onCancel"></Button>			
+		</View>		
+		<Widget id="widget" src="zz.commons.lists" name="singleLineAvatarTextIcon"></Widget>
+	</View>
+</Alloy>

@@ -17,7 +17,11 @@ var model = null;
 		model.set("category", args);	 
 	});
 		
-	showGallery();
+	if (args.options && args.options.mode == "camera") {	
+		showCamera()
+	} else {
+		showGallery();
+	}
 		
 })(arguments[0] || {});
 

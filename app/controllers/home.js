@@ -57,40 +57,53 @@ $.widget.on("nextPage", function(args) {
 
 function onAddFromScratch() {
 	
-	//$.bottomSheetWidget = Alloy.createWidget("zz.commons.containers", "bottomSheet");
-	//$.bottomSheetWidget.getView().open();
+	$.bottomSheetWidget = Alloy.createWidget("zz.commons.containers", "bottomSheet");
+	$.bottomSheetWidget.open();
 	
-	var newPostEditor = null;
-	if (OS_IOS) {
-	    newPostEditor = Alloy.createController("newPostEditor", {
-	    	//kind: "EVENTDATATYPE_CODE"
-	    	//kind: "CASHFLOWDATATYPE_CODE",
-	    	kind: "FILELINKDATATYPE_CODE",
-	    	//kind: "NOTEDATATYPE_CODE",
-	    	navigationWindow: $.navigationWindow
-	    }).getView();		
-		$.navigationWindow.openWindow(newPostEditor);
-	}
-	if (OS_ANDROID) {
-	    newPostEditor = Alloy.createController("newPostEditor", {  
-	    	//kind: "EVENTDATATYPE_CODE",
-	    	//kind: "CASHFLOWDATATYPE_CODE"
-	    	kind: "FILELINKDATATYPE_CODE"
-	    	//kind: "NOTEDATATYPE_CODE"
-	    }).getView();		
-		newPostEditor.open();
-	}	
-		
-	newPostEditor.addEventListener("created", function(post) {
-
-		collection.add(post);
-		
-		$.widget.init({
-			collection: collection
-		});			
-		
+	var newActionsMenu = Alloy.createController("newActionsMenu");
+	$.bottomSheetWidget.add( newActionsMenu.getView() );
+	
+	newActionsMenu.on("cancel", function(){
+		$.bottomSheetWidget.close();
 	});
 	
+	newActionsMenu.on("itemSelected", function(args){
+		
+		var newPostEditor = null;
+		if (OS_IOS) {
+		    newPostEditor = Alloy.createController("newPostEditor", {
+		    	//kind: "EVENTDATATYPE_CODE"
+		    	//kind: "CASHFLOWDATATYPE_CODE",
+		    	//kind: "FILELINKDATATYPE_CODE",
+		    	//kind: "NOTEDATATYPE_CODE",
+		    	kind: args.id,
+		    	navigationWindow: $.navigationWindow
+		    }).getView();		
+			$.navigationWindow.openWindow(newPostEditor);
+		}
+		if (OS_ANDROID) {
+		    newPostEditor = Alloy.createController("newPostEditor", {  
+		    	//kind: "EVENTDATATYPE_CODE",
+		    	//kind: "CASHFLOWDATATYPE_CODE"
+		    	//kind: "FILELINKDATATYPE_CODE"
+		    	//kind: "NOTEDATATYPE_CODE"
+		    	kind: args.id
+		    }).getView();		
+			newPostEditor.open();
+		}	
+			
+		newPostEditor.addEventListener("created", function(post) {
+	
+			collection.add(post);
+			
+			$.widget.init({
+				collection: collection
+			});			
+			
+		});
+		
+		$.bottomSheetWidget.close();
+	});	
 };
 
 function onAddFromImages() {
@@ -98,14 +111,20 @@ function onAddFromImages() {
 	var newPostEditor = null;
 	if (OS_IOS) {
 	    newPostEditor = Alloy.createController("newPostEditor", {
-	    	kind: "FILEDOCUMENTDATATYPE_CODE",
-	    	navigationWindow: $.navigationWindow
+	    	kind: "FILEDOCUMENTDATATYPE_CODE",	    	
+	    	navigationWindow: $.navigationWindow,
+	    	options: {
+	    		mode: "camera"
+	    	}
 	    }).getView();		
 		$.navigationWindow.openWindow(newPostEditor);
 	}
 	if (OS_ANDROID) {
 	    newPostEditor = Alloy.createController("newPostEditor", {  
-	    	kind: "FILEDOCUMENTDATATYPE_CODE"
+	    	kind: "FILEDOCUMENTDATATYPE_CODE",
+	    	options: {
+	    		mode: "camera"
+	    	}
 	    }).getView();		
 		newPostEditor.open();
 	}	

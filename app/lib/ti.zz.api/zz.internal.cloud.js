@@ -753,7 +753,7 @@ var _download = function(url, successCallback, errorCallback) {
 	       	if (errorCallback != null)
 	        	errorCallback(e.error);
 	    },
-	    timeout:15000  /* in milliseconds */
+	    timeout: 15000  /* in milliseconds */
 	});
 	xhr.open("GET", url);
 	
@@ -799,7 +799,7 @@ var _upload = function(method, url, json, successCallback, errorCallback) {
 	       	if (errorCallback != null)
 	        	errorCallback(e.error);
 	    },
-	    timeout:15000  /* in milliseconds */
+	    timeout: 30000  /* in milliseconds */
 	});
 	xhr.open(method, url);
 	

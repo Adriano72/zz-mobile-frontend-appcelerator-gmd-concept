@@ -1,0 +1,20 @@
+".container": {	
+	height: Ti.UI.SIZE,
+	layout: "vertical",
+	backgroundColor: "white"
+},
+".headerView": {
+	width: Ti.UI.FILL,
+	height: Ti.UI.SIZE	
+},
+".headerLabel": {
+	top: "8dp",
+	left: "8dp",
+	text: "Insert",
+    color: "gray"	
+},
+".headerCancelAction": {
+	top: "8dp",
+	right: "8dp",
+	title: "Cancel" 
+}

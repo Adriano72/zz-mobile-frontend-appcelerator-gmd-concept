@@ -3,7 +3,7 @@
 },
 "ActionBar": {
 	title: "Diary",
-	subtitle: "My Timeline",
+	//subtitle: "My Timeline",
 	displayHomeAsUp: false
 },
 "MenuItem": {

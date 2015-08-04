@@ -35,7 +35,8 @@
 			}	
 			
 			var newAspectEditor = Alloy.createController("newAspectEditor", {
-				model: aspectModel,    	
+				model: aspectModel, 
+				options: args.options   	
 			}).getView();
 			
 			if (OS_IOS) {
