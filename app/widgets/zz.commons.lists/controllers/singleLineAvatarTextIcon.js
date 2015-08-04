@@ -5,11 +5,9 @@ var collection = $.dataCollection; //Widget.Collections.instance("zzCommonsLists
 collection.reset();
 
 (function constructor(args) {			
-	
-	if (args.separator == false) {
+	if (args.separator == "false") {
 		$.listView.setSeparatorColor("white");
-	}
-		
+	}		
 })(arguments[0] || {});
 
 exports.init = function(args) {
