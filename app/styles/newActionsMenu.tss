@@ -10,8 +10,12 @@
 ".headerLabel": {
 	top: "8dp",
 	left: "8dp",
-	text: "Insert",
-    color: "gray"	
+	text: "Insert", //"\uf26b"
+    color: "gray",
+    /*font: {
+    	//fontSize: "18dp",
+        fontFamily: "MaterialDesignIconicFont",
+    }*/
 },
 ".headerCancelAction": {
 	top: "8dp",

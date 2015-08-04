@@ -51,7 +51,8 @@ function init(args) {
 	collection = args.collection;
 	
 	widgetCollection.reset();	
-	args.collection.forEach( function(item) {
+	/*
+	collection.forEach( function(item) {
 		
 		var object = item.toJSON();		
 				
@@ -66,7 +67,25 @@ function init(args) {
 			order: object.order			
 		}); 
 	} );	
-	
+	*/
+	widgetCollection.add(
+		collection.map( function(item) {
+			
+			var object = item.toJSON();		
+					
+			return {
+				id: object.id,
+				avatar: object.avatar,
+				avatarColor: object.avatarColor,
+				//avatarMode: "icon",
+				title: object.title,
+				//icon: "stop",
+				//iconColor: "red",
+				order: object.order			
+			}; 
+		} )
+	);
+		
 	$.listWidget.init({collection: widgetCollection});	
 };
 

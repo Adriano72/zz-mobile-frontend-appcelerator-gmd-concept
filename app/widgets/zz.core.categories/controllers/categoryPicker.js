@@ -13,6 +13,7 @@ var collection = null;
 		
 		var tmp = new Backbone.Collection();
 
+		/*
 		_.each(objs, function(item){		
 			var categoryRootCode = item.code.substring(0, 2);
 	
@@ -24,6 +25,20 @@ var collection = null;
 				order: item.name
 			});
 		});
+		*/
+		tmp.add( 
+			_.map(objs, function(item){		
+				var categoryRootCode = item.code.substring(0, 2);
+		
+				return {
+					id: item.id,
+					title: item.name,
+					avatar: categories.iconMap[categoryRootCode],
+					avatarColor: categories.colorMap[categoryRootCode],
+					order: item.name
+				};
+			})
+		);
 		
 		$.modalItemPickerWidget.init({
 			collection: tmp

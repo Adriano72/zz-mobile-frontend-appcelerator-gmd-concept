@@ -1,6 +1,7 @@
 ".container": {
     title: "",
-	layout: "vertical"
+	layout: "vertical",
+	theme: "Theme.CustomMaterialTheme.WhiteActionBar"
 },
 "ActionBar": {
 	title: "Edit Post",

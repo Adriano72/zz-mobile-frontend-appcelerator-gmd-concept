@@ -8,10 +8,17 @@ exports.init = function(args) {
 	
 	collection.reset();
 	
-	args.collection.forEach( function(item) {
+	/*
+	args.collection.forEach( function(item, index) {
 		var model = Widget.createModel("zzCommonsListsModel", item.toJSON());
-		collection.add(model); 
-	} );	
+		collection.add(model);
+		
+		Ti.API.info(index + "/" + args.collection.length);
+	} );
+	*/	
+	collection.add(
+		args.collection.models
+	);
 };
 
 exports.searchText = function(text) {	
