@@ -28,4 +28,11 @@ exports.init = function(args) {
 		description: object.description
 	});
 
+	ZZ.API.Files.Links.metadata(object.data.content.remote,
+		function(response){
+			$.imageView.setImage(response.imageUrl);
+		}, function(error){
+			
+		}
+	);
 };

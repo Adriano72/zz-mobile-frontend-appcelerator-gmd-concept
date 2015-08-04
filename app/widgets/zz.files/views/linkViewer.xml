@@ -38,7 +38,9 @@
 	    	<Label class="textContent" text="{$.dataModel.description}" />						    	           		
 	    </View>
 	    <View class="marginator" /> 
-	    <View class="separator" />	    
-	    <WebView url="{$.dataModel.url}" />	    	    	  	    	           			        
+	    <!--View class="separator" /-->	
+	        
+	    <!--WebView url="{$.dataModel.url}" /-->	    
+	    <ImageView id="imageView" width="Titanium.UI.FILL"  />	    	    	  	    	           			        
     </View>
 </Alloy>

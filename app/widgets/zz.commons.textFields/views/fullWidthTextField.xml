@@ -1,0 +1,5 @@
+<Alloy>
+	<View>
+		<TextArea id="textField" onChange="onSelectText"></TextArea>
+	</View>
+</Alloy>

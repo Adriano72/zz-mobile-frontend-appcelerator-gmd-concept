@@ -1,8 +1,8 @@
 <Alloy>
 	<Window class="container">
 		<View class="formView">
-			<TextField class="usernameTextField" />
-			<TextField class="passwordTextField" />			
+			<TextField id="usernameTextField" class="usernameTextField" />
+			<TextField id="passwordTextField" class="passwordTextField" />			
 			<View width="70%" height="Titanium.UI.SIZE">
 				<Switch class="rememberMeButton" />
 				<Button class="loginButton" onClick="onClickLogin"></Button>

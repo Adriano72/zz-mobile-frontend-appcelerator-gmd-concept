@@ -21,10 +21,10 @@ var blob = null;
 			});		
 			
 		} else if (kind.toLowerCase() === "FILELINKDATATYPE_CODE".toLowerCase()) {
-			$.widget = Alloy.createWidget("zz.files", "linkEditor", {model: model});
+			$.widget = Alloy.createWidget("zz.files", "newLinkEditor", {model: model});
 			
 		} else if (kind.toLowerCase() === "NOTEDATATYPE_CODE".toLowerCase()) {
-			$.widget = Alloy.createWidget("zz.notes", "noteEditor", {model: model});
+			$.widget = Alloy.createWidget("zz.notes", "newNoteEditor", {model: model});
 			
 		}
 		$.newAspectEditor.add($.widget.getView());	

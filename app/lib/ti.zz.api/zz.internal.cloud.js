@@ -27,7 +27,8 @@ var zz = {
 				CashflowCurrencies : {}				
 			},
 			Files : {
-				Attachment : {}
+				Attachment : {},
+				Links : {}
 			}
 		}
 	}
@@ -640,6 +641,37 @@ zz.Internal.Cloud.Files.Attachment.download = function(user, aspect, successCall
 
 };
 
+zz.Internal.Cloud.Files.Links.metadata = function(url, successCallback, errorCallback) {
+	Ti.API.debug("ZZ.Internal.Cloud.Files.Links.metadata");
+	Ti.API.debug("ZZ.Internal.Cloud.Files.Links.metadata [url : " + url+ "]");
+	
+	var url = zzConfig.ZZ.Config.Cloud.baseURL + "/files/links/metadata" + "?url=" + encodeURIComponent(url);
+
+	var _sendSuccessCallback = function(data) {
+		Ti.API.debug("ZZ.Internal.Cloud.Files.Links.metadata._sendSuccessCallback");
+		Ti.API.debug("ZZ.Internal.Cloud.Files.Links.metadata._sendSuccessCallback [data : " + data + "]");	
+		
+		if (successCallback != null)
+			successCallback(data);
+	};
+	var _sendErrorCallback = function(error) {
+		Ti.API.debug("ZZ.Internal.Cloud.Files.Links.metadata._sendErrorCallback");
+		Ti.API.debug("ZZ.Internal.Cloud.Files.Links.metadata._sendErrorCallback [error : " + error + "]");
+		
+		if (errorCallback != null)
+			errorCallback(error);		
+	};	
+	
+	_send(
+		"GET",
+		url,
+		null,
+		_sendSuccessCallback,
+		_sendErrorCallback
+	);
+
+};
+
 exports.ZZ = zz;
 exports.version = 0.2;
 
@@ -681,6 +713,7 @@ var _send = function(method, url, json, successCallback, errorCallback) {
 	});
 	xhr.open(method, url);
 	
+	xhr.setRequestHeader('Accept','application/json');
 	xhr.setRequestHeader('Content-Type','application/json');
 	
 	if (method == "POST" || method == "PUT") {

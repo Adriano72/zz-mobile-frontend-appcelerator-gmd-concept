@@ -22,7 +22,7 @@
 	right: "8dp",
 	//width: Ti.UI.FILL,
 	height: Ti.UI.SIZE,
-	hintText: "Text",
+	hintText: "",
 	font: {
 		fontSize: "16dp"
 	}

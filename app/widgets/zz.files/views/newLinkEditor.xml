@@ -1,0 +1,15 @@
+<Alloy>
+	<View layout="vertical" height="Ti.UI.SIZE">  
+		
+		<Widget id="titleTextFieldWidget" src="zz.commons.textFields" name="singleLineTextField" labelText="Titolo" />
+		
+		<Widget id="categoryTextFieldWidget" src="zz.core.categories" name="categoryTextField" labelTextId="category_label" />			
+		    		    		    	           			        
+		<Widget id="urlTextFieldWidget" src="zz.commons.textFields" name="singleLineTextField" labelText="Url" />
+		
+		<View class="marginator" /> 
+	    <!--View class="separator" /-->		    	  
+		    	       	
+    	<ImageView id="imageView" width="Titanium.UI.FILL"  />	
+    </View>
+</Alloy>

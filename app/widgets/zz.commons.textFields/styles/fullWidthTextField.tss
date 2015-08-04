@@ -1,0 +1,20 @@
+"View" : {
+	layout: "vertical",
+	width: Ti.UI.FILL
+},
+"TextArea" : {
+	top: "0dp",
+	bottom: "8dp",
+	left: "8dp",
+	right: "8dp",
+	width: Ti.UI.FILL,
+	height: Ti.UI.FILL,
+	hintText: "Insert text",
+	value: "Insert text",
+	font: {
+		fontSize: "16dp"
+	}
+},
+"TextArea[platform=ios]" : {
+	top: "8dp"
+}

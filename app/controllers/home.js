@@ -64,7 +64,9 @@ function onAddFromScratch() {
 	if (OS_IOS) {
 	    newPostEditor = Alloy.createController("newPostEditor", {
 	    	//kind: "EVENTDATATYPE_CODE"
-	    	kind: "CASHFLOWDATATYPE_CODE",
+	    	//kind: "CASHFLOWDATATYPE_CODE",
+	    	kind: "FILELINKDATATYPE_CODE",
+	    	//kind: "NOTEDATATYPE_CODE",
 	    	navigationWindow: $.navigationWindow
 	    }).getView();		
 		$.navigationWindow.openWindow(newPostEditor);
@@ -72,7 +74,9 @@ function onAddFromScratch() {
 	if (OS_ANDROID) {
 	    newPostEditor = Alloy.createController("newPostEditor", {  
 	    	//kind: "EVENTDATATYPE_CODE",
-	    	kind: "CASHFLOWDATATYPE_CODE"
+	    	//kind: "CASHFLOWDATATYPE_CODE"
+	    	kind: "FILELINKDATATYPE_CODE"
+	    	//kind: "NOTEDATATYPE_CODE"
 	    }).getView();		
 		newPostEditor.open();
 	}	
