@@ -94,7 +94,7 @@ zz.Internal.API.Core.Session.logIn = function(user, successCallback, errorCallba
 			Ti.API.debug("ZZ.Internal.API.Core.Session.logIn._logInErrorCallback [error : " + JSON.stringify(error) + "]");
 			
 			var errorMessage = "ZZ.Internal.API.Core.Session.logIn unable to perform login due to : " + error;
-			_manageError({errorMessage : errorMessage});	
+			_manageError({errorMessage : errorMessage}, errorCallback);	
 					
 		};		
 		
@@ -165,7 +165,7 @@ zz.Internal.API.Core.Session.logIn = function(user, successCallback, errorCallba
 /* ---------- *** ---------- */
 
 zz.Internal.API.Core.Session.logOut = function(successCallback, errorCallback) {
-	Ti.API.debug("ZZ.Internal.API.Core.Session.logIn");
+	Ti.API.debug("ZZ.Internal.API.Core.Session.logOut");
 	
 	throw "Not yet implemented";
 };
@@ -234,7 +234,7 @@ zz.Internal.API.Core.Posts.list = function(successCallback, errorCallback, optio
 		*/
 		
 		storedDataPosts = storedDatas.pop();		
-		//objs = objs.concat( JSON.parse(storedDataPosts.serialized_data) );		
+		objs = objs.concat( JSON.parse(storedDataPosts.serialized_data) );		
 	}	
 	Ti.API.debug("ZZ.Internal.API.Core.Posts.list [cached.length : " + objs.length + "]");
 	
@@ -1218,7 +1218,7 @@ zz.Internal.API.Core.Categories.list = function(successCallback, errorCallback) 
 		*/
 		
 		storedDataCategories = storedDatas.pop();
-		//objs = objs.concat( JSON.parse(storedDataCategories.serialized_data) );		
+		objs = objs.concat( JSON.parse(storedDataCategories.serialized_data) );		
 	}	
 	
 	var online = zzGlobals.ZZ.Internal.Globals.isOnline();

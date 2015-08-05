@@ -17,8 +17,7 @@
 },
 ".rememberMeButton": {
 	left: "0dp",
-	width: Titanium.UI.SIZE,
-	value: true
+	width: Titanium.UI.SIZE
 },
 ".loginButton": {
 	right: "0dp",

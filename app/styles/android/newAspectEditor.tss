@@ -13,5 +13,5 @@
 },
 "#saveAction": {
     //icon: Ti.Android.R.drawable.ic_menu_save
-    icon: "images/ic_done_black.png"
+    icon: "images/ic_done_black_24dp.png"
 }

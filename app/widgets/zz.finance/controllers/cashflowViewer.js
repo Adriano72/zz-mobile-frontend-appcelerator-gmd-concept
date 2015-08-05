@@ -19,7 +19,7 @@ exports.init = function(args) {
 
 	var object = args.model.toJSON();
 	
-	var categoryRootCode = object.category.code.substring(0, 2);
+	var categoryRootCode = (object.category ? object.category.code.substring(0, 2) : null);
 	
 	var type = object.data.tipoMovimento.codice.toLowerCase();
 	
@@ -73,7 +73,7 @@ exports.init = function(args) {
 		icon: icons.charMap["fa-" + iconImage],
 		iconColor: iconColor,		
 		title: title,
-		subtitle: object.category.name,
+		subtitle: (object.category ? object.category.name : ""),
 		description: object.name,
 		operationDate: moment(new Date(object.data.dataOperazione)).format("DD/MM/YY"),
 		operationTime: moment(new Date(object.data.dataOperazione)).format("hh:mm"),

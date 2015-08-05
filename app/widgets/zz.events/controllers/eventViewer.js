@@ -17,7 +17,7 @@ exports.init = function(args) {
 
 	var object = args.model.toJSON();
 	
-	var categoryRootCode = object.category.code.substring(0, 2);
+	var categoryRootCode = (object.category ? object.category.code.substring(0, 2) : null);
 	
 	var title = "";
 	
@@ -59,7 +59,7 @@ exports.init = function(args) {
 		avatar: icon(categoryRootCode),
 		color: color(categoryRootCode),
 		title: object.name, //title,
-		subtitle: object.category.name,
+		subtitle: (object.category ? object.category.name : ""),
 		startDate: moment(startTime).format("DD/MM/YY"),
 		startTime: moment(startTime).format("hh:mm"),
 		endDate: moment( (endTime || startTime) ).format("DD/MM/YY"),

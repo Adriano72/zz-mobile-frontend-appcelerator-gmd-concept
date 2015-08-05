@@ -54,7 +54,7 @@
 	ellipsize: true
 },
 ".firstLineTitle[platform=ios]": {
-	height: "16dp"
+	height: "18dp"
 },
 ".firstLineTime": {
 	width: "20%",
@@ -75,6 +75,9 @@
 		fontSize: "14dp"
 	}
 },
+".secondLineTitle[platform=ios]": {
+	height: "16dp"
+},
 ".thirdLine": {
 	layout: "horizontal",
 	width: Ti.UI.FILL,
@@ -85,4 +88,7 @@
 	font: {
 		fontSize: "14dp"
 	}
+},
+".thirdLineTitle[platform=ios]": {
+	height: "16dp"
 }

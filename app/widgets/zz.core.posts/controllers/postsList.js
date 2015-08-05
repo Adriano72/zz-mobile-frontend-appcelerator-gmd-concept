@@ -9,7 +9,7 @@ exports.init = function(args) {
 		
 		var object = item.toJSON();
 		
-		var categoryRootCode = object.category.code.substring(0, 2);
+		var categoryRootCode = (object.category ? object.category.code.substring(0, 2) : null);
 		
 		collection.add({
 			id: object.id,
@@ -17,7 +17,7 @@ exports.init = function(args) {
 			color: categories.colorMap[categoryRootCode],
 			title: object.name,
 			time: moment(new Date(object.referenceTime)).format("DD MMM"),
-			subtitle: object.category.name,
+			subtitle: (object.category ? object.category.name : ""),
 			subsubtitle: "",
 			order: -(object.referenceTime)
 		}); 

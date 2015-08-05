@@ -36,7 +36,7 @@ exports.init = function(args) {
 
 	var object = args.model.toJSON();
 	
-	var categoryRootCode = object.category.code.substring(0, 2);
+	var categoryRootCode = (object.category ? object.category.code.substring(0, 2) : null);
 	
     var mimeType = object.data.format.mimeType;           
     var format = null;           
@@ -50,7 +50,7 @@ exports.init = function(args) {
 		icon: documentIcon(format),
 		iconColor: documentColor(format),		
 		title: object.data.title,
-		subtitle: object.category.name,
+		subtitle: (object.category ? object.category.name : ""),
 		date: moment(new Date(object.referenceTime)).format("DD MMMM YYYY"),
 		time: moment(new Date(object.referenceTime)).format("hh:mm a"),
 		location: (object.location ? object.location.name : ""),

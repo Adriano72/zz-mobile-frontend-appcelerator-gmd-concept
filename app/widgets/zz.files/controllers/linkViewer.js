@@ -17,13 +17,13 @@ exports.init = function(args) {
 
 	var object = args.model.toJSON();
 	
-	var categoryRootCode = object.category.code.substring(0, 2);
+	var categoryRootCode = (object.category ? object.category.code.substring(0, 2) : null);
 	
 	model.set({
 		avatar: icon(categoryRootCode),
 		color: color(categoryRootCode),
 		title: object.data.title,
-		subtitle: object.category.name,
+		subtitle: (object.category ? object.category.name : ""),
 		url: object.data.content.remote,
 		description: object.description
 	});

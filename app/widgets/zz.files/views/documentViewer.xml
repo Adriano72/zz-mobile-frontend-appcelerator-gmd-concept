@@ -48,8 +48,8 @@
 	    </View>	
 		    	  
 	    <View class="marginator" /> 
-	    <View class="separator" />		    	  
+	    <!--View class="separator" /-->		    	  
 		    	       	
-    	<ImageView id="imageView" width="Titanium.UI.FILL"  />           			        
+    	<ImageView id="imageView" width="Titanium.UI.FILL"/>           			        
     </View>
 </Alloy>
