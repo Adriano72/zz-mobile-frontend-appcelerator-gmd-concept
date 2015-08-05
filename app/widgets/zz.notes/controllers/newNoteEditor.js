@@ -3,11 +3,26 @@ var model = null;
 (function constructor(args) {
 	model = args.model;
 
+	var data = model.get("data") || {};
+	data = _.extend(data, {
+		title: model.get("name"),
+		timestamp : model.get("referenceTime")	
+	});
+	model.set("data", data);
+
 	$.titleTextFieldWidget.init({
 		text: model.get("name")
 	});
 	$.titleTextFieldWidget.on("textSelected", function(args) {		
-		model.set("name", args);	 
+		var data = model.get("data") || {};
+		data = _.extend(data, {
+			title: args
+		});
+		model.set({
+			name: args,
+			description: args,
+			data: data
+		});			 
 	});
 	
 	$.categoryTextFieldWidget.init({
@@ -18,13 +33,12 @@ var model = null;
 	});
 	
 	$.contentTextFieldWidget.init({
-		text: (model.get("data") ? new Date(model.get("data").content) : "")
+		text: ""
 	});
 	$.contentTextFieldWidget.on("textSelected", function(args) {		
 		var data = model.get("data") || {};
 		data = _.extend(data, {
-			content: args,
-            timestamp: new Date().getTime()
+			content: args
 		});
 		model.set("data", data);
 	});	

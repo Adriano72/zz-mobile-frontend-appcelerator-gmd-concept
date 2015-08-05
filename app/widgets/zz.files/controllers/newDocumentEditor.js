@@ -3,11 +3,29 @@ var model = null;
 (function constructor(args) {
 	model = args.model;
 
+	var data = model.get("data") || {};
+	data = _.extend(data, {
+		title: model.get("name"),
+		name: model.get("name"),
+		description: model.get("name"),
+		timestamp : model.get("referenceTime")	
+	});
+	model.set("data", data);
+
 	$.titleTextFieldWidget.init({
 		text: model.get("name")
 	});
-	$.titleTextFieldWidget.on("textSelected", function(args) {		
-		model.set("name", args);	 
+	$.titleTextFieldWidget.on("textSelected", function(args) {			
+		var data = model.get("data") || {};
+		data = _.extend(data, {
+			title: args,
+			description: args
+		});			
+		model.set({
+			name: args,
+			description: args,
+			data: data
+		});	 
 	});
 	
 	$.categoryTextFieldWidget.init({
@@ -18,7 +36,7 @@ var model = null;
 	});
 		
 	if (args.options && args.options.mode == "camera") {	
-		showCamera()
+		showCamera();
 	} else {
 		showGallery();
 	}
@@ -53,10 +71,13 @@ function showCamera() {
                 	name : fileName,
                 	description : fileName,
             		format : {mimeType : mimeType},
-            		size : size,
-            		timestamp : new Date().getTime()
+            		size : size
 				});
-				model.set("data", data);				
+				model.set({
+					name: fileName,
+					description: fileName,
+					data: data
+				});
 				
 				$.trigger("mediaSelected", {blob: blob});
 				
@@ -112,7 +133,11 @@ function showGallery() {
             		size : size,
             		timestamp : new Date().getTime()
 				});
-				model.set("data", data);				
+				model.set({
+					name: fileName,
+					description: fileName,
+					data: data
+				});				
 				
 				$.trigger("mediaSelected", {blob: blob});
 				

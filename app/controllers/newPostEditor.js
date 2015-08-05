@@ -15,7 +15,7 @@
 			Ti.API.info("ZZ.API.Core.Post.Templates.list success [template : " + JSON.stringify(postTemplate) + "]");
 			
 			postTemplate.id = null;
-			postTemplate.name = "A Post From Titanium Starting From The Default Template";
+			postTemplate.name = "";
 			postTemplate.referenceTime = new Date().getTime();
 	
 			postModel.set(postTemplate);
@@ -27,7 +27,7 @@
 				
 				if (aspectTemplate) {
 					aspectTemplate.id = null;
-					aspectTemplate.name = "An Aspect From Titanium Starting From The Default Template " + aspectTemplate.kind.code;
+					aspectTemplate.name = "";
 					aspectTemplate.referenceTime = new Date().getTime();
 					
 					aspectModel.set(aspectTemplate);				
@@ -50,7 +50,12 @@
 				
 				var blob = args.blob;
 				
-				postModel.set("category", aspectModel.get("category"));
+				postModel.set({
+					name: aspectModel.get("name"),
+					description: aspectModel.get("description"),
+					referenceTime: aspectModel.get("referenceTime"),
+					category : aspectModel.get("category")
+				});
 																			
 				var _corePostsAddCallback = function(post){
 					Ti.API.info("ZZ.API.Core.Posts.add success [response : " + JSON.stringify(post) + "]");

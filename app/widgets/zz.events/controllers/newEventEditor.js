@@ -3,11 +3,25 @@ var model = null;
 (function constructor(args) {
 	model = args.model;
 
+	var data = model.get("data") || {};
+	data = _.extend(data, {
+		startTime: {
+			time: model.get("referenceTime")
+		},
+		endTime: {
+			time: model.get("referenceTime")
+		}		
+	});
+	model.set("data", data);	
+
 	$.titleTextFieldWidget.init({
 		text: model.get("name")
 	});
 	$.titleTextFieldWidget.on("textSelected", function(args) {		
-		model.set("name", args);	 
+		model.set({
+			name: args,
+			description: args
+		});	 
 	});
 	
 	$.categoryTextFieldWidget.init({
@@ -27,7 +41,10 @@ var model = null;
 				time: args.getTime()
 			}
 		});
-		model.set("data", data);				 
+		model.set({
+			referenceTime: args.getTime(),
+			data: data
+		});					 
 	});
 	
 	$.endDateTimeTextFieldWidget.init({
