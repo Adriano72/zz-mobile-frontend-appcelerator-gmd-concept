@@ -23,6 +23,12 @@ var cashflowTypesCollection = null;
 	ZZ.API.Finance.CashflowTypes.list(function(cashflowtypes){
 			Ti.API.info("ZZ.API.Finance.CashflowTypes.list success [response : " + JSON.stringify(cashflowtypes) + "]");
 			
+			var data = model.get("data") || {};
+			data = _.extend(data, {
+				tipoMovimento: cashflowtypes[0]
+			});
+			model.set("data", data);			
+			
 			cashflowTypesCollection = new Backbone.Collection(cashflowtypes);
 				
 			$.typeTextFieldWidget.init({

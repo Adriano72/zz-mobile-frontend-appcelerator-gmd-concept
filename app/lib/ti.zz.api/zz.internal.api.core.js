@@ -233,8 +233,15 @@ zz.Internal.API.Core.Posts.list = function(successCallback, errorCallback, optio
 		});
 		*/
 		
-		storedDataPosts = storedDatas.pop();		
-		objs = objs.concat( JSON.parse(storedDataPosts.serialized_data) );		
+		storedDataPosts = storedDatas.pop();				
+		try { 
+			objs = objs.concat( JSON.parse(storedDataPosts.serialized_data) );					
+		} catch(ex) {
+			var errorMessage = "ZZ.Internal.API.Core.Posts.list unable to perform list due to " + ex;
+			_manageError({errorMessage : errorMessage});					
+		} finally {
+		}
+				
 	}	
 	Ti.API.debug("ZZ.Internal.API.Core.Posts.list [cached.length : " + objs.length + "]");
 	
@@ -419,7 +426,13 @@ zz.Internal.API.Core.Post.Templates.list = function(successCallback, errorCallba
 		*/
 		
 		storedDataTemplates = storedDatas.pop();
-		objs = objs.concat( JSON.parse(storedDataTemplates.serialized_data) );				
+		try { 
+			objs = objs.concat( JSON.parse(storedDataTemplates.serialized_data) );					
+		} catch(ex) {
+			var errorMessage = "ZZ.Internal.API.Core.Post.Templates.list unable to perform list due to " + ex;
+			_manageError({errorMessage : errorMessage});					
+		} finally {
+		}					
 	}	
 	
 	var online = zzGlobals.ZZ.Internal.Globals.isOnline();
@@ -1218,7 +1231,13 @@ zz.Internal.API.Core.Categories.list = function(successCallback, errorCallback) 
 		*/
 		
 		storedDataCategories = storedDatas.pop();
-		objs = objs.concat( JSON.parse(storedDataCategories.serialized_data) );		
+		try { 
+			objs = objs.concat( JSON.parse(storedDataCategories.serialized_data) );					
+		} catch(ex) {
+			var errorMessage = "ZZ.Internal.API.Core.Categories.list unable to perform list due to " + ex;
+			_manageError({errorMessage : errorMessage});					
+		} finally {
+		}			
 	}	
 	
 	var online = zzGlobals.ZZ.Internal.Globals.isOnline();
@@ -1327,7 +1346,13 @@ zz.Internal.API.Core.Stories.list = function(successCallback, errorCallback) {
 		*/
 		
 		storedDataStories = storedDatas.pop();
-		objs = objs.concat( JSON.parse(storedDataStories.serialized_data) );	
+		try { 
+			objs = objs.concat( JSON.parse(storedDataStories.serialized_data) );					
+		} catch(ex) {
+			var errorMessage = "ZZ.Internal.API.Core.Stories.list unable to perform list due to " + ex;
+			_manageError({errorMessage : errorMessage});					
+		} finally {
+		}			
 	}
 	
 	var online = zzGlobals.ZZ.Internal.Globals.isOnline();
@@ -1421,7 +1446,13 @@ zz.Internal.API.Core.Tags.list = function(successCallback, errorCallback) {
 		*/
 		
 		storedDataTags = storedDatas.pop();
-		objs = objs.concat( JSON.parse(storedDataTags.serialized_data) );
+		try { 
+			objs = objs.concat( JSON.parse(storedDataTags.serialized_data) );					
+		} catch(ex) {
+			var errorMessage = "ZZ.Internal.API.Core.Tags.list unable to perform list due to " + ex;
+			_manageError({errorMessage : errorMessage});					
+		} finally {
+		}		
 	}
 	
 	var online = zzGlobals.ZZ.Internal.Globals.isOnline();

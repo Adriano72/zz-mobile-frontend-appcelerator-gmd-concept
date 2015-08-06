@@ -1,0 +1,6 @@
+"Window": {
+	title: "Aspect"
+},
+"ScrollableView": {
+	showPagingControl: true
+}

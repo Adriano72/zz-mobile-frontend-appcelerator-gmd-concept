@@ -58,7 +58,7 @@ exports.init = function(args) {
 		size: formatSize(object.data.size)
 	});
 
-	if (object.data.format.type === "IMAGE") {
+	if (object.data.format.type === "IMAGE" || object.data.format.mimeType.search("image") > -1) {
 		ZZ.API.Files.Attachment.get(object,
 			function(response){
 				$.imageView.setImage(response);

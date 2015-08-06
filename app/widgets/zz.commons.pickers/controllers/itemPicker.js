@@ -18,10 +18,13 @@ exports.init = function(args) {
 	
 	collection.reset();
 
+	/*
 	args.collection.forEach( function(item) {
 		var model = Widget.createModel("zzCommonsPickersModel", item.toJSON());
 		collection.add(model); 
 	} );
+	*/
+	collection.add(args.collection.models);
 	
 	item = args.value;	
 	

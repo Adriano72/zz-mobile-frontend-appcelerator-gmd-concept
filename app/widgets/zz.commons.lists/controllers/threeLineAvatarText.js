@@ -8,15 +8,28 @@ exports.init = function(args) {
 	
 	//collection.reset();
 	
+	/*
 	args.collection.forEach( function(item) {
 		var model = Widget.createModel("zzCommonsListsModel", item.toJSON());
 		collection.add(model); 
 	} );	
+	*/
+	
+	collection.add(
+		args.collection.models
+	);
 	
 	$.listView.setMarker({
-		sectionIndex:0,
+		sectionIndex: 0,
 		itemIndex: (collection.length - 5)
 	});	
+};
+
+exports.scrollToItem = function(args) {
+	
+	var index = collection.indexOf( collection.get(args.id) );
+		
+	$.listView.scrollToItem(0, index);	
 };
 
 function doTransform(model) {	

@@ -1,0 +1,6 @@
+<Alloy>
+	<Window>
+        <ScrollableView id="scrollableView">
+        </ScrollableView>
+    </Window>       
+</Alloy>

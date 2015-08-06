@@ -5,6 +5,7 @@ var collection = new Backbone.Collection();
 
 exports.init = function(args) {	
 
+	/*
 	args.collection.forEach( function(item) {
 		
 		var object = item.toJSON();
@@ -22,8 +23,33 @@ exports.init = function(args) {
 			order: -(object.referenceTime)
 		}); 
 	} );	
+	*/
+	
+	collection.add(
+		args.collection.map(function(item){
+			
+			var object = item.toJSON();
+			
+			var categoryRootCode = (object.category ? object.category.code.substring(0, 2) : null);			
+			
+			return {
+				id: object.id,
+				avatar: categories.iconMap[categoryRootCode],
+				color: categories.colorMap[categoryRootCode],
+				title: object.name,
+				time: moment(new Date(object.referenceTime)).format("DD MMM"),
+				subtitle: (object.category ? object.category.name : ""),
+				subsubtitle: "",
+				order: -(object.referenceTime)
+			};
+		})
+	);
 	
 	$.widget.init({collection: collection});	
+};
+
+exports.scrollToItem = function(args) {
+	$.widget.scrollToItem(collection.get(args.id).toJSON());	
 };
 
 $.widget.on("itemSelected", function(args) {   
