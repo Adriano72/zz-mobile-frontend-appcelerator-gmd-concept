@@ -1,6 +1,11 @@
 "Window": {
 	title: "Aspect"
 },
+"ActionBar": {
+	title: "Aspect",
+	displayHomeAsUp: true
+	
+},
 "ScrollableView": {
 	showPagingControl: true
 }

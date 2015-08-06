@@ -15,3 +15,7 @@
 	$.scrollableView.setCurrentPage(index);
 		
 })(arguments[0] || {});
+
+function onHomeIconItemSelected() {
+	$.aspectsPager.close();
+}

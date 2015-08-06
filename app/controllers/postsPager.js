@@ -75,7 +75,7 @@ function addPageBefore(model) {
 		var views = $.scrollableView.getViews();
 		views.unshift(postPage);
 		$.scrollableView.setViews(views);
-		$.scrollableView.setCurrentPage(2);
+		//$.scrollableView.setCurrentPage(1);
 	}	
 	
 };
@@ -107,3 +107,7 @@ function addPageAfter(model) {
 	}	
 	
 };
+
+function onHomeIconItemSelected() {
+	$.postsPager.close();
+}

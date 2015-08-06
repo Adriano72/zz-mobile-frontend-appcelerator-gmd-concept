@@ -1,6 +1,11 @@
 "Window": {
 	title: "Post"
 },
+"ActionBar": {
+	title: "Post",
+	displayHomeAsUp: true
+	
+},
 "ScrollableView": {
 	showPagingControl: false
 }

@@ -1,5 +1,6 @@
 var moment = require("alloy/moment");
 var categories = require( WPATH("categories") );
+var icons = require( WPATH("icons") );
 
 var collection = new Backbone.Collection();
 
@@ -32,6 +33,22 @@ exports.init = function(args) {
 			
 			var categoryRootCode = (object.category ? object.category.code.substring(0, 2) : null);			
 			
+			var stories = null;
+			if (object.stories) {
+				stories = "";
+				_.each(object.stories, function(item, index){
+					stories = stories.concat((index > 0 ? ", " : ""), item.name);
+				});
+			}	
+			
+			var tags = null;		
+			if (object.tags) {
+				tags = "";
+				_.each(object.tags, function(item, index){
+					tags = tags.concat((index > 0 ? ", " : ""), item.name);
+				});
+			}
+			
 			return {
 				id: object.id,
 				avatar: categories.iconMap[categoryRootCode],
@@ -39,7 +56,7 @@ exports.init = function(args) {
 				title: object.name,
 				time: moment(new Date(object.referenceTime)).format("DD MMM"),
 				subtitle: (object.category ? object.category.name : ""),
-				subsubtitle: "",
+				subsubtitle: "".concat( (stories ? stories : ""), (stories && tags ? ", " : ""), (tags ? tags : "")),
 				order: -(object.referenceTime)
 			};
 		})

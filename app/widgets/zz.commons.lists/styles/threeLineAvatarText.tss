@@ -87,7 +87,9 @@
 	color: "gray",
 	font: {
 		fontSize: "14dp"
-	}
+	},	
+	wordWrap: false,
+	ellipsize: true
 },
 ".thirdLineTitle[platform=ios]": {
 	height: "16dp"
