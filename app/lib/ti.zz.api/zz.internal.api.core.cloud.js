@@ -545,7 +545,16 @@ var _syncPost = function(user, localPost, remotePost, successCallback, errorCall
 					return false;			
 				}								
 				
-				var path = user.id + "/attachments-" + aspect.id; //user.id + "/attachments/" + aspect.id;				
+				var path = user.id + "/attachments-" + aspect.id; //user.id + "/attachments/" + aspect.id;	
+				
+				var mimeType = (aspect && aspect.data && aspect.data.format ? aspect.data.format.mimeType : null);           	              
+			    if (mimeType && mimeType.length > 0) {
+			    	var format = (mimeType.split("/")[1]).toLowerCase();     	
+			    	if (format && format.length > 0) {
+			    		path = path + "." + format;
+			    	}
+				}				
+							
 				var blob = zzLocalFS.ZZ.Internal.Local.FS.File.copy(storedDataFile.local_fs_ref, path);			
 				if (blob == null) {
 					var errorMessage = "ZZ.Internal.API.Core.Cloud._syncPost unable to copy attachment [aspect : " + JSON.stringify(aspect) + "]";

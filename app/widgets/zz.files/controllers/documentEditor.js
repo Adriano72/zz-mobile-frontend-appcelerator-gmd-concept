@@ -54,7 +54,9 @@ function showCamera() {
 				});
 				model.set("data", data);				
 				
-				$.trigger("mediaSelected", {blob: blob});
+				$.trigger("mediaSelected", {
+					blob: blob
+				});
 				
 			} else {
 			}
@@ -110,7 +112,9 @@ function showGallery() {
 				});
 				model.set("data", data);				
 				
-				$.trigger("mediaSelected", {blob: blob});
+				$.trigger("mediaSelected", {
+					blob: blob
+				});
 				
 			} else {
 			}

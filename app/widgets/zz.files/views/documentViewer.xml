@@ -50,6 +50,6 @@
 	    <View class="marginator" /> 
 	    <!--View class="separator" /-->		    	  
 		    	       	
-    	<ImageView id="imageView" width="Titanium.UI.FILL"/>           			        
+    	<ImageView id="imageView" width="Ti.UI.FILL" />           			        
     </View>
 </Alloy>

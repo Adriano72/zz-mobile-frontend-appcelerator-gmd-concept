@@ -51,7 +51,16 @@ zz.Internal.API.Files.Attachment.get = function(aspect, successCallback, errorCa
 		Ti.API.debug("ZZ.Internal.API.Files.Attachment.get._downloadSuccessCallback success [response : " + JSON.stringify(response) + "]");
 		
 		//var path = user.id + "/" + aspect.id + "-" + new Date().getTime();
-		var path = user.id + "/attachments-" + aspect.id; //user.id + "/attachments/" + aspect.id;		
+		var path = user.id + "/attachments-" + aspect.id; //user.id + "/attachments/" + aspect.id;
+		
+		var mimeType = (aspect && aspect.data && aspect.data.format ? aspect.data.format.mimeType : null);           	              
+	    if (mimeType && mimeType.length > 0) {
+	    	var format = (mimeType.split("/")[1]).toLowerCase();     	
+	    	if (format && format.length > 0) {
+	    		path = path + "." + format;
+	    	}
+		}		
+						
 		var blob = zzLocalFS.ZZ.Internal.Local.FS.File.write(path, response);	
 		Ti.API.debug("ZZ.Internal.API.Files.Attachment.get._downloadSuccessCallback [blob.file : " + JSON.stringify(blob.file) + "]");
 		
@@ -103,6 +112,15 @@ zz.Internal.API.Files.Attachment.set = function(aspect, content, successCallback
 	}
 	
 	var path = user.id + "/tmp-attachment-" + user.token + "-" + new Date().getTime(); //user.id + "/tmp/attachments/" + user.token + "-" + new Date().getTime();
+
+	var mimeType = (aspect && aspect.data && aspect.data.format ? aspect.data.format.mimeType : null);           	              
+    if (mimeType && mimeType.length > 0) {
+    	var format = (mimeType.split("/")[1]).toLowerCase();     	
+    	if (format && format.length > 0) {
+    		path = path + "." + format;
+    	}
+	}
+	
 	var blob = zzLocalFS.ZZ.Internal.Local.FS.File.write(path, content);	
 	Ti.API.debug("ZZ.Internal.API.Files.Attachment.set [blob.file : " + JSON.stringify(blob.file) + "]");
 		

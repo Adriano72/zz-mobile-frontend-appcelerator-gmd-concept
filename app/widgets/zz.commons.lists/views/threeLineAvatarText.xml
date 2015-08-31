@@ -34,7 +34,7 @@
             			time:text="{time}"
             			subtitle:text="{subtitle}"
             			subsubtitle:text="{subsubtitle}"/>
-       	</ListSection>                                
+       	</ListSection>        	                               
     </ListView>
     
     <!--Widget id="fa" src="com.mattmcfarland.fontawesome" /-->	

@@ -61,7 +61,12 @@ exports.init = function(args) {
 	if (object.data.format.type === "IMAGE" || object.data.format.mimeType.search("image") > -1) {
 		ZZ.API.Files.Attachment.get(object,
 			function(response){
-				$.imageView.setImage(response);
+								
+				//Ti.API.info("DocumentViewer ZZ.API.Files.Attachment.get [blob : " + JSON.stringify(response) + ", blob.width : " + response.width + ", blob.height : " + response.height + "]");
+				Ti.API.info("DocumentViewer ZZ.API.Files.Attachment.get [blob.width : " + response.width + ", blob.height : " + response.height + "]");
+				//$.imageView.setImage(response);
+				//$.imageView.setImage(response.imageAsResized(4096, 4096));
+				$.imageView.setImage(response.imageAsThumbnail(2048));		
 			}, function(error){
 				
 			}
