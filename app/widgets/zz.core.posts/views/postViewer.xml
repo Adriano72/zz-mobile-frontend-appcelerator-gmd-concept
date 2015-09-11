@@ -1,7 +1,7 @@
 <Alloy>
 	<Model id="dataModel" src="zzCorePostViewerModel" instance="true" />
 	<View layout="vertical" height="Ti.UI.SIZE">
-	    <View class="headerRow" backgroundColor="{$.dataModel.color}">
+	    <View class="headerRow" backgroundColor="{$.dataModel.color}">	    	
 			<View class="avatar">						
 				<View class="avatarBox" backgroundColor="{$.dataModel.color}">
 	    			<Label class="avatarImage" text="{$.dataModel.avatar}"/>

@@ -5,7 +5,8 @@
 },
 ".headerView": {
 	width: Ti.UI.FILL,
-	height: Ti.UI.SIZE	
+	height: Ti.UI.SIZE,
+	left: "8dp"	
 },
 ".headerLabel": {
 	top: "8dp",

@@ -14,18 +14,24 @@
 	horizontalWrap: false
 },
 ".avatar": {
-	top: "0dp",
+	top: "0dp", //"56dp",
 	left: "0dp",	
 	width: "72dp",
 	height: Ti.UI.SIZE
 },
+".avatar[platform=ios]": {
+	top: "0dp"
+},
 ".avatarBox": {
-	top: "8dp",	
+	top: "8dp", //"0dp",	
 	width: "40dp",
 	height: "40dp",
 	backgroundColor:"white",
 	borderRadius: "20dp",
 	borderColor: "white"
+},
+".avatarBox[platform=ios]": {
+	top: "8dp"
 },
 ".avatarImage": {
     color: "white",  	
@@ -35,17 +41,23 @@
     }
 },
 ".text": {
-	top: "0dp",
+	top: "0dp", //"56dp",
 	left: "72dp",
 	layout: "vertical",
 	width: Ti.UI.FILL,
 	height: Ti.UI.SIZE
 },
+".text[platform=ios]": {
+	top: "0dp"
+},
 ".firstLine": {
 	layout: "horizontal",
-	top: "8dp",	
+	top: "8dp", //"0dp",	
 	width: Ti.UI.FILL,
 	height: Ti.UI.SIZE	
+},
+".firstLine[platform=ios]": {
+	top: "8dp"
 },
 ".firstLineTitle": {
 	top: "8dp",

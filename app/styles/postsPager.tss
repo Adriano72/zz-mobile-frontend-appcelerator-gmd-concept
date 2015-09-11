@@ -1,8 +1,9 @@
 "Window": {
-	title: "Post"
+	title: "Post",
+	//theme: "Theme.CustomMaterialTheme.TranslucentActionBar"
 },
 "ActionBar": {
-	title: "Post",
+	title: "",
 	displayHomeAsUp: true
 	
 },

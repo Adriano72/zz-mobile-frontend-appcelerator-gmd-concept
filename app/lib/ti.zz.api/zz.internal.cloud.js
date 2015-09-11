@@ -569,6 +569,7 @@ zz.Internal.Cloud.Finance.CashflowCurrencies.read = function(user, successCallba
 
 };
 
+/*
 zz.Internal.Cloud.Files.Attachment.upload = function(user, blob, successCallback, errorCallback) {
 	Ti.API.debug("ZZ.Internal.Cloud.Files.Attachment.upload");
 	Ti.API.debug("ZZ.Internal.Cloud.Files.Attachment.upload [user : " + JSON.stringify(user) + "]");
@@ -603,6 +604,42 @@ zz.Internal.Cloud.Files.Attachment.upload = function(user, blob, successCallback
 	
 	_upload(
 		"POST",
+		url,
+		data,
+		_sendSuccessCallback,
+		_sendErrorCallback
+	);
+
+};
+*/
+
+zz.Internal.Cloud.Files.Attachment.upload = function(user, blob, successCallback, errorCallback) {
+	Ti.API.debug("ZZ.Internal.Cloud.Files.Attachment.upload");
+	Ti.API.debug("ZZ.Internal.Cloud.Files.Attachment.upload [user : " + JSON.stringify(user) + "]");
+	Ti.API.debug("ZZ.Internal.Cloud.Files.Attachment.upload [blob.mimeType : " + blob.mimeType + "]");
+	
+	var url = zzConfig.ZZ.Config.Cloud.cdnURL + "/files/attachments/upload/" + user.token;
+	
+	var data = {};
+	var key = user.token + "-" + new Date().getTime();
+	data[key] = blob.file;
+	
+	var _sendSuccessCallback = function(data) {
+		Ti.API.debug("ZZ.Internal.Cloud.Files.Attachment.upload._sendSuccessCallback");
+		Ti.API.debug("ZZ.Internal.Cloud.Files.Attachment.upload._sendSuccessCallback [data : " + JSON.stringify(data) + "]");	
+		
+		if (successCallback != null)
+			successCallback({id : key});
+	};
+	var _sendErrorCallback = function(error) {
+		Ti.API.debug("ZZ.Internal.Cloud.Files.Attachment.upload._sendErrorCallback");
+		Ti.API.debug("ZZ.Internal.Cloud.Files.Attachment.upload._sendErrorCallback [error : " + error + "]");
+		
+		if (errorCallback != null)
+			errorCallback(error);		
+	};	
+	
+	_upload(
 		url,
 		data,
 		_sendSuccessCallback,
@@ -757,10 +794,10 @@ var _download = function(url, successCallback, errorCallback) {
 	});
 	xhr.open("GET", url);
 	
-	xhr.send();
-	
+	xhr.send();	
 };
 
+/*
 var _upload = function(method, url, json, successCallback, errorCallback) {
 	Ti.API.trace("ZZ.Internal.Cloud._upload");
 	Ti.API.trace("ZZ.Internal.Cloud._upload [method : " + method + ", url : " + url + "]");
@@ -768,38 +805,17 @@ var _upload = function(method, url, json, successCallback, errorCallback) {
 	var xhr = Ti.Network.createHTTPClient({
 	    onload: function(e) {
 	    	Ti.API.trace("ZZ.Internal.Cloud._upload.onload");
-	    	//Ti.API.debug("ZZ.Internal.Cloud._sendPOST.onload [e : " + JSON.stringify(e) + "]");
-	    	
-			// this function is called when data is returned from the server and available for use
-	        // this.responseText holds the raw text return of the message (used for text/JSON)
-	        // this.responseXML holds any returned XML (including SOAP)
-	        // this.responseData holds any returned binary data
-
-			/*
-			var json = JSON.parse(this.responseText);
-			
-			if (json == null)
-				successCallback();
-
-	        else if (json.type.code == "SUCCESS" && successCallback != null)
-	        	successCallback(json.data);
-	        	
-	        else if (errorCallback != null)
-	        	errorCallback(json.type.description);
-	        */
 	       
 	       	successCallback();
 	    },
 	    onerror: function(e) {
 	    	Ti.API.trace("ZZ.Internal.Cloud._upload.onerror");
 	    	Ti.API.trace("ZZ.Internal.Cloud._upload.onerror [e : " + JSON.stringify(e) + "]");
-	    	
-			// this function is called when an error occurs, including a timeout
 			
 	       	if (errorCallback != null)
 	        	errorCallback(e.error);
 	    },
-	    timeout: 30000  /* in milliseconds */
+	    timeout: 30000
 	});
 	xhr.open(method, url);
 	
@@ -814,4 +830,31 @@ var _upload = function(method, url, json, successCallback, errorCallback) {
 		xhr.send();
 	}
 	
+};
+*/
+
+var _upload = function(url, data, successCallback, errorCallback) {
+	Ti.API.trace("ZZ.Internal.Cloud._upload");
+	Ti.API.trace("ZZ.Internal.Cloud._upload [url : " + url + "]");
+
+	var xhr = Ti.Network.createHTTPClient({
+	    onload: function(e) {
+	    	Ti.API.trace("ZZ.Internal.Cloud._upload.onload");
+	       
+	       	successCallback();
+	    },
+	    onerror: function(e) {
+	    	Ti.API.trace("ZZ.Internal.Cloud._upload.onerror");
+	    	Ti.API.trace("ZZ.Internal.Cloud._upload.onerror [e : " + JSON.stringify(e) + "]");
+			
+	       	if (errorCallback != null)
+	        	errorCallback(e.error);
+	    },
+	    timeout: 0
+	});
+	xhr.open("POST", url);
+	
+	xhr.setRequestHeader('enctype','multipart/form-data');
+					
+	xhr.send(data);	
 };

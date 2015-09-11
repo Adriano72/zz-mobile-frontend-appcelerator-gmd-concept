@@ -66,7 +66,7 @@ exports.init = function(args) {
 				Ti.API.info("DocumentViewer ZZ.API.Files.Attachment.get [blob.width : " + response.width + ", blob.height : " + response.height + "]");
 				//$.imageView.setImage(response);
 				//$.imageView.setImage(response.imageAsResized(4096, 4096));
-				$.imageView.setImage(response.imageAsThumbnail(2048));		
+				$.imageView.setImage(response.imageAsThumbnail(1024));		
 			}, function(error){
 				
 			}
