@@ -85,7 +85,7 @@ zz.Internal.API.Core.Local.addExistingPostLocal = function(user, post, successCa
 	var data = zzLocalDB.ZZ.Internal.Local.DB.Datas.add({
 		type : zzLocalDB.ZZ.Internal.Local.DB.Data.CONSTANTS.TYPES.MODEL,
 		alias : zzLocalDB.ZZ.Internal.Local.DB.Data.CONSTANTS.ALIASES.POST,
-		status : zzLocalDB.ZZ.Internal.Local.DB.Data.CONSTANTS.STATUSES.SYNC,
+		status : zzLocalDB.ZZ.Internal.Local.DB.Data.CONSTANTS.STATUSES.UPDATED, //zzLocalDB.ZZ.Internal.Local.DB.Data.CONSTANTS.STATUSES.SYNC,
 		action : zzLocalDB.ZZ.Internal.Local.DB.Data.CONSTANTS.ACTIONS.TO_COMMIT,
 		serialized_data : JSON.stringify(post),
 		user_ref : user.id,
@@ -100,7 +100,7 @@ zz.Internal.API.Core.Local.addExistingPostLocal = function(user, post, successCa
 			
 		return;				
 	}
-	Ti.API.debug("ZZ.Internal.API.Core.Local.addNewPostLocalpost [post : " + JSON.stringify(post) + "]");		
+	Ti.API.debug("ZZ.Internal.API.Core.Local.addExistingPostLocal [post : " + JSON.stringify(post) + "]");		
 	
 	if (successCallback != null)
 		successCallback(post);	
@@ -160,14 +160,14 @@ zz.Internal.API.Core.Local.updateExistingPostLocal = function(user, post, succes
 	Ti.API.debug("ZZ.Internal.API.Core.Local.updateExistingPostLocal");
 	
 	if (user == null || user.id == null) {
-		var errorMessage = "ZZ.Internal.API.Core.Local.updateExistingPostLocal unable to perform add due to NULL user";
+		var errorMessage = "ZZ.Internal.API.Core.Local.updateExistingPostLocal unable to perform update due to NULL user";
 		_manageError({errorMessage : errorMessage}, errorCallback);	
 
 		return;		
 	}
 	
 	if (post == null || post.id == null) {
-		var errorMessage = "ZZ.Internal.API.Core.Local.updateExistingPostLocal unable to perform add due to NULL post";
+		var errorMessage = "ZZ.Internal.API.Core.Local.updateExistingPostLocal unable to perform update due to NULL post";
 		_manageError({errorMessage : errorMessage}, errorCallback);	
 
 		return;			
@@ -227,6 +227,14 @@ zz.Internal.API.Core.Local.addNewAspectLocal = function(user, post, aspect, succ
 		return;			
 	}
 	
+	var postData = zz.Internal.API.Core.Local.getDataLocal(user, post);
+	if (postData == null || postData.id == null) {
+		var errorMessage = "ZZ.Internal.API.Core.Local.addNewAspectLocal unable to perform add due to NULL post data";
+		_manageError({errorMessage : errorMessage}, errorCallback);	
+
+		return;			
+	}
+		
 	var data = zzLocalDB.ZZ.Internal.Local.DB.Datas.add({
 		type : zzLocalDB.ZZ.Internal.Local.DB.Data.CONSTANTS.TYPES.MODEL,
 		alias : zzLocalDB.ZZ.Internal.Local.DB.Data.CONSTANTS.ALIASES.ASPECT,
@@ -234,7 +242,7 @@ zz.Internal.API.Core.Local.addNewAspectLocal = function(user, post, aspect, succ
 		action : zzLocalDB.ZZ.Internal.Local.DB.Data.CONSTANTS.ACTIONS.TO_COMMIT,
 		serialized_data : JSON.stringify(aspect),
 		user_ref : user.id,
-		local_data_ref : post.id,
+		local_data_ref : postData.id,
 		remote_data_ref : null,
 		local_fs_ref : null
 	});		
@@ -276,6 +284,62 @@ zz.Internal.API.Core.Local.addNewAspectLocal = function(user, post, aspect, succ
 	};	
 	
 	_updatePostAspects(user, post, [aspect], null, null, _updatePostAspectsSuccessCallback, _updatePostAspectsErrorCallback);
+};
+
+zz.Internal.API.Core.Local.addExistingAspectLocal = function(user, post, aspect, successCallback, errorCallback) {
+	Ti.API.debug("ZZ.Internal.API.Core.Local.addExistingAspectLocal");
+	
+	if (user == null || user.id == null) {
+		var errorMessage = "ZZ.Internal.API.Core.Local.addExistingAspectLocal unable to perform add due to NULL user";
+		_manageError({errorMessage : errorMessage}, errorCallback);	
+
+		return;		
+	}
+	
+	if (post == null || post.id == null) {
+		var errorMessage = "ZZ.Internal.API.Core.Local.addExistingAspectLocal unable to perform add due to NULL post";
+		_manageError({errorMessage : errorMessage}, errorCallback);	
+
+		return;			
+	}	
+	
+	if (aspect == null || aspect.id == null) {
+		var errorMessage = "ZZ.Internal.API.Core.Local.addExistingAspectLocal unable to perform add due to NULL aspect";
+		_manageError({errorMessage : errorMessage}, errorCallback);	
+
+		return;			
+	}
+	
+	var postData = zz.Internal.API.Core.Local.getDataLocal(user, post);
+	if (postData == null || postData.id == null) {
+		var errorMessage = "ZZ.Internal.API.Core.Local.addExistingAspectLocal unable to perform add due to NULL post data";
+		_manageError({errorMessage : errorMessage}, errorCallback);	
+
+		return;			
+	}	
+	
+	var data = zzLocalDB.ZZ.Internal.Local.DB.Datas.add({
+		type : zzLocalDB.ZZ.Internal.Local.DB.Data.CONSTANTS.TYPES.MODEL,
+		alias : zzLocalDB.ZZ.Internal.Local.DB.Data.CONSTANTS.ALIASES.ASPECT,
+		status : zzLocalDB.ZZ.Internal.Local.DB.Data.CONSTANTS.STATUSES.UPDATED, //zzLocalDB.ZZ.Internal.Local.DB.Data.CONSTANTS.STATUSES.SYNC,
+		action : zzLocalDB.ZZ.Internal.Local.DB.Data.CONSTANTS.ACTIONS.TO_COMMIT,
+		serialized_data : JSON.stringify(aspect),
+		user_ref : user.id,
+		local_data_ref : postData.id,
+		remote_data_ref : aspect.id,
+		local_fs_ref : null
+	});		
+
+	if (data == null) {
+		var errorMessage = "ZZ.Internal.API.Core.Local.addExistingAspectLocal unable to perform add [aspect : " + JSON.stringify(aspect) + "]";
+		_manageError({errorMessage : errorMessage}, errorCallback);	
+			
+		return;				
+	}
+	Ti.API.debug("ZZ.Internal.API.Core.Local.addNewAspectLocalpost [aspect : " + JSON.stringify(aspect) + "]");		
+	
+	if (successCallback != null)
+		successCallback(aspect);	
 };
 
 zz.Internal.API.Core.Local.updateNewAspectLocal = function(user, post, aspect, successCallback, errorCallback) {
@@ -353,21 +417,21 @@ zz.Internal.API.Core.Local.updateExistingAspectLocal = function(user, post, aspe
 	Ti.API.debug("ZZ.Internal.API.Core.Local.updateExistingAspectLocal");
 	
 	if (user == null || user.id == null) {
-		var errorMessage = "ZZ.Internal.API.Core.Local.updateExistingAspectLocal unable to perform add due to NULL user";
+		var errorMessage = "ZZ.Internal.API.Core.Local.updateExistingAspectLocal unable to perform update due to NULL user";
 		_manageError({errorMessage : errorMessage}, errorCallback);	
 
 		return;		
 	}
 	
 	if (post == null || post.id == null) {
-		var errorMessage = "ZZ.Internal.API.Core.Local.updateExistingAspectLocal unable to perform add due to NULL post";
+		var errorMessage = "ZZ.Internal.API.Core.Local.updateExistingAspectLocal unable to perform update due to NULL post";
 		_manageError({errorMessage : errorMessage}, errorCallback);	
 
 		return;			
 	}
 	
 	if (aspect == null || aspect.id == null) {
-		var errorMessage = "ZZ.Internal.API.Core.Local.updateExistingAspectLocal unable to perform add due to NULL aspect";
+		var errorMessage = "ZZ.Internal.API.Core.Local.updateExistingAspectLocal unable to perform update due to NULL aspect";
 		_manageError({errorMessage : errorMessage}, errorCallback);	
 
 		return;			
@@ -397,19 +461,19 @@ zz.Internal.API.Core.Local.updateExistingAspectLocal = function(user, post, aspe
 			
 		return;						
 	}			
-	Ti.API.debug("ZZ.Internal.API.Core.Local.updateExistingAspectLocal updated [aspect : " + JSON.stringify(storedPost) + "]");	
+	Ti.API.debug("ZZ.Internal.API.Core.Local.updateExistingAspectLocal updated [aspect : " + JSON.stringify(storedData) + "]");	
 		
 	var _updatePostAspectsSuccessCallback = function(response) {
-		Ti.API.debug("ZZ.Internal.API.Core.Local.updateNewAspectLocal._updatePostAspectsSuccessCallback");
-		Ti.API.debug("ZZ.Internal.API.Core.Local.updateNewAspectLocal._updatePostAspectsSuccessCallback [response : " + JSON.stringify(response) + "]");
+		Ti.API.debug("ZZ.Internal.API.Core.Local.updateExistingAspectLocal._updatePostAspectsSuccessCallback");
+		Ti.API.debug("ZZ.Internal.API.Core.Local.updateExistingAspectLocal._updatePostAspectsSuccessCallback [response : " + JSON.stringify(response) + "]");
 			
 		if (successCallback != null)
 			successCallback(storedAspect);				
 									
 	};
 	var _updatePostAspectsErrorCallback = function(error) {
-		Ti.API.debug("ZZ.Internal.API.Core.Local.updateNewAspectLocal._updatePostAspectsErrorCallback");
-		Ti.API.debug("ZZ.Internal.API.Core.Local.updateNewAspectLocal._updatePostAspectsErrorCallback [error : " + JSON.stringify(error) + "]");
+		Ti.API.debug("ZZ.Internal.API.Core.Local.updateExistingAspectLocal._updatePostAspectsErrorCallback");
+		Ti.API.debug("ZZ.Internal.API.Core.Local.updateExistingAspectLocal._updatePostAspectsErrorCallback [error : " + JSON.stringify(error) + "]");
 
 		_manageError({errorMessage : error}, errorCallback);	
 	};	
@@ -526,13 +590,109 @@ zz.Internal.API.Core.Local.removeNewAspectLocal = function(user, post, aspect, s
 zz.Internal.API.Core.Local.removeExistingPostLocal = function(user, post, successCallback, errorCallback) {
 	Ti.API.debug("ZZ.Internal.API.Core.Local.removeExistingPostLocal");
 	
-	throw "Not yet implemented";
+	if (user == null || user.id == null) {
+		var errorMessage = "ZZ.Internal.API.Core.Local.removeExistingPostLocal unable to perform remove due to NULL user";
+		_manageError({errorMessage : errorMessage}, errorCallback);	
+
+		return;		
+	}
+	
+	if (post == null || post.id == null) {
+		var errorMessage = "ZZ.Internal.API.Core.Local.removeExistingPostLocal unable to perform remove due to NULL post";
+		_manageError({errorMessage : errorMessage}, errorCallback);	
+
+		return;			
+	}
+	
+	var storedData = zzLocalDB.ZZ.Internal.Local.DB.Data.getByUserRefAndRemoteDataRef(user.id, post.id);
+	if (storedData == null) {		
+		var errorMessage = "ZZ.Internal.API.Core.Local.removeExistingPostLocal POST NOT STORED LOCALLY unable to perform remove [post : " + JSON.stringify(post) + "]";
+		_manageError({errorMessage : errorMessage}, errorCallback);	
+			
+		return;			
+	}
+	
+	var storedPost = JSON.parse(storedData.serialized_data);
+	Ti.API.debug("ZZ.Internal.API.Core.Local.removeExistingPostLocal [post (stored) : " + JSON.stringify(storedPost) + "]");
+		
+	storedData.status = zzLocalDB.ZZ.Internal.Local.DB.Data.CONSTANTS.STATUSES.DELETED;
+	
+	storedData = zzLocalDB.ZZ.Internal.Local.DB.Data.update(storedData);	
+	if (storedData == null) {
+		var errorMessage = "ZZ.Internal.API.Core.Local.removeExistingPostLocal unable to perform remove [post : " + JSON.stringify(storedPost) + "]";
+		_manageError({errorMessage : errorMessage}, errorCallback);	
+			
+		return;						
+	}			
+	Ti.API.debug("ZZ.Internal.API.Core.Local.removeExistingPostLocal removed [post : " + JSON.stringify(storedPost) + "]");	
+	
+	if (successCallback != null)
+		successCallback(storedPost);
 };
 
 zz.Internal.API.Core.Local.removeExistingAspectLocal = function(user, post, aspect, successCallback, errorCallback) {
 	Ti.API.debug("ZZ.Internal.API.Core.Local.removeExistingAspectLocal");
 	
-	throw "Not yet implemented";
+	if (user == null || user.id == null) {
+		var errorMessage = "ZZ.Internal.API.Core.Local.removeExistingAspectLocal unable to perform remove due to NULL user";
+		_manageError({errorMessage : errorMessage}, errorCallback);	
+
+		return;		
+	}
+	
+	if (post == null || post.id == null) {
+		var errorMessage = "ZZ.Internal.API.Core.Local.removeExistingAspectLocal unable to perform remove due to NULL post";
+		_manageError({errorMessage : errorMessage}, errorCallback);	
+
+		return;			
+	}
+	
+	if (aspect == null || aspect.id == null) {
+		var errorMessage = "ZZ.Internal.API.Core.Local.removeExistingAspectLocal unable to perform remove due to NULL aspect";
+		_manageError({errorMessage : errorMessage}, errorCallback);	
+
+		return;			
+	}	
+			
+	var storedData = zzLocalDB.ZZ.Internal.Local.DB.Data.getByUserRefAndRemoteDataRef(user.id, aspect.id);
+	if (storedData == null) {		
+		var errorMessage = "ZZ.Internal.API.Core.Local.removeExistingAspectLocal ASPECT NOT STORED LOCALLY unable to perform remove [aspect : " + JSON.stringify(aspect) + "]";
+		_manageError({errorMessage : errorMessage}, errorCallback);	
+			
+		return;			
+	}
+	
+	var storedAspect = JSON.parse(storedData.serialized_data);
+	Ti.API.debug("ZZ.Internal.API.Core.Local.removeExistingAspectLocal [aspect (stored) : " + JSON.stringify(storedAspect) + "]");
+		
+	storedData.status = zzLocalDB.ZZ.Internal.Local.DB.Data.CONSTANTS.STATUSES.DELETED;
+	
+	storedData = zzLocalDB.ZZ.Internal.Local.DB.Data.update(storedData);	
+	if (storedData == null) {
+		var errorMessage = "ZZ.Internal.API.Core.Local.removeExistingAspectLocal unable to perform remove [aspect : " + JSON.stringify(storedAspect) + "]";
+		_manageError({errorMessage : errorMessage}, errorCallback);	
+			
+		return;						
+	}			
+	Ti.API.debug("ZZ.Internal.API.Core.Local.removeExistingAspectLocal removed [aspect : " + JSON.stringify(storedData) + "]");	
+		
+	var _updatePostAspectsSuccessCallback = function(response) {
+		Ti.API.debug("ZZ.Internal.API.Core.Local.removeExistingAspectLocal._updatePostAspectsSuccessCallback");
+		Ti.API.debug("ZZ.Internal.API.Core.Local.removeExistingAspectLocal._updatePostAspectsSuccessCallback [response : " + JSON.stringify(response) + "]");
+			
+		if (successCallback != null)
+			successCallback(storedAspect);				
+									
+	};
+	var _updatePostAspectsErrorCallback = function(error) {
+		Ti.API.debug("ZZ.Internal.API.Core.Local.removeExistingAspectLocal._updatePostAspectsErrorCallback");
+		Ti.API.debug("ZZ.Internal.API.Core.Local.removeExistingAspectLocal._updatePostAspectsErrorCallback [error : " + JSON.stringify(error) + "]");
+
+		_manageError({errorMessage : error}, errorCallback);	
+	};	
+	
+	_updatePostAspects(user, post, null, null, [storedAspect], _updatePostAspectsSuccessCallback, _updatePostAspectsErrorCallback);			
+
 };
 
 zz.Internal.API.Core.Local.getPostLocal = function(user, post, successCallback, errorCallback) {
@@ -577,13 +737,6 @@ zz.Internal.API.Core.Local.getAspectLocal = function(user, aspect, successCallba
 		return;		
 	}
 	
-	if (post == null || post.id == null) {
-		var errorMessage = "ZZ.Internal.API.Core.Local.getAspectLocal unable to perform retrieve due to NULL post";
-		_manageError({errorMessage : errorMessage}, errorCallback);	
-
-		return;			
-	}
-	
 	if (aspect == null || aspect.id == null) {
 		var errorMessage = "ZZ.Internal.API.Core.Local.getAspectLocal unable to perform retrieve due to NULL aspect";
 		_manageError({errorMessage : errorMessage}, errorCallback);	
@@ -600,10 +753,75 @@ zz.Internal.API.Core.Local.getAspectLocal = function(user, aspect, successCallba
 	}
 	
 	var storedAspect = JSON.parse(storedDataAspect.serialized_data);
-	Ti.API.debug("ZZ.Internal.API.Core.Local.getPostLocal [aspect (stored) : " + JSON.stringify(storedAspect) + "]");
+	Ti.API.debug("ZZ.Internal.API.Core.Local.getAspectLocal [aspect (stored) : " + JSON.stringify(storedAspect) + "]");
 	
 	if (successCallback != null)
 		successCallback(storedAspect);	
+};
+
+zz.Internal.API.Core.Local.getDataLocal = function(user, obj, successCallback, errorCallback) {
+	Ti.API.debug("ZZ.Internal.API.Core.Local.getDataLocal");
+	
+	if (user == null || user.id == null) {
+		var errorMessage = "ZZ.Internal.API.Core.Local.getDataLocal unable to perform retrieve due to NULL user";
+		_manageError({errorMessage : errorMessage}, errorCallback);	
+
+		return;		
+	}
+	
+	if (obj == null || obj.id == null) {
+		var errorMessage = "ZZ.Internal.API.Core.Local.getDataLocal unable to perform retrieve due to NULL obj";
+		_manageError({errorMessage : errorMessage}, errorCallback);	
+
+		return;			
+	}		
+		
+	var storedData = zzLocalDB.ZZ.Internal.Local.DB.Data.getByUserRefAndIdOrRemoteDataRef(user.id, obj.id);
+	if (storedData == null) {		
+		var errorMessage = "ZZ.Internal.API.Core.Local.getDataLocal OBJ NOT STORED LOCALLY unable to perform retrieve [obj : " + JSON.stringify(obj) + "]";
+		_manageError({errorMessage : errorMessage}, errorCallback);	
+			
+		return;			
+	}		
+	
+	if (successCallback != null)
+		successCallback(storedData);	
+		
+	return storedData;
+};
+
+zz.Internal.API.Core.Local.getObjectLocal = function(user, obj, successCallback, errorCallback) {
+	Ti.API.debug("ZZ.Internal.API.Core.Local.getObjectLocal");
+	
+	if (user == null || user.id == null) {
+		var errorMessage = "ZZ.Internal.API.Core.Local.getObjectLocal unable to perform retrieve due to NULL user";
+		_manageError({errorMessage : errorMessage}, errorCallback);	
+
+		return;		
+	}
+	
+	if (obj == null || obj.id == null) {
+		var errorMessage = "ZZ.Internal.API.Core.Local.getObjectLocal unable to perform retrieve due to NULL obj";
+		_manageError({errorMessage : errorMessage}, errorCallback);	
+
+		return;			
+	}
+	
+	var storedData = zzLocalDB.ZZ.Internal.Local.DB.Data.getByUserRefAndIdOrRemoteDataRef(user.id, obj.id);		
+	if (storedData == null) {
+		var errorMessage = "ZZ.Internal.API.Core.Local.getObjectLocal unable to perform retrieve [obj : " + JSON.stringify(obj) + "]";
+		_manageError({errorMessage : errorMessage}, errorCallback);	
+			
+		return;					
+	}
+	
+	var storedObject = JSON.parse(storedData.serialized_data);
+	Ti.API.debug("ZZ.Internal.API.Core.Local.getObjectLocal [obj (stored) : " + JSON.stringify(storedObject) + "]");
+	
+	if (successCallback != null)
+		successCallback(storedObject);
+		
+	return storedObject;
 };
 
 zz.Internal.API.Core.Local.commitPostLocal = function(user, post, successCallback, errorCallback) {
@@ -630,16 +848,19 @@ zz.Internal.API.Core.Local.commitPostLocal = function(user, post, successCallbac
 			
 		return;			
 	}		
-		
+			
 	var storedPost = JSON.parse(storedDataPost.serialized_data);
 	Ti.API.debug("ZZ.Internal.API.Core.Local.commitPostLocal [post : " + JSON.stringify(storedPost) + "]");
 		
 	var datas = [];
 		
-	storedDataPost.action = zzLocalDB.ZZ.Internal.Local.DB.Data.CONSTANTS.ACTIONS.TO_SYNC;	
-	datas.push(storedDataPost);
-			
-	var storedDataAspects = zzLocalDB.ZZ.Internal.Local.DB.Datas.findByUserRefAndLocalDataRef(user.id, post.id);
+	if (storedDataPost.action == zzLocalDB.ZZ.Internal.Local.DB.Data.CONSTANTS.ACTIONS.TO_COMMIT) {
+		storedDataPost.action = zzLocalDB.ZZ.Internal.Local.DB.Data.CONSTANTS.ACTIONS.TO_SYNC;	
+		datas.push(storedDataPost);
+	}		
+				
+	//var storedDataAspects = zzLocalDB.ZZ.Internal.Local.DB.Datas.findByUserRefAndLocalDataRef(user.id, post.id);
+	var storedDataAspects = zzLocalDB.ZZ.Internal.Local.DB.Datas.findByUserRefAndLocalDataRef(user.id, storedPost.id);
 	if (storedDataAspects != null && storedDataAspects.length > 0) {
 			
 		_.each(storedDataAspects, function(storedDataAspect) {	
@@ -647,18 +868,22 @@ zz.Internal.API.Core.Local.commitPostLocal = function(user, post, successCallbac
 			var storedAspect = JSON.parse(storedDataAspect.serialized_data);					
 			Ti.API.debug("ZZ.Internal.API.Core.Local.commitPostLocal [aspect : " + JSON.stringify(storedAspect) + "]");
 			
-			storedDataAspect.action = zzLocalDB.ZZ.Internal.Local.DB.Data.CONSTANTS.ACTIONS.TO_SYNC;
-			datas.push(storedDataAspect);	
-			
+			if (storedDataAspect.action == zzLocalDB.ZZ.Internal.Local.DB.Data.CONSTANTS.ACTIONS.TO_COMMIT) {
+				storedDataAspect.action = zzLocalDB.ZZ.Internal.Local.DB.Data.CONSTANTS.ACTIONS.TO_SYNC;
+				datas.push(storedDataAspect);				
+			}			
+							
 			var storedDataFile = zzLocalDB.ZZ.Internal.Local.DB.Data.getByUserRefAndLocalDataRef(user.id, storedDataAspect.id);
-			if (storedDataFile != null) {		
-				storedDataFile.action = zzLocalDB.ZZ.Internal.Local.DB.Data.CONSTANTS.ACTIONS.TO_SYNC;		
-				datas.push(storedDataFile);		
+			if (storedDataFile != null) {
+				if (storedDataFile.action == zzLocalDB.ZZ.Internal.Local.DB.Data.CONSTANTS.ACTIONS.TO_COMMIT) {
+					storedDataFile.action = zzLocalDB.ZZ.Internal.Local.DB.Data.CONSTANTS.ACTIONS.TO_SYNC;
+					datas.push(storedDataFile);				
+				}					
 			}			
 		});
 		
 	}		
-
+	
 	datas = zzLocalDB.ZZ.Internal.Local.DB.Datas.update(datas);	
 	if (datas == null) {
 		var errorMessage = "ZZ.Internal.API.Core.Local.commitPostLocal unable to perform update [post : " + JSON.stringify(storedPost) + "]";

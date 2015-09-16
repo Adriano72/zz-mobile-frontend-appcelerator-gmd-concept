@@ -344,13 +344,20 @@ zz.Internal.Local.DB.Datas.remove = function(data, successCallback, errorCallbac
 zz.Internal.Local.DB.Datas.update = function(datas, successCallback, errorCallback) {
 	Ti.API.debug("ZZ.Internal.Local.DB.Datas.update");	
 	
-	if (datas == null || datas.length == 0) {
+	//if (datas == null || datas.length == 0) {
+	if (datas == null) {
 		var errorMessage = "ZZ.Internal.Local.DB.Datas.update unable to update datas due to NULL datas";		
 		_manageError({errorMessage : errorMessage}, errorCallback);	
 			
 		//return;
 		return null;		
 	}	
+	 
+	if (datas.length == 0) {
+		if (successCallback != null)
+			successCallback([]);	
+		return [];		
+	}	 
 	 
 	var canUpdate = _.all(datas, function(data) {
 		Ti.API.debug("ZZ.Internal.Local.DB.Datas.update [data : " + JSON.stringify(data) + "]");
@@ -427,7 +434,9 @@ zz.Internal.Local.DB.Datas.findByUserRefAndLocalDataRef = function(userRef, loca
 	if (datas != null && datas.length > 0) {
 						
 		_.each(datas, function(data){
-			data.serialized_data = Ti.Utils.base64decode(data.serialized_data);
+			if (data.serialized_data) {
+				data.serialized_data = Ti.Utils.base64decode(data.serialized_data);
+			}
 		});					
 				
 		Ti.API.debug("ZZ.Internal.Local.DB.Datas.findByUserRefAndLocalDataRef found datas : " + JSON.stringify(datas));	
@@ -482,12 +491,66 @@ zz.Internal.Local.DB.Datas.findByUserRefAndTypeAndAliasAndStatusAndAction = func
 	if (datas != null && datas.length > 0) {
 						
 		_.each(datas, function(data){
-			data.serialized_data = Ti.Utils.base64decode(data.serialized_data);			
+			if (data.serialized_data) {
+				data.serialized_data = Ti.Utils.base64decode(data.serialized_data);
+			}			
 		});					
 				
 		Ti.API.debug("ZZ.Internal.Local.DB.Datas.findByUserRefAndTypeAndAliasAndStatusAndAction found datas : " + JSON.stringify(datas));	
 	} else {
 		Ti.API.debug("ZZ.Internal.Local.DB.Datas.findByUserRefAndTypeAndAliasAndStatusAndAction datas NOT found");
+		
+		//var errorMessage = "ZZ.Internal.Local.DB.Datas.findByUserRefAndTypeAndAliasAndStatusAndAction datas NOT found";		
+		//_manageError({errorMessage : errorMessage});			
+			
+		//return;
+		return null;			
+	}								
+	
+	if (successCallback != null)
+		successCallback(datas);	
+	
+	return datas;
+
+};
+
+zz.Internal.Local.DB.Datas.findByUserRefAndTypeAndAlias = function(userRef, type, alias, successCallback, errorCallback) {
+	Ti.API.debug("ZZ.Internal.Local.DB.Datas.findByUserRefAndTypeAndAlias");	
+	
+	if (userRef == null) {
+		var errorMessage = "ZZ.Internal.Local.DB.Datas.findByUserRefAndTypeAndAlias unable to find datas due to NULL userRef";		
+		_manageError({errorMessage : errorMessage}, errorCallback);	
+			
+		//return;
+		return null;		
+	}	
+	
+	if (type == null || alias == null) {
+		var errorMessage = "ZZ.Internal.Local.DB.Datas.findByUserRefAndTypeAndAlias unable to find datas due to NULL type OR alias";		
+		_manageError({errorMessage : errorMessage}, errorCallback);	
+			
+		//return;
+		return null;		
+	}
+	
+	var datas = _select(	
+		"SELECT * FROM datas WHERE user_ref=? AND type=? AND alias=?", 
+		[userRef, type, alias]		
+	);
+	Ti.API.debug("ZZ.Internal.Local.DB.Datas.findByUserRefAndTypeAndAlias [datas : " + JSON.stringify(datas) + "]");
+		
+
+	if (datas != null && datas.length > 0) {
+						
+		_.each(datas, function(data){
+			if (data.serialized_data) {
+				data.serialized_data = Ti.Utils.base64decode(data.serialized_data);
+			}		
+		});					
+				
+		Ti.API.debug("ZZ.Internal.Local.DB.Datas.findByUserRefAndTypeAndAlias found datas : " + JSON.stringify(datas));	
+	} else {
+		Ti.API.debug("ZZ.Internal.Local.DB.Datas.findByUserRefAndTypeAndAlias datas NOT found");
 		
 		//var errorMessage = "ZZ.Internal.Local.DB.Datas.findByUserRefAndTypeAndAliasAndStatusAndAction datas NOT found";		
 		//_manageError({errorMessage : errorMessage});			
@@ -556,7 +619,10 @@ zz.Internal.Local.DB.Data.get = function(data, successCallback, errorCallback) {
 	if (datas != null && datas.length == 1) {
 								
 		data = datas.pop();
-		data.serialized_data = (data.serialized_data != null ? Ti.Utils.base64decode(data.serialized_data) : null);
+		//data.serialized_data = (data.serialized_data != null ? Ti.Utils.base64decode(data.serialized_data) : null);
+		if (data.serialized_data) {
+			data.serialized_data = Ti.Utils.base64decode(data.serialized_data);
+		}		
 						
 		Ti.API.debug("ZZ.Internal.Local.DB.Data.get found data : " + JSON.stringify(data));	
 	} else {
@@ -602,7 +668,10 @@ zz.Internal.Local.DB.Data.getByUserRefAndLocalDataRef = function(userRef, localD
 	if (datas != null && datas.length == 1) {
 								
 		data = datas.pop();
-		data.serialized_data = (data.serialized_data != null ? Ti.Utils.base64decode(data.serialized_data) : null);
+		//data.serialized_data = (data.serialized_data != null ? Ti.Utils.base64decode(data.serialized_data) : null);
+		if (data.serialized_data) {
+			data.serialized_data = Ti.Utils.base64decode(data.serialized_data);
+		}		
 						
 		Ti.API.debug("ZZ.Internal.Local.DB.Data.getByUserRefAndLocalDataRef found data : " + JSON.stringify(data));	
 	} else {
@@ -648,7 +717,10 @@ zz.Internal.Local.DB.Data.getByUserRefAndDataRef = function(userRef, dataRef, su
 	if (datas != null && datas.length == 1) {
 								
 		data = datas.pop();
-		data.serialized_data = (data.serialized_data != null ? Ti.Utils.base64decode(data.serialized_data) : null);
+		//data.serialized_data = (data.serialized_data != null ? Ti.Utils.base64decode(data.serialized_data) : null);
+		if (data.serialized_data) {
+			data.serialized_data = Ti.Utils.base64decode(data.serialized_data);
+		}		
 						
 		Ti.API.debug("ZZ.Internal.Local.DB.Data.getByUserRefAndDataRef found data : " + JSON.stringify(data));	
 	} else {
@@ -694,7 +766,10 @@ zz.Internal.Local.DB.Data.getByUserRefAndId = function(userRef, id, successCallb
 	if (datas != null && datas.length == 1) {
 								
 		data = datas.pop();
-		data.serialized_data = (data.serialized_data != null ? Ti.Utils.base64decode(data.serialized_data) : null);
+		//data.serialized_data = (data.serialized_data != null ? Ti.Utils.base64decode(data.serialized_data) : null);
+		if (data.serialized_data) {
+			data.serialized_data = Ti.Utils.base64decode(data.serialized_data);
+		}		
 						
 		Ti.API.debug("ZZ.Internal.Local.DB.Data.getByUserRefAndId found data : " + JSON.stringify(data));	
 	} else {
@@ -740,7 +815,10 @@ zz.Internal.Local.DB.Data.getByUserRefAndIdOrRemoteDataRef = function(userRef, i
 	if (datas != null && datas.length == 1) {
 								
 		data = datas.pop();
-		data.serialized_data = (data.serialized_data != null ? Ti.Utils.base64decode(data.serialized_data) : null);
+		//data.serialized_data = (data.serialized_data != null ? Ti.Utils.base64decode(data.serialized_data) : null);
+		if (data.serialized_data) {
+			data.serialized_data = Ti.Utils.base64decode(data.serialized_data);
+		}		
 						
 		Ti.API.debug("ZZ.Internal.Local.DB.Data.getByUserRefAndIdOrRemoteDataRef found data : " + JSON.stringify(data));	
 	} else {
@@ -786,7 +864,10 @@ zz.Internal.Local.DB.Data.getByUserRefAndRemoteDataRef = function(userRef, remot
 	if (datas != null && datas.length == 1) {
 								
 		data = datas.pop();
-		data.serialized_data = (data.serialized_data != null ? Ti.Utils.base64decode(data.serialized_data) : null);
+		//data.serialized_data = (data.serialized_data != null ? Ti.Utils.base64decode(data.serialized_data) : null);
+		if (data.serialized_data) {
+			data.serialized_data = Ti.Utils.base64decode(data.serialized_data);
+		}		
 						
 		Ti.API.debug("ZZ.Internal.Local.DB.Data.getByUserRefAndRemoteDataRef found data : " + JSON.stringify(data));	
 	} else {
