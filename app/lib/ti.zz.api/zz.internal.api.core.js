@@ -1167,7 +1167,7 @@ zz.Internal.API.Core.Post.Aspects.remove = function(aspect, post, successCallbac
 	);
 	
 	if (storedDataPost == null) {
-
+		/*
 		var _getPostLocalAndAddExistingPostLocalSuccessCallback = function(response) {
 			Ti.API.debug("ZZ.Internal.API.Core.Post.Aspects.remove._getPostLocalAndAddExistingPostLocalSuccessCallback");
 			Ti.API.debug("ZZ.Internal.API.Core.Post.Aspects.remove._getPostLocalAndAddExistingPostLocalSuccessCallback [response : " + JSON.stringify(response) + "]");
@@ -1182,9 +1182,30 @@ zz.Internal.API.Core.Post.Aspects.remove = function(aspect, post, successCallbac
 			_manageError({errorMessage : error});	
 		};
 
-		_getPostLocalAndAddExistingPostLocal(user, post, _getAndAddPostLocalSuccessCallback, _getAndAddPostLocalErrorCallback);
+		_getPostLocalAndAddExistingPostLocal(user, post, _getPostLocalAndAddExistingPostLocalSuccessCallback, _getPostLocalAndAddExistingPostLocalErrorCallback);
 		return;
-											
+		*/
+		
+		if (storedDataPost == null) {
+	
+			var _addExistingPostLocalSuccessCallback = function(response) {
+				Ti.API.debug("ZZ.Internal.API.Core.Post.Aspects.remove._addExistingPostLocalSuccessCallback");
+				Ti.API.debug("ZZ.Internal.API.Core.Post.Aspects.remove._addExistingPostLocalSuccessCallback [response : " + JSON.stringify(response) + "]");
+	
+				_removeFunction(user, response, aspect, _removeFunctionSuccessCallback, _removeFunctionErrorCallback);
+								
+			};
+			var _addExistingPostLocalErrorCallback = function(error) {
+				Ti.API.debug("ZZ.Internal.API.Core.Post.Aspects.remove._addExistingPostLocalErrorCallback");
+				Ti.API.debug("ZZ.Internal.API.Core.Post.Aspects.remove._addExistingPostLocalErrorCallback [error : " + JSON.stringify(error) + "]");
+		
+				_manageError({errorMessage : error});	
+			};
+			
+			zzInternalCoreLocal.ZZ.Internal.API.Core.Local.addExistingPostLocal(user, post, _addExistingPostLocalSuccessCallback, _addExistingPostLocalErrorCallback);
+			return;
+												
+		}										
 	}	
 	
 	_removeFunction(user, storedDataPost, aspect, _removeFunctionSuccessCallback, _removeFunctionErrorCallback);
@@ -1304,7 +1325,7 @@ zz.Internal.API.Core.Aspect.update = function(aspect, post, successCallback, err
 	);
 	
 	if (storedDataPost == null) {
-
+		/*
 		var _getPostLocalAndAddExistingPostLocalSuccessCallback = function(response) {
 			Ti.API.debug("ZZ.Internal.API.Core.Aspect.update._getPostLocalAndAddExistingPostLocalSuccessCallback");
 			Ti.API.debug("ZZ.Internal.API.Core.Aspect.update._getPostLocalAndAddExistingPostLocalSuccessCallback [response : " + JSON.stringify(response) + "]");
@@ -1319,11 +1340,29 @@ zz.Internal.API.Core.Aspect.update = function(aspect, post, successCallback, err
 			_manageError({errorMessage : error});	
 		};
 
-		_getPostLocalAndAddExistingPostLocal(user, post, _getAndAddPostLocalSuccessCallback, _getAndAddPostLocalErrorCallback);
+		_getPostLocalAndAddExistingPostLocal(user, post, _getPostLocalAndAddExistingPostLocalSuccessCallback, _getPostLocalAndAddExistingPostLocalErrorCallback);
 		return;
+		*/
+		
+		var _addExistingPostLocalSuccessCallback = function(response) {
+			Ti.API.debug("ZZ.Internal.API.Core.Aspect.update._addExistingPostLocalSuccessCallback");
+			Ti.API.debug("ZZ.Internal.API.Core.Aspect.update._addExistingPostLocalSuccessCallback [response : " + JSON.stringify(response) + "]");
+
+			_updateFunction(user, response, aspect, _updateFunctionSuccessCallback, _updateFunctionErrorCallback);
+							
+		};
+		var _addExistingPostLocalErrorCallback = function(error) {
+			Ti.API.debug("ZZ.Internal.API.Core.Aspect.update._addExistingPostLocalErrorCallback");
+			Ti.API.debug("ZZ.Internal.API.Core.Aspect.update._addExistingPostLocalErrorCallback [error : " + JSON.stringify(error) + "]");
+	
+			_manageError({errorMessage : error});	
+		};
+		
+		zzInternalCoreLocal.ZZ.Internal.API.Core.Local.addExistingPostLocal(user, post, _addExistingPostLocalSuccessCallback, _addExistingPostLocalErrorCallback);
+		return;		
 											
 	}	
-	
+		
 	_updateFunction(user, storedDataPost, aspect, _updateFunctionSuccessCallback, _updateFunctionErrorCallback);
 
 };
